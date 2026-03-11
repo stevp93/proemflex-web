@@ -32,13 +32,13 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden scroll-mt-20"
       style={{
         background: "linear-gradient(160deg, #111820 0%, #1a2332 40%, #0d1f2d 100%)",
       }}
       aria-label="Sección principal"
     >
-      {/* Animated gradient orbs */}
+      {/* Mouse-tracking radial gradient */}
       <div
         className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
@@ -46,26 +46,26 @@ export default function Hero() {
             "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0,242,254,0.08), transparent 50%)",
         }}
       />
+
+      {/* Animated gradient orbs */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute top-[10%] right-[10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] rounded-full pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,242,254,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(0,242,254,0.12) 0%, transparent 70%)",
         }}
       />
       <motion.div
         animate={{ scale: [1.1, 1, 1.1], opacity: [0.1, 0.2, 0.1] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[10%] left-[5%] w-[400px] h-[400px] rounded-full pointer-events-none"
+        className="absolute bottom-[10%] left-[5%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(16,185,129,0.1) 0%, transparent 70%)",
         }}
       />
 
-      {/* Grid pattern overlay */}
+      {/* Grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
@@ -74,10 +74,10 @@ export default function Hero() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 md:py-0 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-20 items-center min-h-screen py-24 sm:py-28 lg:py-32">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible">
               <span className="eco-badge">
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
@@ -85,26 +85,28 @@ export default function Hero() {
               </span>
             </motion.div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <motion.h1
                 custom={1}
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
-                className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight"
+                className="font-display font-bold text-[2.25rem] leading-[1] sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-7xl tracking-tight"
               >
                 Flexibilidad{" "}
                 <span className="text-gradient-cyan">Diseñada.</span>
                 <br />
-                Sostenibilidad{" "}
-                <span className="relative inline-block">
-                  Garantizada.
-                  <motion.span
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute bottom-1 left-0 w-full h-[3px] bg-gradient-to-r from-[#10B981] to-[#059669] origin-left"
-                  />
+                <span className="block mt-1 sm:mt-2">
+                  Sostenibilidad{" "}
+                  <span className="relative inline-block">
+                    Garantizada.
+                    <motion.span
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute bottom-0.5 sm:bottom-1 left-0 w-full h-[2px] sm:h-[3px] bg-gradient-to-r from-[#10B981] to-[#059669] origin-left"
+                    />
+                  </span>
                 </span>
               </motion.h1>
 
@@ -113,7 +115,7 @@ export default function Hero() {
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-lg md:text-xl text-[#9CA3AF] max-w-xl leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-[#9CA3AF] max-w-xl leading-relaxed"
               >
                 Más de{" "}
                 <span className="text-white font-semibold">33 años</span> impulsando
@@ -128,12 +130,12 @@ export default function Hero() {
               variants={textVariants}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
-              <a href="#contacto" className="btn-primary text-base">
+              <a href="#contacto" className="btn-primary text-sm sm:text-base text-center">
                 Solicitar Cotización Corporativa
               </a>
-              <a href="#sectores" className="btn-outline text-base">
+              <a href="#sectores" className="btn-outline text-sm sm:text-base text-center">
                 Ver Sectores
               </a>
             </motion.div>
@@ -144,45 +146,57 @@ export default function Hero() {
               variants={textVariants}
               initial="hidden"
               animate="visible"
-              className="flex flex-wrap items-center gap-6 pt-4"
+              className="flex flex-wrap items-center gap-4 sm:gap-6 pt-2 sm:pt-4"
             >
-              <div className="flex items-center gap-2 text-[#9CA3AF]">
-                <div className="w-8 h-8 rounded-full glass flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
+              {[
+                {
+                  label: "ISO 9001",
+                  icon: (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  ),
+                  iconColor: "currentColor",
+                },
+                {
+                  label: "3 R's Certificado",
+                  icon: (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                      <path d="M8 12l3 3 5-5" />
+                    </svg>
+                  ),
+                  iconColor: "#10B981",
+                },
+                {
+                  label: "33+ Años",
+                  icon: (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+                      <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                    </svg>
+                  ),
+                  iconColor: "currentColor",
+                },
+              ].map((badge) => (
+                <div key={badge.label} className="flex items-center gap-2 text-[#9CA3AF]">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full glass flex items-center justify-center">
+                    {badge.icon}
+                  </div>
+                  <span className="text-xs sm:text-sm">{badge.label}</span>
                 </div>
-                <span className="text-sm">ISO 9001</span>
-              </div>
-              <div className="flex items-center gap-2 text-[#9CA3AF]">
-                <div className="w-8 h-8 rounded-full glass flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                    <path d="M8 12l3 3 5-5" />
-                  </svg>
-                </div>
-                <span className="text-sm">3 R&apos;s Certificado</span>
-              </div>
-              <div className="flex items-center gap-2 text-[#9CA3AF]">
-                <div className="w-8 h-8 rounded-full glass flex items-center justify-center">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                  </svg>
-                </div>
-                <span className="text-sm">33+ Años</span>
-              </div>
+              ))}
             </motion.div>
           </div>
 
-          {/* Right - Abstract Visual */}
+          {/* Right - Abstract Orbital Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="relative hidden lg:flex items-center justify-center"
           >
-            <div className="relative w-[500px] h-[500px]">
+            <div className="relative w-[400px] xl:w-[500px] h-[400px] xl:h-[500px]">
               {/* Outer ring */}
               <motion.div
                 animate={{ rotate: 360 }}
@@ -213,11 +227,11 @@ export default function Hero() {
                 <motion.div
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-40 h-40 rounded-3xl bg-gradient-to-br from-[rgba(0,242,254,0.1)] to-[rgba(79,172,254,0.05)] glass-strong flex items-center justify-center"
+                  className="w-32 xl:w-40 h-32 xl:h-40 rounded-3xl bg-gradient-to-br from-[rgba(0,242,254,0.1)] to-[rgba(79,172,254,0.05)] glass-strong flex items-center justify-center"
                 >
                   <div className="text-center">
-                    <p className="font-display font-bold text-4xl text-gradient-cyan">3R</p>
-                    <p className="text-[0.6rem] text-[#9CA3AF] tracking-[0.2em] uppercase mt-1">
+                    <p className="font-display font-bold text-3xl xl:text-4xl text-gradient-cyan">3R</p>
+                    <p className="text-[0.55rem] xl:text-[0.6rem] text-[#9CA3AF] tracking-[0.15em] xl:tracking-[0.2em] uppercase mt-1">
                       Reduce · Reúsa · Recicla
                     </p>
                   </div>
@@ -226,22 +240,22 @@ export default function Hero() {
 
               {/* Floating specs */}
               {[
-                { label: "Extrusión", value: "3-100cm", x: "85%", y: "20%", delay: 0 },
-                { label: "Impresión", value: "6 Colores", x: "90%", y: "65%", delay: 0.3 },
-                { label: "Sellado", value: "Automático", x: "5%", y: "75%", delay: 0.6 },
+                { label: "Extrusión", value: "3-100cm", x: "80%", y: "15%", delay: 0 },
+                { label: "Impresión", value: "6 Colores", x: "82%", y: "60%", delay: 0.3 },
+                { label: "Sellado", value: "Automático", x: "2%", y: "70%", delay: 0.6 },
               ].map((spec) => (
                 <motion.div
                   key={spec.label}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 1.5 + spec.delay, ease: "backOut" }}
-                  className="absolute glass rounded-xl px-4 py-3"
+                  className="absolute glass rounded-xl px-3 xl:px-4 py-2 xl:py-3"
                   style={{ left: spec.x, top: spec.y }}
                 >
-                  <p className="text-[0.6rem] text-[#9CA3AF] uppercase tracking-wider">
+                  <p className="text-[0.55rem] xl:text-[0.6rem] text-[#9CA3AF] uppercase tracking-wider">
                     {spec.label}
                   </p>
-                  <p className="font-display font-bold text-sm text-white">
+                  <p className="font-display font-bold text-xs xl:text-sm text-white">
                     {spec.value}
                   </p>
                 </motion.div>
@@ -252,7 +266,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#111820] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#111820] to-transparent pointer-events-none" />
     </section>
   );
 }

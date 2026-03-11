@@ -19,7 +19,7 @@ const capabilities: Capability[] = [
     spec: "3–100",
     specLabel: "cm de ancho",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" />
       </svg>
     ),
@@ -31,7 +31,7 @@ const capabilities: Capability[] = [
     spec: "6",
     specLabel: "colores",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <circle cx="12" cy="12" r="6" />
         <circle cx="12" cy="12" r="2" />
@@ -45,7 +45,7 @@ const capabilities: Capability[] = [
     spec: "100%",
     specLabel: "hermético",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
@@ -58,7 +58,7 @@ const capabilities: Capability[] = [
     spec: "∞",
     specLabel: "configuraciones",
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="6" cy="6" r="3" />
         <circle cx="6" cy="18" r="3" />
         <line x1="20" y1="4" x2="8.12" y2="15.88" />
@@ -101,7 +101,7 @@ function AnimatedCounter({ target, suffix }: { target: string; suffix: string })
   return (
     <span ref={ref} className="tabular-nums">
       {display}
-      <span className="text-xl md:text-2xl text-[#9CA3AF] ml-1">{suffix}</span>
+      {suffix && <span className="text-base sm:text-lg md:text-xl text-[#9CA3AF] ml-1">{suffix}</span>}
     </span>
   );
 }
@@ -110,46 +110,44 @@ export default function Capabilities() {
   return (
     <section
       id="capacidades"
-      className="relative py-24 md:py-32 overflow-hidden"
+      className="relative py-20 sm:py-24 md:py-32 overflow-hidden scroll-mt-20"
       style={{
-        background:
-          "linear-gradient(180deg, #111820 0%, #0d1f2d 50%, #111820 100%)",
+        background: "linear-gradient(180deg, #111820 0%, #0d1f2d 50%, #111820 100%)",
       }}
       aria-label="Capacidades de Producción"
     >
       {/* Glow accent */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] rounded-full pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, rgba(0,242,254,0.04) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(0,242,254,0.04) 0%, transparent 60%)",
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <p className="font-display text-sm uppercase tracking-[0.3em] text-[#00F2FE] mb-4">
+          <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#00F2FE] mb-3 sm:mb-4">
             Planta de Producción
           </p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl tracking-tight mb-6">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6">
             Ingeniería de{" "}
             <span className="text-gradient-cyan">Precisión</span>
           </h2>
-          <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
+          <p className="text-[#9CA3AF] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
             Maquinaria de última generación y procesos certificados para
             garantizar la calidad en cada metro de película producido.
           </p>
         </motion.div>
 
         {/* Capabilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
           {capabilities.map((cap, i) => (
             <motion.div
               key={cap.title}
@@ -157,33 +155,35 @@ export default function Capabilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative glass rounded-2xl p-8 md:p-10 hover:glass-strong transition-all duration-500"
+              className="group relative glass rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 hover:glass-strong transition-all duration-500"
             >
               {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none glow-cyan" />
+              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none glow-cyan" />
 
-              <div className="relative z-10 flex flex-col sm:flex-row sm:items-start gap-6">
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[rgba(0,242,254,0.1)] to-[rgba(79,172,254,0.05)] flex items-center justify-center text-[#00F2FE] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  {cap.icon}
+              <div className="relative z-10">
+                {/* Top row: Icon + Title */}
+                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br from-[rgba(0,242,254,0.1)] to-[rgba(79,172,254,0.05)] flex items-center justify-center text-[#00F2FE] shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    {cap.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white leading-tight">
+                      {cap.title}
+                    </h3>
+                  </div>
                 </div>
 
-                {/* Text */}
-                <div className="flex-1">
-                  <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-2">
-                    {cap.title}
-                  </h3>
-                  <p className="text-[#9CA3AF] text-sm leading-relaxed mb-4">
-                    {cap.description}
-                  </p>
-                </div>
+                {/* Description */}
+                <p className="text-[#9CA3AF] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
+                  {cap.description}
+                </p>
 
-                {/* Stat */}
-                <div className="text-right shrink-0">
-                  <p className="font-display font-bold text-3xl md:text-4xl text-gradient-cyan">
+                {/* Stat - bottom */}
+                <div className="flex items-baseline justify-between pt-3 sm:pt-4 border-t border-[rgba(255,255,255,0.05)]">
+                  <p className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-gradient-cyan">
                     <AnimatedCounter target={cap.spec} suffix="" />
                   </p>
-                  <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-1">
+                  <p className="text-[0.65rem] sm:text-xs text-[#9CA3AF] uppercase tracking-wider">
                     {cap.specLabel}
                   </p>
                 </div>
@@ -198,9 +198,9 @@ export default function Capabilities() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16"
+          className="text-center mt-10 sm:mt-14 md:mt-16"
         >
-          <a href="#contacto" className="btn-primary text-base inline-flex items-center gap-2">
+          <a href="#contacto" className="btn-primary text-sm sm:text-base inline-flex items-center gap-2">
             Solicitar Ficha Técnica Completa
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="5" y1="12" x2="19" y2="12" />

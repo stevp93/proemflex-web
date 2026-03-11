@@ -22,7 +22,7 @@ const sectors: Sector[] = [
     description:
       "Empaques flexibles de alta barrera para panela, leche larga vida, six-packs y más. Certificados para contacto directo con alimentos.",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
         <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
         <line x1="6" y1="1" x2="6" y2="4" />
@@ -41,7 +41,7 @@ const sectors: Sector[] = [
     description:
       "Bolsas de alta resistencia para sacos de 25kg: pegante cerámico, cemento, estuco y látex. Resistencia extrema al peso y la abrasión.",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="12" width="22" height="10" rx="1" />
         <path d="M4 12V6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v6" />
         <path d="M8 5V2" />
@@ -60,7 +60,7 @@ const sectors: Sector[] = [
     description:
       "Empaque especializado para equipos de oxigenoterapia y dispositivos médicos. Estándares de higiene y trazabilidad garantizados.",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14.5 2v6.5a2.5 2.5 0 0 0 5 0V2" />
         <path d="M18 8.5c0 3.5-7 3.5-7 0" />
         <path d="M9 2h1.5v6.5a2.5 2.5 0 0 1-5 0V2H7" />
@@ -80,7 +80,7 @@ const sectors: Sector[] = [
     description:
       "Fajillas, mangas y envoltorios para blanqueadores, detergentes y desinfectantes. Resistencia química y acabados de alta calidad visual.",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L2 7l10 5 10-5-10-5z" />
         <path d="M2 17l10 5 10-5" />
         <path d="M2 12l10 5 10-5" />
@@ -95,7 +95,7 @@ const sectors: Sector[] = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 
@@ -114,29 +114,30 @@ export default function Sectors() {
   return (
     <section
       id="sectores"
-      className="relative py-24 md:py-32"
+      className="relative py-20 sm:py-24 md:py-32 scroll-mt-20"
       style={{ background: "#111820" }}
       aria-label="Nuestros Sectores"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-display text-sm uppercase tracking-[0.3em] text-[#00F2FE] mb-4">
+          <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#00F2FE] mb-3 sm:mb-4">
             Portafolio Sectorial
           </p>
-          <h2 className="font-display font-bold text-3xl md:text-5xl lg:text-6xl tracking-tight mb-6">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6">
             Soluciones que{" "}
             <span className="text-gradient-cyan">Empaquetan</span>
-            <br />
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
             cada Industria
           </h2>
-          <p className="text-[#9CA3AF] text-lg max-w-2xl mx-auto">
+          <p className="text-[#9CA3AF] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
             Cuatro sectores. Una filosofía: empaques flexibles que protegen su producto
             y el medio ambiente al mismo tiempo.
           </p>
@@ -148,7 +149,7 @@ export default function Sectors() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6"
         >
           {sectors.map((sector) => {
             const isHovered = hoveredSector === sector.id;
@@ -158,7 +159,7 @@ export default function Sectors() {
                 variants={cardVariants}
                 onMouseEnter={() => setHoveredSector(sector.id)}
                 onMouseLeave={() => setHoveredSector(null)}
-                className={`group relative rounded-2xl p-8 md:p-10 cursor-pointer transition-all duration-500 overflow-hidden glass ${
+                className={`group relative rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 cursor-pointer transition-all duration-500 overflow-hidden glass ${
                   isHovered ? "glass-strong" : ""
                 }`}
                 role="article"
@@ -181,7 +182,7 @@ export default function Sectors() {
                 <div className="relative z-10">
                   {/* Icon */}
                   <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                    className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-4 sm:mb-5 md:mb-6 transition-all duration-300 group-hover:scale-110"
                     style={{
                       background: `rgba(${
                         sector.color === "#00F2FE" ? "0,242,254" :
@@ -196,22 +197,22 @@ export default function Sectors() {
                   </div>
 
                   {/* Content */}
-                  <p className="text-xs uppercase tracking-[0.2em] text-[#9CA3AF] mb-2 font-display">
+                  <p className="text-[0.65rem] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-[#9CA3AF] mb-1.5 sm:mb-2 font-display">
                     {sector.subtitle}
                   </p>
-                  <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-3">
+                  <h3 className="font-display font-bold text-xl sm:text-2xl md:text-3xl text-white mb-2 sm:mb-3">
                     {sector.title}
                   </h3>
-                  <p className="text-[#9CA3AF] text-sm leading-relaxed mb-6 max-w-md">
+                  <p className="text-[#9CA3AF] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 max-w-md">
                     {sector.description}
                   </p>
 
                   {/* Spec tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {sector.specs.map((spec) => (
                       <span
                         key={spec}
-                        className="text-xs px-3 py-1.5 rounded-full glass font-display text-[#9CA3AF] group-hover:text-white transition-colors"
+                        className="text-[0.65rem] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5 rounded-full glass font-display text-[#9CA3AF] group-hover:text-white transition-colors"
                       >
                         {spec}
                       </span>
@@ -222,10 +223,10 @@ export default function Sectors() {
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={isHovered ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                    className="absolute top-8 right-8 md:top-10 md:right-10"
+                    className="absolute top-5 right-5 sm:top-6 sm:right-6 md:top-8 md:right-8 lg:top-10 lg:right-10"
                     style={{ color: sector.color }}
                   >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <line x1="5" y1="12" x2="19" y2="12" />
                       <polyline points="12 5 19 12 12 19" />
                     </svg>

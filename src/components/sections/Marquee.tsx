@@ -33,7 +33,7 @@ export default function Marquee() {
 
   return (
     <section
-      className="relative py-6 overflow-hidden border-y border-[rgba(255,255,255,0.03)]"
+      className="relative py-4 sm:py-6 overflow-hidden border-y border-[rgba(255,255,255,0.03)]"
       style={{ background: "rgba(0,242,254,0.02)" }}
       aria-hidden="true"
     >
@@ -52,7 +52,7 @@ export default function Marquee() {
           {Array.from({ length: 4 }).map((_, i) => (
             <span
               key={i}
-              className="font-display font-bold text-3xl md:text-5xl tracking-tight text-transparent mx-4"
+              className="font-display font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-transparent mx-3 sm:mx-4"
               style={{
                 WebkitTextStroke: "1px rgba(0,242,254,0.15)",
               }}
