@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -24,7 +25,7 @@ export default function Hero() {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, delay: 0.3 + i * 0.15, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.8, delay: 0.3 + i * 0.15, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
     }),
   };
 
@@ -133,12 +134,12 @@ export default function Hero() {
               animate="visible"
               className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
-              <a href="#contacto" className="btn-primary text-sm sm:text-base text-center">
+              <Link href="/contacto" className="btn-primary text-sm sm:text-base text-center">
                 Solicitar Cotización
-              </a>
-              <a href="#sectores" className="btn-outline text-sm sm:text-base text-center">
+              </Link>
+              <Link href="/sectores" className="btn-outline text-sm sm:text-base text-center">
                 Ver Sectores
-              </a>
+              </Link>
             </motion.div>
 
             {/* Authority strip */}

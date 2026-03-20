@@ -2,25 +2,32 @@
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Capacidades", href: "#capacidades" },
-  { label: "Sectores", href: "#sectores" },
-  { label: "Calidad (BPM)", href: "#calidad" },
-  { label: "Noticias", href: "#noticias" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Capacidades", href: "/capacidades" },
+  { label: "Sectores", href: "/sectores" },
+  { label: "Calidad (BPM)", href: "/calidad" },
+  { label: "Noticias", href: "/noticias" },
+  { label: "Contacto", href: "/contacto" },
 ];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50);
   });
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
 
   return (
     <motion.header
@@ -37,7 +44,7 @@ export default function Navbar() {
         className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4"
         aria-label="Navegación principal"
       >
-        {/* Logo — CAMBREPLAST Principal */}
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="CAMBREPLAST - Inicio">
           <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[#00F2FE] to-[#4FACFE] flex items-center justify-center font-display font-bold text-[#111820] text-base sm:text-lg transition-transform group-hover:scale-105">
             C
@@ -55,27 +62,34 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <ul className="hidden xl:flex items-center gap-5 2xl:gap-7" role="menubar">
-          {navLinks.map((link) => (
-            <li key={link.href} role="none">
-              <a
-                href={link.href}
-                role="menuitem"
-                className="font-display text-sm text-[#9CA3AF] hover:text-white transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1.5px] after:bg-gradient-to-r after:from-[#00F2FE] after:to-[#4FACFE] after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <li key={link.href} role="none">
+                <Link
+                  href={link.href}
+                  role="menuitem"
+                  className={`font-display text-sm transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-gradient-to-r after:from-[#00F2FE] after:to-[#4FACFE] after:transition-all after:duration-300 hover:after:w-full ${
+                    isActive
+                      ? "text-white after:w-full"
+                      : "text-[#9CA3AF] hover:text-white after:w-0"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         {/* CTA + Mobile Toggle */}
         <div className="flex items-center gap-3">
-          <a
-            href="#contacto"
+          <Link
+            href="/contacto"
             className="hidden xl:inline-flex btn-primary text-sm !py-2.5 !px-5"
           >
             Solicitar Cotización
-          </a>
+          </Link>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="xl:hidden flex flex-col gap-1.5 p-2 -mr-2 group"
@@ -106,30 +120,33 @@ export default function Navbar() {
         className="xl:hidden overflow-hidden glass-strong"
       >
         <ul className="flex flex-col gap-1 px-4 sm:px-6 pb-6 pt-2">
-          {navLinks.map((link, i) => (
-            <motion.li
-              key={link.href}
-              initial={{ opacity: 0, x: -20 }}
-              animate={mobileOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ delay: i * 0.05 }}
-            >
-              <a
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="font-display text-base text-[#9CA3AF] hover:text-white transition-colors block py-3 border-b border-[rgba(255,255,255,0.04)]"
+          {navLinks.map((link, i) => {
+            const isActive = pathname === link.href;
+            return (
+              <motion.li
+                key={link.href}
+                initial={{ opacity: 0, x: -20 }}
+                animate={mobileOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                transition={{ delay: i * 0.05 }}
               >
-                {link.label}
-              </a>
-            </motion.li>
-          ))}
+                <Link
+                  href={link.href}
+                  className={`font-display text-base transition-colors block py-3 border-b border-[rgba(255,255,255,0.04)] ${
+                    isActive ? "text-[#00F2FE]" : "text-[#9CA3AF] hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.li>
+            );
+          })}
           <li className="pt-3">
-            <a
-              href="#contacto"
-              onClick={() => setMobileOpen(false)}
+            <Link
+              href="/contacto"
               className="btn-primary text-sm inline-block text-center w-full"
             >
               Solicitar Cotización
-            </a>
+            </Link>
           </li>
         </ul>
       </motion.div>

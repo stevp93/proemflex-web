@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/sections/Navbar";
+import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {
-  title: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales — Certificados BPM & ISO 9001 | Colombia",
+  title: {
+    default: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales — Colombia",
+    template: "%s | CAMBREPLAST S.A.S.",
+  },
   description:
-    "Más de 33 años fabricando empaques flexibles certificados con BPM e ISO 9001 en Colombia. Soluciones para alimentos, farmacéuticos, textiles, cadena y aseo.",
+    "Más de 33 años fabricando empaques flexibles certificados BPM e ISO 9001 en Colombia. Soluciones para alimentos, farmacéuticos, textiles y más.",
   keywords: [
     "empaques flexibles Colombia",
     "bolsas industriales",
@@ -16,12 +21,21 @@ export const metadata: Metadata = {
     "película stretch",
     "bolsas polietileno",
   ],
+  metadataBase: new URL("https://cambreplast.com"),
   openGraph: {
-    title: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales en Colombia",
+    title: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales",
     description:
       "Fabricamos empaques flexibles certificados BPM & ISO 9001 con +33 años de experiencia en Colombia.",
     type: "website",
     locale: "es_CO",
+    siteName: "CAMBREPLAST S.A.S.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -40,7 +54,11 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

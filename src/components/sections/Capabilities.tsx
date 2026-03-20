@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const capabilities = [
   {
@@ -124,12 +125,12 @@ export default function Capabilities() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-8 sm:mt-12"
         >
-          <a href="#contacto" className="btn-primary text-sm sm:text-base inline-flex items-center gap-2">
+          <Link href="/contacto" className="btn-primary text-sm sm:text-base inline-flex items-center gap-2">
             Solicitar Ficha Técnica Completa
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>
