@@ -81,7 +81,7 @@ export default function Hero() {
             <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible">
               <span className="eco-badge">
                 <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                100% Reciclable
+                Certificado BPM & ISO 9001
               </span>
             </motion.div>
 
@@ -93,11 +93,11 @@ export default function Hero() {
                 animate="visible"
                 className="font-display font-bold text-[2.25rem] leading-[1] sm:text-5xl md:text-6xl lg:text-[3.5rem] xl:text-7xl tracking-tight"
               >
-                Flexibilidad{" "}
-                <span className="text-gradient-cyan">Diseñada.</span>
+                Empaques Flexibles{" "}
+                <span className="text-gradient-cyan">de Precisión.</span>
                 <br />
                 <span className="block mt-1 sm:mt-2">
-                  Sostenibilidad{" "}
+                  Calidad{" "}
                   <span className="relative inline-block">
                     Garantizada.
                     <motion.span
@@ -117,10 +117,11 @@ export default function Hero() {
                 animate="visible"
                 className="text-base sm:text-lg md:text-xl text-[#9CA3AF] max-w-xl leading-relaxed"
               >
-                Más de{" "}
-                <span className="text-white font-semibold">33 años</span> impulsando
-                la cadena de suministro B2B de Colombia con empaques flexibles{" "}
-                <span className="text-white font-semibold">certificados ISO 9001</span>.
+                <span className="text-white font-semibold">CAMBREPLAST S.A.S.</span> — Más
+                de <span className="text-white font-semibold">33 años</span> fabricando
+                soluciones de empaque flexible con procesos{" "}
+                <span className="text-white font-semibold">certificados BPM e ISO 9001</span>{" "}
+                para la industria colombiana.
               </motion.p>
             </div>
 
@@ -133,7 +134,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <a href="#contacto" className="btn-primary text-sm sm:text-base text-center">
-                Solicitar Cotización Corporativa
+                Solicitar Cotización
               </a>
               <a href="#sectores" className="btn-outline text-sm sm:text-base text-center">
                 Ver Sectores
@@ -156,17 +157,15 @@ export default function Hero() {
                       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                     </svg>
                   ),
-                  iconColor: "currentColor",
                 },
                 {
-                  label: "3 R's Certificado",
+                  label: "BPM Certificado",
                   icon: (
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
                       <path d="M8 12l3 3 5-5" />
                     </svg>
                   ),
-                  iconColor: "#10B981",
                 },
                 {
                   label: "33+ Años",
@@ -176,7 +175,6 @@ export default function Hero() {
                       <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                     </svg>
                   ),
-                  iconColor: "currentColor",
                 },
               ].map((badge) => (
                 <div key={badge.label} className="flex items-center gap-2 text-[#9CA3AF]">
@@ -230,9 +228,12 @@ export default function Hero() {
                   className="w-32 xl:w-40 h-32 xl:h-40 rounded-3xl bg-gradient-to-br from-[rgba(0,242,254,0.1)] to-[rgba(79,172,254,0.05)] glass-strong flex items-center justify-center"
                 >
                   <div className="text-center">
-                    <p className="font-display font-bold text-3xl xl:text-4xl text-gradient-cyan">3R</p>
-                    <p className="text-[0.55rem] xl:text-[0.6rem] text-[#9CA3AF] tracking-[0.15em] xl:tracking-[0.2em] uppercase mt-1">
-                      Reduce · Reúsa · Recicla
+                    <p className="font-display font-bold text-2xl xl:text-3xl text-gradient-cyan">BPM</p>
+                    <p className="text-[0.5rem] xl:text-[0.55rem] text-[#9CA3AF] tracking-[0.12em] uppercase mt-1">
+                      Buenas Prácticas
+                    </p>
+                    <p className="text-[0.5rem] xl:text-[0.55rem] text-[#9CA3AF] tracking-[0.12em] uppercase">
+                      de Manufactura
                     </p>
                   </div>
                 </motion.div>

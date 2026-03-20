@@ -5,9 +5,11 @@ import { useState, FormEvent } from "react";
 
 const sectors = [
   "Alimentos",
-  "Construcción / Industrial",
-  "Laboratorios / Médico",
-  "Aseo & Hogar",
+  "Laboratorios Farmacéuticos",
+  "Textiles",
+  "Líneas Comerciales y Publicitarias",
+  "Almacenes de Cadena",
+  "Aseo y Desinfección",
   "Otro",
 ];
 
@@ -35,7 +37,7 @@ export default function Contact() {
       style={{
         background: "linear-gradient(180deg, #111820 0%, #0d1f2d 50%, #111820 100%)",
       }}
-      aria-label="Solicitar Cotización"
+      aria-label="Contáctanos y Cotiza"
     >
       {/* Ambient glow */}
       <div
@@ -47,7 +49,7 @@ export default function Contact() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
-          {/* Left - Text */}
+          {/* Left — Text */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -57,16 +59,16 @@ export default function Contact() {
           >
             <div>
               <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#00F2FE] mb-3 sm:mb-4">
-                Cotización Corporativa
+                Contáctanos
               </p>
               <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl tracking-tight mb-4 sm:mb-6">
-                Hablemos de su{" "}
-                <span className="text-gradient-cyan">Próximo Proyecto</span>
+                Cotice su{" "}
+                <span className="text-gradient-cyan">Proyecto de Empaque</span>
               </h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base lg:text-lg leading-relaxed">
-                Nuestro equipo de ingeniería diseña soluciones de empaque a la
-                medida. Cuéntenos sus necesidades y recibirá una propuesta
-                personalizada en menos de 48 horas.
+                Nuestro equipo de ingeniería diseña soluciones de empaque flexible a la
+                medida de su operación. Cuéntenos sus necesidades y recibirá una propuesta
+                personalizada.
               </p>
             </div>
 
@@ -74,7 +76,7 @@ export default function Contact() {
             <div className="space-y-3">
               {[
                 {
-                  label: "Respuesta garantizada en",
+                  label: "Respuesta en",
                   value: "< 48 horas hábiles",
                   icon: (
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -121,7 +123,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right - Form */}
+          {/* Right — Form */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -131,7 +133,7 @@ export default function Contact() {
             <form
               onSubmit={handleSubmit}
               className="glass-strong rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 space-y-4 sm:space-y-5"
-              aria-label="Formulario de solicitud de cotización"
+              aria-label="Formulario de cotización"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>

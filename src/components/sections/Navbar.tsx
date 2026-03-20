@@ -5,9 +5,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
-  { label: "Sectores", href: "#sectores" },
+  { label: "Nosotros", href: "#nosotros" },
   { label: "Capacidades", href: "#capacidades" },
-  { label: "Sostenibilidad", href: "#sostenibilidad" },
+  { label: "Sectores", href: "#sectores" },
+  { label: "Calidad (BPM)", href: "#calidad" },
+  { label: "Noticias", href: "#noticias" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -35,24 +37,24 @@ export default function Navbar() {
         className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4"
         aria-label="Navegación principal"
       >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="PROEMFLEX - Inicio">
+        {/* Logo — CAMBREPLAST Principal */}
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="CAMBREPLAST - Inicio">
           <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[#00F2FE] to-[#4FACFE] flex items-center justify-center font-display font-bold text-[#111820] text-base sm:text-lg transition-transform group-hover:scale-105">
-            P
+            C
             <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[#00F2FE] to-[#4FACFE] opacity-0 group-hover:opacity-40 blur-xl transition-opacity" />
           </div>
           <div className="hidden min-[400px]:block">
             <span className="font-display font-bold text-white text-base sm:text-lg tracking-tight">
-              PROEM<span className="text-gradient-cyan">FLEX</span>
+              CAMBRE<span className="text-gradient-cyan">PLAST</span>
             </span>
             <p className="text-[0.55rem] sm:text-[0.6rem] text-[#9CA3AF] tracking-[0.2em] uppercase -mt-1">
-              Cambreplast
+              S.A.S. — Empaques Flexibles
             </p>
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-6 xl:gap-8" role="menubar">
+        <ul className="hidden xl:flex items-center gap-5 2xl:gap-7" role="menubar">
           {navLinks.map((link) => (
             <li key={link.href} role="none">
               <a
@@ -70,13 +72,13 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href="#contacto"
-            className="hidden lg:inline-flex btn-primary text-sm !py-2.5 !px-5"
+            className="hidden xl:inline-flex btn-primary text-sm !py-2.5 !px-5"
           >
             Solicitar Cotización
           </a>
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2 -mr-2 group"
+            className="xl:hidden flex flex-col gap-1.5 p-2 -mr-2 group"
             aria-label="Menú de navegación"
             aria-expanded={mobileOpen}
           >
@@ -101,7 +103,7 @@ export default function Navbar() {
         initial={false}
         animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="lg:hidden overflow-hidden glass-strong"
+        className="xl:hidden overflow-hidden glass-strong"
       >
         <ul className="flex flex-col gap-1 px-4 sm:px-6 pb-6 pt-2">
           {navLinks.map((link, i) => (

@@ -2,123 +2,111 @@
 
 import { motion } from "framer-motion";
 
-const pillars = [
+const commitments = [
   {
-    letter: "R",
-    title: "Reducir",
+    title: "Materiales Reciclables",
     description:
-      "Optimizamos el calibre y peso de nuestros empaques sin sacrificar resistencia, reduciendo el consumo de materia prima hasta un 30%.",
-    stat: "30%",
-    statLabel: "menos materia prima",
-    gradient: "from-[#10B981] to-[#059669]",
-    glowColor: "rgba(16,185,129,0.15)",
-  },
-  {
-    letter: "R",
-    title: "Reusar",
-    description:
-      "Diseñamos empaques pensados para múltiples ciclos de uso, con sellos resellables y materiales que mantienen su integridad.",
-    stat: "∞",
-    statLabel: "ciclos de uso",
-    gradient: "from-[#06B6D4] to-[#0891B2]",
-    glowColor: "rgba(6,182,212,0.15)",
-  },
-  {
-    letter: "R",
-    title: "Reciclar",
-    description:
-      "El 100% de nuestras bolsas eco-friendly son reciclables, cerrando el ciclo de economía circular en la cadena productiva.",
+      "Utilizamos materias primas que permiten el reciclaje completo de nuestros empaques, contribuyendo a la economía circular.",
     stat: "100%",
-    statLabel: "reciclable",
-    gradient: "from-[#22C55E] to-[#16A34A]",
-    glowColor: "rgba(34,197,94,0.15)",
+    statLabel: "Reciclable",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+    ),
+  },
+  {
+    title: "Optimización de Procesos",
+    description:
+      "Reducción continua de desperdicios y consumo energético en cada etapa del proceso de manufactura.",
+    stat: "–30%",
+    statLabel: "Desperdicio",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z" />
+      </svg>
+    ),
+  },
+  {
+    title: "Responsabilidad Ambiental",
+    description:
+      "Compromiso con prácticas que minimizan nuestro impacto ambiental y promueven la sostenibilidad.",
+    stat: "ISO",
+    statLabel: "14001 en proceso",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 8C17 5.24 14.76 3 12 3S7 5.24 7 8c0 3.53 5 9 5 9s5-5.47 5-9z" />
+        <circle cx="12" cy="8" r="2" />
+        <path d="M12 17v4" />
+        <path d="M8 21h8" />
+      </svg>
+    ),
   },
 ];
 
 export default function Sustainability() {
   return (
     <section
-      id="sostenibilidad"
-      className="relative py-20 sm:py-24 md:py-32 overflow-hidden scroll-mt-20"
-      style={{ background: "#111820" }}
-      aria-label="Sostenibilidad - Las 3 R's"
+      id="calidad"
+      className="relative py-16 sm:py-20 md:py-28 overflow-hidden scroll-mt-20"
+      style={{
+        background: "linear-gradient(180deg, #111820 0%, #0d1a14 50%, #111820 100%)",
+      }}
+      aria-label="Compromiso de Sostenibilidad y Calidad"
     >
-      {/* Subtle eco glow */}
+      {/* Ambient glow */}
       <div
-        className="absolute top-0 right-0 w-[400px] md:w-[600px] h-[400px] md:h-[600px] rounded-full pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(16,185,129,0.05) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse, rgba(16,185,129,0.06) 0%, transparent 60%)",
         }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16 md:mb-20"
+          className="text-center mb-10 sm:mb-14"
         >
-          <span className="eco-badge mb-4 sm:mb-6 inline-flex">
-            <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+          <span className="eco-badge mb-4 inline-flex">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
             Compromiso Ambiental
           </span>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6 mt-4 sm:mt-6">
-            Las{" "}
-            <span className="text-gradient-eco">3 R&apos;s</span>
-            {" "}como Filosofía
+          <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl tracking-tight mb-4 sm:mb-6">
+            Compromiso de{" "}
+            <span className="text-gradient-eco">Sostenibilidad</span>
           </h2>
-          <p className="text-[#9CA3AF] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            No es solo un eslogan. Es la ingeniería detrás de cada empaque que
-            producimos, alineada con la economía circular.
+          <p className="text-[#9CA3AF] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            En CAMBREPLAST, la responsabilidad ambiental es parte integral de nuestra
+            operación. Trabajamos cada día para minimizar nuestro impacto y maximizar el valor.
           </p>
         </motion.div>
 
-        {/* Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
-          {pillars.map((pillar, i) => (
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+          {commitments.map((item, index) => (
             <motion.div
-              key={pillar.title}
+              key={item.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="group relative glass rounded-xl sm:rounded-2xl p-6 sm:p-7 md:p-8 lg:p-10 text-center hover:glass-strong transition-all duration-500"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="text-center glass rounded-xl sm:rounded-2xl p-6 sm:p-8 flex flex-col items-center transition-all duration-300 hover:border-[rgba(16,185,129,0.2)]"
             >
-              {/* Hover glow */}
-              <div
-                className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ boxShadow: `0 0 40px ${pillar.glowColor}` }}
-              />
-
-              <div className="relative z-10">
-                {/* Big letter */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: -5 }}
-                  className={`inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${pillar.gradient} mb-4 sm:mb-5 md:mb-6`}
-                >
-                  <span className="font-display font-black text-3xl sm:text-3xl md:text-4xl text-white">
-                    {pillar.letter}
-                  </span>
-                </motion.div>
-
-                <h3 className="font-display font-bold text-xl sm:text-xl md:text-2xl text-white mb-2 sm:mb-3">
-                  {pillar.title}
-                </h3>
-                <p className="text-[#9CA3AF] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
-                  {pillar.description}
-                </p>
-
-                {/* Stat */}
-                <div className="pt-4 sm:pt-5 md:pt-6 border-t border-[rgba(255,255,255,0.06)]">
-                  <p className="font-display font-bold text-2xl sm:text-2xl md:text-3xl text-gradient-eco">
-                    {pillar.stat}
-                  </p>
-                  <p className="text-[0.65rem] sm:text-xs text-[#9CA3AF] uppercase tracking-wider mt-1">
-                    {pillar.statLabel}
-                  </p>
-                </div>
+              <div className="w-14 h-14 rounded-2xl bg-[rgba(16,185,129,0.1)] flex items-center justify-center mb-4">
+                {item.icon}
+              </div>
+              <h3 className="font-display font-bold text-lg text-white mb-2">{item.title}</h3>
+              <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed mb-4 flex-1">
+                {item.description}
+              </p>
+              <div className="border-t border-[rgba(255,255,255,0.06)] pt-4 w-full">
+                <p className="font-display font-bold text-2xl text-gradient-eco">{item.stat}</p>
+                <p className="text-[0.6rem] text-[#6B7280] uppercase tracking-wider">{item.statLabel}</p>
               </div>
             </motion.div>
           ))}

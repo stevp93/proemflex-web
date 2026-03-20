@@ -2,22 +2,24 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PROEMFLEX S.A.S. | Empaques Flexibles — 100% Reciclables | Colombia",
+  title: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales — Certificados BPM & ISO 9001 | Colombia",
   description:
-    "Más de 33 años de experiencia fabricando empaques flexibles con certificación ISO 9001. Soluciones para alimentos, construcción, laboratorios y aseo. 100% reciclables.",
+    "Más de 33 años fabricando empaques flexibles certificados con BPM e ISO 9001 en Colombia. Soluciones para alimentos, farmacéuticos, textiles, cadena y aseo.",
   keywords: [
     "empaques flexibles Colombia",
-    "bolsas reciclables",
-    "Cambreplast",
-    "PROEMFLEX",
-    "empaque alimentos",
     "bolsas industriales",
+    "Cambreplast",
+    "empaque alimentos",
+    "empaque farmacéutico",
+    "BPM empaques",
     "ISO 9001 empaques",
+    "película stretch",
+    "bolsas polietileno",
   ],
   openGraph: {
-    title: "PROEMFLEX S.A.S. | Empaques Flexibles Sostenibles en Colombia",
+    title: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales en Colombia",
     description:
-      "Fabricamos empaques flexibles 100% reciclables con certificación ISO 9001. Más de 33 años de experiencia en Colombia.",
+      "Fabricamos empaques flexibles certificados BPM & ISO 9001 con +33 años de experiencia en Colombia.",
     type: "website",
     locale: "es_CO",
   },

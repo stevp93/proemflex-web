@@ -1,26 +1,17 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-interface Capability {
-  title: string;
-  description: string;
-  spec: string;
-  specLabel: string;
-  icon: React.ReactNode;
-}
-
-const capabilities: Capability[] = [
+const capabilities = [
   {
     title: "Extrusión",
     description:
       "Película flexible en anchos de 3cm hasta 100cm con control preciso de calibre y resistencia mecánica.",
-    spec: "3–100",
-    specLabel: "cm de ancho",
+    stat: "3–100",
+    statUnit: "CM DE ANCHO",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
   },
@@ -28,13 +19,14 @@ const capabilities: Capability[] = [
     title: "Impresión Tambor Central",
     description:
       "Sistema de impresión flexográfica de 6 colores con registro perfecto y alta definición para branding premium.",
-    spec: "6",
-    specLabel: "colores",
+    stat: "6",
+    statUnit: "COLORES",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
+        <circle cx="12" cy="12" r="3" />
+        <line x1="12" y1="2" x2="12" y2="6" />
+        <line x1="12" y1="18" x2="12" y2="22" />
       </svg>
     ),
   },
@@ -42,169 +34,100 @@ const capabilities: Capability[] = [
     title: "Sellado Automático",
     description:
       "Líneas de sellado de alta velocidad con control de temperatura y presión para juntas herméticas impecables.",
-    spec: "100%",
-    specLabel: "hermético",
+    stat: "100%",
+    statUnit: "HERMÉTICO",
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
       </svg>
     ),
   },
-  {
-    title: "Pre-Corte",
-    description:
-      "Perforaciones de precisión para fácil apertura y dosificado, adaptables a cualquier especificación del cliente.",
-    spec: "∞",
-    specLabel: "configuraciones",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="6" cy="6" r="3" />
-        <circle cx="6" cy="18" r="3" />
-        <line x1="20" y1="4" x2="8.12" y2="15.88" />
-        <line x1="14.47" y1="14.48" x2="20" y2="20" />
-        <line x1="8.12" y1="8.12" x2="12" y2="12" />
-      </svg>
-    ),
-  },
 ];
-
-function AnimatedCounter({ target, suffix }: { target: string; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-  const [display, setDisplay] = useState("0");
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    const numericTarget = parseInt(target.replace(/[^0-9]/g, ""), 10);
-    if (isNaN(numericTarget) || target === "∞") {
-      setDisplay(target);
-      return;
-    }
-
-    let current = 0;
-    const step = Math.max(1, Math.ceil(numericTarget / 40));
-    const interval = setInterval(() => {
-      current += step;
-      if (current >= numericTarget) {
-        setDisplay(target);
-        clearInterval(interval);
-      } else {
-        setDisplay(String(current));
-      }
-    }, 40);
-
-    return () => clearInterval(interval);
-  }, [isInView, target]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {display}
-      {suffix && <span className="text-base sm:text-lg md:text-xl text-[#9CA3AF] ml-1">{suffix}</span>}
-    </span>
-  );
-}
 
 export default function Capabilities() {
   return (
     <section
       id="capacidades"
-      className="relative py-20 sm:py-24 md:py-32 overflow-hidden scroll-mt-20"
+      className="relative py-16 sm:py-20 md:py-28 overflow-hidden scroll-mt-20"
       style={{
-        background: "linear-gradient(180deg, #111820 0%, #0d1f2d 50%, #111820 100%)",
+        background: "linear-gradient(180deg, #111820 0%, #0a1018 50%, #111820 100%)",
       }}
-      aria-label="Capacidades de Producción"
+      aria-label="Nuestro Proceso de Manufactura"
     >
-      {/* Glow accent */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(0,242,254,0.04) 0%, transparent 60%)",
-        }}
-      />
-
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12 sm:mb-16 md:mb-20"
+          className="text-center mb-10 sm:mb-14"
         >
-          <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[#00F2FE] mb-3 sm:mb-4">
-            Planta de Producción
+          <p className="font-display text-xs sm:text-sm uppercase tracking-[0.25em] text-[#00F2FE] mb-3">
+            Proceso de Producción
           </p>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight mb-4 sm:mb-6">
-            Ingeniería de{" "}
-            <span className="text-gradient-cyan">Precisión</span>
+          <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl tracking-tight mb-4 sm:mb-6">
+            Nuestro Proceso de{" "}
+            <span className="text-gradient-cyan">Manufactura</span>
           </h2>
-          <p className="text-[#9CA3AF] text-sm sm:text-base lg:text-lg max-w-2xl mx-auto leading-relaxed">
-            Maquinaria de última generación y procesos certificados para
-            garantizar la calidad en cada metro de película producido.
+          <p className="text-[#9CA3AF] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            Maquinaria de última generación y procesos certificados BPM para garantizar la
+            calidad en cada metro de película producido.
           </p>
         </motion.div>
 
-        {/* Capabilities Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
-          {capabilities.map((cap, i) => (
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+          {capabilities.map((cap, index) => (
             <motion.div
               key={cap.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative glass rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 lg:p-10 hover:glass-strong transition-all duration-500"
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: index * 0.12 }}
+              className="group glass rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 flex flex-col transition-all duration-300 hover:border-[rgba(0,242,254,0.15)]"
             >
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-xl sm:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none glow-cyan" />
+              {/* Icon */}
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[rgba(0,242,254,0.08)] flex items-center justify-center mb-4">
+                {cap.icon}
+              </div>
 
-              <div className="relative z-10">
-                {/* Top row: Icon + Title */}
-                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl bg-gradient-to-br from-[rgba(0,242,254,0.1)] to-[rgba(79,172,254,0.05)] flex items-center justify-center text-[#00F2FE] shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    {cap.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-display font-bold text-lg sm:text-xl md:text-2xl text-white leading-tight">
-                      {cap.title}
-                    </h3>
-                  </div>
-                </div>
+              {/* Content */}
+              <h3 className="font-display font-bold text-lg sm:text-xl text-white mb-2 tracking-tight">
+                {cap.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed flex-1 mb-4 sm:mb-6">
+                {cap.description}
+              </p>
 
-                {/* Description */}
-                <p className="text-[#9CA3AF] text-xs sm:text-sm leading-relaxed mb-4 sm:mb-5">
-                  {cap.description}
-                </p>
-
-                {/* Stat - bottom */}
-                <div className="flex items-baseline justify-between pt-3 sm:pt-4 border-t border-[rgba(255,255,255,0.05)]">
-                  <p className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-gradient-cyan">
-                    <AnimatedCounter target={cap.spec} suffix="" />
-                  </p>
-                  <p className="text-[0.65rem] sm:text-xs text-[#9CA3AF] uppercase tracking-wider">
-                    {cap.specLabel}
-                  </p>
+              {/* Stat */}
+              <div className="border-t border-[rgba(255,255,255,0.06)] pt-4">
+                <div className="flex items-baseline justify-between">
+                  <span className="font-display font-bold text-2xl sm:text-3xl text-gradient-cyan">
+                    {cap.stat}
+                  </span>
+                  <span className="font-display text-[0.6rem] sm:text-xs text-[#6B7280] uppercase tracking-wider">
+                    {cap.statUnit}
+                  </span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-10 sm:mt-14 md:mt-16"
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="text-center mt-8 sm:mt-12"
         >
           <a href="#contacto" className="btn-primary text-sm sm:text-base inline-flex items-center gap-2">
             Solicitar Ficha Técnica Completa
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
         </motion.div>
