@@ -29,37 +29,7 @@ const anim = {
 
 export default function NosotrosContent() {
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section
-        className="relative py-16 sm:py-24 md:py-32 overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #111820 0%, #1a2332 40%, #0d1f2d 100%)" }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <p className="font-display text-xs sm:text-sm uppercase tracking-[0.3em] text-[#00F2FE] mb-4">
-              Nosotros
-            </p>
-            <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight mb-6">
-              Más de 33 Años{" "}
-              <span className="text-gradient-cyan">Fabricando Confianza</span>
-            </h1>
-            <p className="text-[#9CA3AF] text-base sm:text-lg md:text-xl leading-relaxed">
-              CAMBREPLAST S.A.S. es una empresa colombiana especializada en la fabricación de
-              empaques flexibles para múltiples sectores industriales. Con más de tres décadas
-              de experiencia, nos hemos consolidado como un referente en calidad, innovación y
-              servicio.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Misión & Visión */}
+    <div>
       <section className="py-16 sm:py-20 md:py-28" style={{ background: "#111820" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-20">

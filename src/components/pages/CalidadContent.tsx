@@ -32,35 +32,6 @@ const controlPoints = [
 export default function CalidadContent() {
   return (
     <div>
-      {/* Hero */}
-      <section
-        className="relative py-16 sm:py-24 md:py-32 overflow-hidden"
-        style={{ background: "linear-gradient(160deg, #111820 0%, #0d1a14 40%, #111820 100%)" }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
-          >
-            <span className="eco-badge mb-4 inline-flex">
-              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-              Calidad Certificada
-            </span>
-            <h1 className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight mb-6">
-              Calidad que{" "}
-              <span className="text-gradient-eco">se Certifica</span>
-            </h1>
-            <p className="text-[#9CA3AF] text-base sm:text-lg md:text-xl leading-relaxed">
-              Nuestro sistema de gestión integra ISO 9001 y Buenas Prácticas de Manufactura
-              (BPM) para garantizar que cada metro de película y cada bolsa producida cumpla
-              los más altos estándares de calidad e inocuidad.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Certifications */}
       <section className="py-16 sm:py-20 md:py-28" style={{ background: "#111820" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

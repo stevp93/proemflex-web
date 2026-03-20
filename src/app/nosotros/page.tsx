@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import NosotrosContent from "@/components/pages/NosotrosContent";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Nosotros — Historia, Misión y Valores",
@@ -10,7 +11,14 @@ export const metadata: Metadata = {
 
 export default function NosotrosPage() {
   return (
-    <main>
+    <main className="pt-20">
+      <PageHero
+        overline="Quiénes Somos"
+        title="Más de 33 Años"
+        titleHighlight="Fabricando Confianza"
+        description="CAMBREPLAST S.A.S. es una empresa colombiana con más de tres décadas especializados en la fabricación de empaques flexibles certificados para la industria."
+        breadcrumb={{ label: "Nosotros", href: "/nosotros" }}
+      />
       <NosotrosContent />
     </main>
   );

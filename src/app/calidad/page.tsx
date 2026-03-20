@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CalidadContent from "@/components/pages/CalidadContent";
+import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
   title: "Calidad (BPM) — Buenas Prácticas de Manufactura e ISO 9001",
@@ -11,6 +12,14 @@ export const metadata: Metadata = {
 export default function CalidadPage() {
   return (
     <main className="pt-20">
+      <PageHero
+        overline="Sistema de Gestión"
+        title="Calidad que"
+        titleHighlight="se Certifica"
+        description="Nuestro sistema integra ISO 9001 y BPM para garantizar que cada producto cumpla los más altos estándares de calidad e inocuidad en la industria colombiana."
+        badge="Certificado ISO 9001 & BPM"
+        breadcrumb={{ label: "Calidad (BPM)", href: "/calidad" }}
+      />
       <CalidadContent />
     </main>
   );

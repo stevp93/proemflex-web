@@ -33,7 +33,7 @@ export default function Hero() {
     <section
       ref={containerRef}
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden scroll-mt-20"
+      className="relative min-h-[85vh] flex items-center overflow-hidden"
       style={{
         background: "linear-gradient(160deg, #111820 0%, #1a2332 40%, #0d1f2d 100%)",
       }}
@@ -269,6 +269,25 @@ export default function Hero() {
 
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-[#111820] to-transparent pointer-events-none" />
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 2.5 }}
+        className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-20"
+      >
+        <p className="text-[0.6rem] sm:text-[0.65rem] uppercase tracking-[0.25em] text-[#4B5563] font-display">
+          Scroll
+        </p>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="w-5 h-8 rounded-full border border-[rgba(0,242,254,0.3)] flex items-start justify-center pt-1"
+        >
+          <div className="w-1 h-1.5 rounded-full bg-[#00F2FE]" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

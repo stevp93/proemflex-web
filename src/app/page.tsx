@@ -8,7 +8,7 @@ import CtaBanner from "@/components/home/CtaBanner";
 
 export default function Home() {
   return (
-    <main>
+    <main className="pt-20">
       <Hero />
       <NewsCarousel />
       <Marquee />
