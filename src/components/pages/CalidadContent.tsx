@@ -8,14 +8,23 @@ const certifications = [
     title: "ISO 9001:2015",
     description: "Sistema de Gestión de Calidad certificado internacionalmente. Garantiza procesos estandarizados, mejora continua y satisfacción del cliente en cada orden de producción.",
     items: ["Auditorías internas periódicas", "Control estadístico de procesos", "Gestión documental integrada", "Seguimiento de indicadores KPI"],
-    icon: "🏆",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="7" />
+        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+      </svg>
+    ),
     color: "#00F2FE",
   },
   {
     title: "BPM — Buenas Prácticas de Manufactura",
     description: "Estándares de manufactura que aseguran la inocuidad, trazabilidad y calidad de los empaques en contacto con alimentos y productos farmacéuticos.",
     items: ["Control de contaminación cruzada", "Trazabilidad lote a lote", "Personal capacitado en higiene", "Inspección visual y dimensional"],
-    icon: "🔬",
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+      </svg>
+    ),
     color: "#10B981",
   },
 ];
@@ -45,7 +54,9 @@ export default function CalidadContent() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="glass rounded-2xl p-6 sm:p-8 lg:p-10"
               >
-                <div className="text-3xl mb-4">{cert.icon}</div>
+                <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.08)] flex items-center justify-center mb-4">
+                  {cert.icon}
+                </div>
                 <h2 className="font-display font-bold text-xl sm:text-2xl text-white mb-3">{cert.title}</h2>
                 <p className="text-sm sm:text-base text-[#9CA3AF] leading-relaxed mb-5">{cert.description}</p>
                 <ul className="space-y-2.5">

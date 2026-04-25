@@ -6,8 +6,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: {
-    default: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales — Colombia",
-    template: "%s | CAMBREPLAST S.A.S.",
+    default: "PROEMFLEX S.A.S. | Empaques Flexibles Industriales — Colombia",
+    template: "%s | PROEMFLEX S.A.S.",
   },
   description:
     "Más de 33 años fabricando empaques flexibles certificados BPM e ISO 9001 en Colombia. Soluciones para alimentos, farmacéuticos, textiles y más.",
@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     "película stretch",
     "bolsas polietileno",
   ],
-  metadataBase: new URL("https://cambreplast.com"),
+  metadataBase: new URL("https://proemflex.com"),
   openGraph: {
-    title: "CAMBREPLAST S.A.S. | Empaques Flexibles Industriales",
+    title: "PROEMFLEX S.A.S. | Empaques Flexibles Industriales",
     description:
       "Fabricamos empaques flexibles certificados BPM & ISO 9001 con +33 años de experiencia en Colombia.",
     type: "website",
     locale: "es_CO",
-    siteName: "CAMBREPLAST S.A.S.",
+    siteName: "PROEMFLEX S.A.S.",
   },
   robots: {
     index: true,

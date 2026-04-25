@@ -34,25 +34,25 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "glass-strong shadow-lg shadow-black/20"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+        ? "glass-strong shadow-lg shadow-black/20"
+        : "bg-transparent"
+        }`}
     >
       <nav
         className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4"
         aria-label="Navegación principal"
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="CAMBREPLAST - Inicio">
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[#00F2FE] to-[#4FACFE] flex items-center justify-center font-display font-bold text-[#111820] text-base sm:text-lg transition-transform group-hover:scale-105">
-            C
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-[#00F2FE] to-[#4FACFE] opacity-0 group-hover:opacity-40 blur-xl transition-opacity" />
-          </div>
+        <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="PROEMFLEX - Inicio">
+          <img
+            src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+            alt="PROEMFLEX"
+            className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-transform group-hover:scale-105"
+          />
           <div className="hidden min-[400px]:block">
             <span className="font-display font-bold text-white text-base sm:text-lg tracking-tight">
-              CAMBRE<span className="text-gradient-cyan">PLAST</span>
+              PROEM<span className="text-gradient-cyan">FLEX</span>
             </span>
             <p className="text-[0.55rem] sm:text-[0.6rem] text-[#9CA3AF] tracking-[0.2em] uppercase -mt-1">
               S.A.S. — Empaques Flexibles
@@ -69,11 +69,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   role="menuitem"
-                  className={`font-display text-sm transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-gradient-to-r after:from-[#00F2FE] after:to-[#4FACFE] after:transition-all after:duration-300 hover:after:w-full ${
-                    isActive
-                      ? "text-white after:w-full"
-                      : "text-[#9CA3AF] hover:text-white after:w-0"
-                  }`}
+                  className={`font-display text-sm transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-gradient-to-r after:from-[#00F2FE] after:to-[#4FACFE] after:transition-all after:duration-300 hover:after:w-full ${isActive
+                    ? "text-white after:w-full"
+                    : "text-[#9CA3AF] hover:text-white after:w-0"
+                    }`}
                 >
                   {link.label}
                 </Link>
@@ -131,9 +130,8 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className={`font-display text-base transition-colors block py-3 border-b border-[rgba(255,255,255,0.04)] ${
-                    isActive ? "text-[#00F2FE]" : "text-[#9CA3AF] hover:text-white"
-                  }`}
+                  className={`font-display text-base transition-colors block py-3 border-b border-[rgba(255,255,255,0.04)] ${isActive ? "text-[#00F2FE]" : "text-[#9CA3AF] hover:text-white"
+                    }`}
                 >
                   {link.label}
                 </Link>

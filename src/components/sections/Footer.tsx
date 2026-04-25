@@ -17,12 +17,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 space-y-4">
             <Link href="/" className="flex items-center gap-2.5 group w-fit">
-              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[#00F2FE] to-[#4FACFE] flex items-center justify-center font-display font-bold text-[#111820] text-base sm:text-lg group-hover:scale-105 transition-transform">
-                C
-              </div>
+              <img
+                src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+                alt="PROEMFLEX"
+                className="w-9 h-9 sm:w-10 sm:h-10 object-contain group-hover:scale-105 transition-transform"
+              />
               <div>
                 <span className="font-display font-bold text-white text-base sm:text-lg tracking-tight">
-                  CAMBRE<span className="text-gradient-cyan">PLAST</span>
+                  PROEM<span className="text-gradient-cyan">FLEX</span>
                 </span>
                 <p className="text-[0.55rem] sm:text-[0.6rem] text-[#9CA3AF] tracking-[0.2em] uppercase -mt-1">
                   S.A.S. — Empaques Flexibles
@@ -102,7 +104,7 @@ export default function Footer() {
           className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4"
         >
           <p className="text-[0.65rem] sm:text-xs text-[#4B5563] text-center sm:text-left">
-            © {currentYear} CAMBREPLAST S.A.S. Todos los derechos reservados.
+            © {currentYear} PROEMFLEX S.A.S. Todos los derechos reservados.
           </p>
           <p className="text-[0.65rem] sm:text-xs text-[#4B5563]">
             Fabricado con precisión ·{" "}

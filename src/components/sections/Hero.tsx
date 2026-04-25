@@ -118,7 +118,7 @@ export default function Hero() {
                 animate="visible"
                 className="text-base sm:text-lg md:text-xl text-[#9CA3AF] max-w-xl leading-relaxed"
               >
-                <span className="text-white font-semibold">CAMBREPLAST S.A.S.</span> — Más
+                <span className="text-white font-semibold">PROEMFLEX S.A.S.</span> — Más
                 de <span className="text-white font-semibold">33 años</span> fabricando
                 soluciones de empaque flexible con procesos{" "}
                 <span className="text-white font-semibold">certificados BPM e ISO 9001</span>{" "}

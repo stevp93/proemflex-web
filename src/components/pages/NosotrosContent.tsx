@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const timeline = [
-  { year: "1993", title: "Fundación", desc: "Nace CAMBREPLAST S.A.S. con la visión de producir empaques flexibles de calidad para la industria colombiana." },
+  { year: "1993", title: "Fundación", desc: "Nace PROEMFLEX S.A.S. con la visión de producir empaques flexibles de calidad para la industria colombiana." },
   { year: "2002", title: "Certificación ISO 9001", desc: "Obtenemos la certificación internacional de gestión de calidad, validando nuestros procesos y estándares." },
   { year: "2010", title: "Ampliación de Planta", desc: "Duplicamos nuestra capacidad de producción con nuevas líneas de extrusión e impresión de última generación." },
   { year: "2018", title: "Implementación BPM", desc: "Adoptamos Buenas Prácticas de Manufactura para garantizar la inocuidad en empaques alimentarios y farmacéuticos." },
@@ -12,10 +12,10 @@ const timeline = [
 ];
 
 const values = [
-  { title: "Calidad", desc: "Procesos certificados ISO 9001 y BPM que garantizan la excelencia en cada producto.", icon: "🏅" },
-  { title: "Innovación", desc: "Inversión continua en tecnología de punta para ofrecer las mejores soluciones de empaque.", icon: "💡" },
-  { title: "Responsabilidad", desc: "Compromiso con la sostenibilidad ambiental y la economía circular.", icon: "🌿" },
-  { title: "Servicio", desc: "Acompañamiento integral desde el diseño hasta la entrega, con tiempos de respuesta ágiles.", icon: "🤝" },
+  { title: "Calidad", desc: "Procesos certificados ISO 9001 y BPM que garantizan la excelencia en cada producto.", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg> },
+  { title: "Innovación", desc: "Inversión continua en tecnología de punta para ofrecer las mejores soluciones de empaque.", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EC4899" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg> },
+  { title: "Responsabilidad", desc: "Compromiso con la sostenibilidad ambiental y la economía circular.", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg> },
+  { title: "Servicio", desc: "Acompañamiento integral desde el diseño hasta la entrega, con tiempos de respuesta ágiles.", icon: <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg> },
 ];
 
 const anim = {
@@ -40,8 +40,8 @@ export default function NosotrosContent() {
               transition={{ duration: 0.6 }}
               className="glass rounded-2xl p-6 sm:p-8 lg:p-10"
             >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.1)] flex items-center justify-center mb-4 text-2xl">
-                🎯
+              <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.1)] flex items-center justify-center mb-4">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
               </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Misión</h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
@@ -59,8 +59,8 @@ export default function NosotrosContent() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="glass rounded-2xl p-6 sm:p-8 lg:p-10"
             >
-              <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.1)] flex items-center justify-center mb-4 text-2xl">
-                🔭
+              <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.1)] flex items-center justify-center mb-4">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" /><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
               </div>
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Visión</h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
@@ -96,7 +96,9 @@ export default function NosotrosContent() {
                 viewport={{ once: true }}
                 className="glass rounded-xl p-5 sm:p-6 text-center"
               >
-                <div className="text-3xl mb-3">{v.icon}</div>
+                <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.08)] flex items-center justify-center mx-auto mb-3">
+                  {v.icon}
+                </div>
                 <h3 className="font-display font-bold text-lg text-white mb-2">{v.title}</h3>
                 <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed">{v.desc}</p>
               </motion.div>
@@ -134,9 +136,8 @@ export default function NosotrosContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`relative flex items-start gap-4 sm:gap-8 mb-8 sm:mb-10 ${
-                  i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-                }`}
+                className={`relative flex items-start gap-4 sm:gap-8 mb-8 sm:mb-10 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+                  }`}
               >
                 <div className={`flex-1 hidden sm:block ${i % 2 === 0 ? "text-right" : "text-left"}`}>
                   <div className="glass rounded-xl p-5">

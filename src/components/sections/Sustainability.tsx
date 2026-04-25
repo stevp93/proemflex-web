@@ -81,7 +81,7 @@ export default function Sustainability() {
             <span className="text-gradient-eco">Sostenibilidad</span>
           </h2>
           <p className="text-[#9CA3AF] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            En CAMBREPLAST, la responsabilidad ambiental es parte integral de nuestra
+            En PROEMFLEX, la responsabilidad ambiental es parte integral de nuestra
             operación. Trabajamos cada día para minimizar nuestro impacto y maximizar el valor.
           </p>
         </motion.div>
