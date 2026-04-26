@@ -23,12 +23,38 @@ export default function Contact() {
     sector: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setStatus("sending");
+
+    try {
+      const res = await fetch("https://formspree.io/f/xpwdgpnj", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          nombre: formState.name,
+          empresa: formState.company,
+          email: formState.email,
+          telefono: formState.phone,
+          sector: formState.sector,
+          mensaje: formState.message,
+        }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormState({ name: "", company: "", email: "", phone: "", sector: "", message: "" });
+        setTimeout(() => setStatus("idle"), 6000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
   };
 
   return (
@@ -214,13 +240,22 @@ export default function Contact() {
               <button
                 type="submit"
                 className="btn-primary w-full"
-                disabled={submitted}
-                aria-disabled={submitted}
+                disabled={status === "sending" || status === "success"}
+                aria-disabled={status === "sending" || status === "success"}
               >
-                {submitted ? (
+                {status === "sending" ? (
+                  <>
+                    <svg className="animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" className="opacity-25" /><path d="M4 12a8 8 0 018-8" className="opacity-75" /></svg>
+                    Enviando...
+                  </>
+                ) : status === "success" ? (
                   <>
                     <CheckIcon size={18} />
-                    ¡Mensaje enviado!
+                    ¡Mensaje enviado con éxito!
+                  </>
+                ) : status === "error" ? (
+                  <>
+                    Error al enviar. Intente de nuevo.
                   </>
                 ) : (
                   <>
@@ -232,7 +267,7 @@ export default function Contact() {
 
               {/* Live region for screen readers */}
               <div aria-live="polite" aria-atomic="true" className="sr-only">
-                {submitted && "Su solicitud ha sido enviada exitosamente. Le responderemos en menos de 48 horas hábiles."}
+                {status === "success" && "Su solicitud ha sido enviada exitosamente. Le responderemos en menos de 48 horas hábiles."}
               </div>
 
               <p className="text-center text-xs text-[#4B5563]">

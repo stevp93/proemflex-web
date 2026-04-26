@@ -41,11 +41,11 @@ export default function PageHero({
         style={{ background: "radial-gradient(circle at 70% 30%, rgba(0,242,254,0.08) 0%, transparent 60%)" }}
       />
 
-      <div className="container-pf relative z-10">
+      <div className="container-pf relative z-10 flex flex-col items-center text-center">
         {breadcrumb && (
           <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="flex items-center gap-2 mb-5 text-xs sm:text-sm"
           >

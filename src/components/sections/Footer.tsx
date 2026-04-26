@@ -197,6 +197,17 @@ export default function Footer() {
         >
           <p>© {currentYear} PROEMFLEX S.A.S. Todos los derechos reservados.</p>
           <p>
+            Diseñado y desarrollado por{" "}
+            <a
+              href="https://www.instagram.com/sp930718/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#9CA3AF] hover:text-[#00F2FE] transition-colors font-semibold"
+            >
+              Steven Pedraza
+            </a>
+          </p>
+          <p>
             Fabricado con precisión · Bogotá, Colombia
           </p>
         </motion.div>
