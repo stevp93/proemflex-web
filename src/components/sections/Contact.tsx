@@ -65,8 +65,19 @@ export default function Contact() {
                       <circle cx="12" cy="10" r="3" />
                     </svg>
                   ),
-                  label: "Ubicación",
-                  value: "Bogotá, Colombia",
+                  label: "Dirección",
+                  value: "Cra. 69c #24-20, Bogotá",
+                  href: "https://www.google.com/maps/place/Proemflex+s.a.s/data=!4m2!3m1!1s0x0:0x563a8254d7a4470d",
+                },
+                {
+                  Icon: () => (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                    </svg>
+                  ),
+                  label: "Teléfono / WhatsApp",
+                  value: "+57 311 572 8520",
+                  href: "https://wa.me/573115728520",
                 },
               ].map((info) => (
                 <div
@@ -80,9 +91,20 @@ export default function Contact() {
                     <p className="text-[0.7rem] sm:text-xs text-[#9CA3AF] uppercase tracking-[0.16em] font-display font-semibold">
                       {info.label}
                     </p>
-                    <p className="font-display font-semibold text-sm sm:text-base text-white truncate">
-                      {info.value}
-                    </p>
+                    {"href" in info && info.href ? (
+                      <a
+                        href={info.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-display font-semibold text-sm sm:text-base text-white truncate block hover:text-[#00F2FE] transition-colors"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="font-display font-semibold text-sm sm:text-base text-white truncate">
+                        {info.value}
+                      </p>
+                    )}
                   </div>
                 </div>
               ))}
