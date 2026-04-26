@@ -4,20 +4,20 @@ import ProductBand from "@/components/sections/ProductBand";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
-  title: "Capacidades — Planta de Producción y Proceso de Manufactura",
+  title: "Capacidades — Planta de producción y proceso de manufactura",
   description:
-    "Conozca nuestra planta de producción: extrusión de 3 a 100cm, impresión flexográfica de 6 colores con tambor central y sellado automático. Certificados BPM e ISO 9001.",
+    "Conozca nuestra planta: extrusión 3 — 100 cm, impresión flexográfica 6 colores con tambor central, sellado automático, laminación, refilado y pre-corte. Certificados BPM e ISO 9001.",
   alternates: { canonical: "/capacidades" },
 };
 
 export default function CapacidadesPage() {
   return (
-    <main className="pt-20">
+    <main id="main-content" style={{ paddingTop: "var(--nav-height)" }}>
       <PageHero
-        overline="Proceso de Producción"
-        title="Nuestra Planta de"
-        titleHighlight="Manufactura"
-        description="Maquinaria de última generación y procesos certificados BPM. Más de 33 años perfeccionando cada etapa de producción para garantizar la calidad en cada metro de película."
+        overline="Proceso de producción"
+        title="Nuestra planta de"
+        titleHighlight="manufactura"
+        description="Maquinaria de última generación y procesos certificados BPM. Más de 33 años perfeccionando cada etapa de producción para garantizar calidad en cada metro de película."
         breadcrumb={{ label: "Capacidades", href: "/capacidades" }}
       />
       <Capabilities />

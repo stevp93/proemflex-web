@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import NewsCarousel from "@/components/sections/NewsCarousel";
+import NoticiasGrid from "@/components/pages/NoticiasGrid";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
-  title: "Noticias — Novedades y Actualizaciones",
+  title: "Noticias — Novedades y actualizaciones",
   description:
     "Últimas noticias de PROEMFLEX S.A.S.: innovaciones, certificaciones, ampliaciones de planta y novedades del sector de empaques flexibles.",
   alternates: { canonical: "/noticias" },
@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 
 export default function NoticiasPage() {
   return (
-    <main className="pt-20">
+    <main id="main-content" style={{ paddingTop: "var(--nav-height)" }}>
       <PageHero
         overline="Novedades"
         title="Noticias y"
-        titleHighlight="Actualizaciones"
+        titleHighlight="actualizaciones"
         description="Mantente al día con las últimas innovaciones, certificaciones y novedades de PROEMFLEX S.A.S."
         breadcrumb={{ label: "Noticias", href: "/noticias" }}
       />
-      <NewsCarousel />
+      <NoticiasGrid />
     </main>
   );
 }

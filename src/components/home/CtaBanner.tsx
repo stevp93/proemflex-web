@@ -2,45 +2,45 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ArrowRightIcon, SendIcon } from "@/components/ui/ProcessIcons";
 
 export default function CtaBanner() {
   return (
     <section
-      className="relative py-16 sm:py-24 overflow-hidden"
+      className="section"
       style={{ background: "linear-gradient(180deg, #111820 0%, #0d1f2d 50%, #111820 100%)" }}
+      aria-label="Llamado a cotizar"
     >
       <div
+        aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, rgba(0,242,254,0.06) 0%, transparent 60%)",
+          background: "radial-gradient(ellipse at center, rgba(0,242,254,0.07) 0%, transparent 60%)",
         }}
       />
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+      <div className="container-pf relative z-10 grid place-items-center text-center max-w-3xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="space-y-6"
+          className="grid place-items-center gap-6"
         >
-          <h2 className="font-display font-bold text-2xl sm:text-4xl md:text-5xl tracking-tight">
-            ¿Listo para Cotizar su{" "}
-            <span className="text-gradient-cyan">Proyecto de Empaque?</span>
+          <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
+            ¿Listo para cotizar su{" "}
+            <span className="text-gradient-cyan">proyecto de empaque?</span>
           </h2>
-          <p className="text-[#9CA3AF] text-sm sm:text-base md:text-lg max-w-xl mx-auto">
+          <p className="text-[#9CA3AF] text-base sm:text-lg max-w-xl">
             Nuestro equipo de ingeniería diseña soluciones a medida.
-            Reciba una propuesta personalizada en menos de 48 horas.
+            Reciba una propuesta personalizada en menos de 48 horas hábiles.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
-            <Link href="/contacto" className="btn-primary text-sm sm:text-base inline-flex items-center justify-center gap-2">
-              Solicitar Cotización
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13" />
-                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-              </svg>
+          <div className="flex flex-col sm:flex-row gap-3 pt-1">
+            <Link href="/contacto" className="btn-primary">
+              Solicitar Cotización <SendIcon size={16} />
             </Link>
-            <Link href="/sectores" className="btn-outline text-sm sm:text-base inline-flex items-center justify-center gap-2">
-              Explorar Productos
+            <Link href="/sectores" className="btn-outline">
+              Explorar Productos <ArrowRightIcon size={14} />
             </Link>
           </div>
         </motion.div>

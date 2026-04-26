@@ -1,66 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-
-const MARQUEE_TEXT =
-  "REDUCE • REÚSA • RECICLA • 100% ECO-FRIENDLY • ISO 9001 • 33+ AÑOS • EMPAQUES FLEXIBLES • ";
+const TOKENS = [
+  "REDUCE",
+  "REÚSA",
+  "RECICLA",
+  "100% ECO-FRIENDLY",
+  "ISO 9001",
+  "33+ AÑOS",
+  "EMPAQUES FLEXIBLES",
+];
 
 export default function Marquee() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-  const [speed, setSpeed] = useState(1);
-
-  useEffect(() => {
-    let lastScroll = 0;
-    let ticking = false;
-
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const currentScroll = window.scrollY;
-          const velocity = Math.abs(currentScroll - lastScroll);
-          setSpeed(Math.min(1 + velocity * 0.05, 5));
-          lastScroll = currentScroll;
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+  // Render tokens twice for a perfect seamless loop with CSS-only animation.
   return (
     <section
-      className="relative py-4 sm:py-6 overflow-hidden border-y border-[rgba(255,255,255,0.03)]"
-      style={{ background: "rgba(0,242,254,0.02)" }}
       aria-hidden="true"
+      className="relative py-5 sm:py-7 overflow-hidden border-y border-white/[0.04]"
+      style={{ background: "rgba(0,242,254,0.025)" }}
     >
-      <div
-        ref={marqueeRef}
-        className="flex whitespace-nowrap"
-        style={{ animationDuration: `${20 / speed}s` }}
-      >
-        <motion.div
-          animate={{ x: [0, -2400] }}
-          transition={{
-            x: { repeat: Infinity, repeatType: "loop", duration: 20 / speed, ease: "linear" },
-          }}
-          className="flex shrink-0"
-        >
-          {Array.from({ length: 4 }).map((_, i) => (
-            <span
-              key={i}
-              className="font-display font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-transparent mx-3 sm:mx-4"
-              style={{
-                WebkitTextStroke: "1px rgba(0,242,254,0.15)",
-              }}
-            >
-              {MARQUEE_TEXT}
-            </span>
-          ))}
-        </motion.div>
+      <div className="flex whitespace-nowrap will-change-transform animate-marquee">
+        {[0, 1].map((dup) => (
+          <ul
+            key={dup}
+            className="flex shrink-0 items-center gap-10 sm:gap-14 pr-10 sm:pr-14"
+            aria-hidden={dup === 1 ? "true" : undefined}
+          >
+            {TOKENS.map((t, i) => (
+              <li key={`${dup}-${i}`} className="flex items-center gap-10 sm:gap-14">
+                <span
+                  className="font-display font-bold text-2xl sm:text-3xl md:text-5xl tracking-tight text-transparent leading-none"
+                  style={{ WebkitTextStroke: "1px rgba(0,242,254,0.18)" }}
+                >
+                  {t}
+                </span>
+                <span
+                  aria-hidden
+                  className="block w-2 h-2 rounded-full bg-[#00F2FE]/35"
+                />
+              </li>
+            ))}
+          </ul>
+        ))}
       </div>
     </section>
   );

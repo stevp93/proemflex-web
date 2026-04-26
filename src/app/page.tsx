@@ -3,18 +3,21 @@ import NewsCarousel from "@/components/sections/NewsCarousel";
 import Marquee from "@/components/sections/Marquee";
 import SectorsPreview from "@/components/home/SectorsPreview";
 import CapabilitiesPreview from "@/components/home/CapabilitiesPreview";
+import PlantGallery from "@/components/home/PlantGallery";
 import SustainabilityPreview from "@/components/home/SustainabilityPreview";
 import CtaBanner from "@/components/home/CtaBanner";
 
 export default function Home() {
   return (
-    <main className="pt-20">
+    <main id="main-content" style={{ paddingTop: "var(--nav-height)" }}>
       <Hero />
       <NewsCarousel />
       <Marquee />
       <SectorsPreview />
       <div className="section-divider" />
       <CapabilitiesPreview />
+      <div className="section-divider" />
+      <PlantGallery />
       <div className="section-divider" />
       <SustainabilityPreview />
       <div className="section-divider" />

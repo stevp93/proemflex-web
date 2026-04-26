@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | PROEMFLEX S.A.S.",
   },
   description:
-    "Más de 33 años fabricando empaques flexibles certificados BPM e ISO 9001 en Colombia. Soluciones para alimentos, farmacéuticos, textiles y más.",
+    "Más de 33 años fabricando empaques flexibles certificados BPM e ISO 9001 en Colombia. Soluciones para alimentos, farmacéuticos, textiles, aseo y más.",
   keywords: [
     "empaques flexibles Colombia",
     "bolsas industriales",
@@ -21,6 +21,8 @@ export const metadata: Metadata = {
     "ISO 9001 empaques",
     "película stretch",
     "bolsas polietileno",
+    "fajillas termoencogibles",
+    "impresión flexográfica",
   ],
   metadataBase: new URL("https://proemflex.com"),
   openGraph: {
@@ -31,20 +33,13 @@ export const metadata: Metadata = {
     locale: "es_CO",
     siteName: "PROEMFLEX S.A.S.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: "/",
-  },
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className="scroll-smooth">
       <head>
@@ -54,8 +49,16 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
+        <meta name="theme-color" content="#0E1520" />
       </head>
       <body className="antialiased">
+        {/* Skip to main content — accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded-md focus:bg-[#00F2FE] focus:text-[#06121b] focus:font-display focus:font-semibold focus:text-sm focus:outline-none"
+        >
+          Ir al contenido principal
+        </a>
         <ScrollToTop />
         <Navbar />
         {children}

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -9,7 +10,7 @@ const navLinks = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Capacidades", href: "/capacidades" },
   { label: "Sectores", href: "/sectores" },
-  { label: "Calidad (BPM)", href: "/calidad" },
+  { label: "Calidad", href: "/calidad" },
   { label: "Noticias", href: "/noticias" },
   { label: "Contacto", href: "/contacto" },
 ];
@@ -21,47 +22,66 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 50);
+    setScrolled(latest > 24);
   });
 
   // Close mobile menu on route change
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
+
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-        ? "glass-strong shadow-lg shadow-black/20"
-        : "bg-transparent"
-        }`}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
+        scrolled || mobileOpen
+          ? "glass-strong shadow-[0_4px_30px_rgba(0,0,0,0.35)]"
+          : "bg-transparent"
+      }`}
+      style={{ ["--nav-pad" as string]: scrolled ? "10px" : "16px" }}
     >
       <nav
-        className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4"
+        className="container-pf flex items-center justify-between h-[var(--nav-height)]"
         aria-label="Navegación principal"
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group shrink-0" aria-label="PROEMFLEX - Inicio">
-          <img
-            src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
-            alt="PROEMFLEX"
-            className="w-9 h-9 sm:w-10 sm:h-10 object-contain transition-transform group-hover:scale-105"
-          />
-          <div className="hidden min-[400px]:block">
+        <Link
+          href="/"
+          className="flex items-center gap-3 group shrink-0"
+          aria-label="PROEMFLEX — Inicio"
+        >
+          <span className="grid place-items-center w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
+            <Image
+              src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+              alt=""
+              width={32}
+              height={32}
+              priority
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+          </span>
+          <span className="hidden min-[420px]:flex flex-col leading-none">
             <span className="font-display font-bold text-white text-base sm:text-lg tracking-tight">
               PROEM<span className="text-gradient-cyan">FLEX</span>
             </span>
-            <p className="text-[0.55rem] sm:text-[0.6rem] text-[#9CA3AF] tracking-[0.2em] uppercase -mt-1">
-              S.A.S. — Empaques Flexibles
-            </p>
-          </div>
+            <span className="mt-1 text-[0.6rem] sm:text-[0.62rem] text-[#9CA3AF] tracking-[0.22em] uppercase">
+              Empaques Flexibles
+            </span>
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <ul className="hidden xl:flex items-center gap-5 2xl:gap-7" role="menubar">
+        {/* Desktop nav */}
+        <ul className="hidden lg:flex items-center gap-1" role="menubar">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -69,80 +89,95 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   role="menuitem"
-                  className={`font-display text-sm transition-colors duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-gradient-to-r after:from-[#00F2FE] after:to-[#4FACFE] after:transition-all after:duration-300 hover:after:w-full ${isActive
-                    ? "text-white after:w-full"
-                    : "text-[#9CA3AF] hover:text-white after:w-0"
-                    }`}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative inline-flex items-center font-display text-[0.92rem] font-medium px-3 py-2 rounded-md transition-colors duration-200 ${
+                    isActive
+                      ? "text-white"
+                      : "text-[#9CA3AF] hover:text-white"
+                  }`}
                 >
                   {link.label}
+                  <span
+                    aria-hidden
+                    className={`absolute left-3 right-3 -bottom-0.5 h-[2px] rounded-full bg-gradient-to-r from-[#00F2FE] to-[#4FACFE] origin-left transition-transform duration-300 ${
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
                 </Link>
               </li>
             );
           })}
         </ul>
 
-        {/* CTA + Mobile Toggle */}
-        <div className="flex items-center gap-3">
+        {/* Right cluster */}
+        <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/contacto"
-            className="hidden xl:inline-flex btn-primary text-sm !py-2.5 !px-5"
+            className="hidden lg:inline-flex btn-primary !text-[0.85rem] !py-2.5 !px-4"
           >
-            Solicitar Cotización
+            Cotizar
           </Link>
           <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden flex flex-col gap-1.5 p-2 -mr-2 group"
-            aria-label="Menú de navegación"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="lg:hidden grid place-items-center w-10 h-10 rounded-md border border-white/10 hover:border-cyan-400/40 transition-colors"
+            aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-white transition-colors group-hover:bg-[#00F2FE]"
-            />
-            <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-5 h-0.5 bg-white transition-colors group-hover:bg-[#00F2FE]"
-            />
-            <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block w-5 h-0.5 bg-white transition-colors group-hover:bg-[#00F2FE]"
-            />
+            <span className="relative w-5 h-5 grid place-items-center">
+              <motion.span
+                animate={mobileOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
+                transition={{ duration: 0.2 }}
+                className="absolute block w-5 h-0.5 bg-white rounded-full"
+              />
+              <motion.span
+                animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
+                transition={{ duration: 0.15 }}
+                className="absolute block w-5 h-0.5 bg-white rounded-full"
+              />
+              <motion.span
+                animate={mobileOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
+                transition={{ duration: 0.2 }}
+                className="absolute block w-5 h-0.5 bg-white rounded-full"
+              />
+            </span>
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <motion.div
+        id="mobile-menu"
         initial={false}
         animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="xl:hidden overflow-hidden glass-strong"
+        transition={{ duration: 0.28, ease: "easeInOut" }}
+        className="lg:hidden overflow-hidden border-t border-white/[0.05]"
       >
-        <ul className="flex flex-col gap-1 px-4 sm:px-6 pb-6 pt-2">
+        <ul className="container-pf py-4 flex flex-col gap-1">
           {navLinks.map((link, i) => {
             const isActive = pathname === link.href;
             return (
               <motion.li
                 key={link.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={mobileOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ delay: i * 0.05 }}
+                initial={{ opacity: 0, x: -16 }}
+                animate={mobileOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -16 }}
+                transition={{ delay: i * 0.04 }}
               >
                 <Link
                   href={link.href}
-                  className={`font-display text-base transition-colors block py-3 border-b border-[rgba(255,255,255,0.04)] ${isActive ? "text-[#00F2FE]" : "text-[#9CA3AF] hover:text-white"
-                    }`}
+                  className={`block font-display font-medium text-[0.95rem] py-3 px-3 rounded-md transition-colors ${
+                    isActive
+                      ? "text-white bg-white/[0.05]"
+                      : "text-[#cbd5e1] hover:text-white hover:bg-white/[0.03]"
+                  }`}
                 >
                   {link.label}
                 </Link>
               </motion.li>
             );
           })}
-          <li className="pt-3">
-            <Link
-              href="/contacto"
-              className="btn-primary text-sm inline-block text-center w-full"
-            >
+          <li className="pt-2">
+            <Link href="/contacto" className="btn-primary w-full justify-center">
               Solicitar Cotización
             </Link>
           </li>

@@ -4,7 +4,7 @@ import ProductBand from "@/components/sections/ProductBand";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
-  title: "Sectores — Soluciones de Empaque por Industria",
+  title: "Sectores — Soluciones de empaque por industria",
   description:
     "Empaques flexibles para alimentos, laboratorios farmacéuticos, textiles, líneas comerciales, almacenes de cadena y aseo. Soluciones certificadas BPM e ISO 9001.",
   alternates: { canonical: "/sectores" },
@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 export default function SectoresPage() {
   return (
-    <main className="pt-20">
+    <main id="main-content" style={{ paddingTop: "var(--nav-height)" }}>
       <PageHero
-        overline="Soluciones por Sector"
-        title="Empaques Flexibles para"
-        titleHighlight="Cada Industria"
+        overline="Soluciones por sector"
+        title="Empaques flexibles para"
+        titleHighlight="cada industria"
         description="Soluciones especializadas respaldadas por +33 años de experiencia y procesos certificados BPM e ISO 9001. Empaque a medida para cada necesidad industrial."
         breadcrumb={{ label: "Sectores", href: "/sectores" }}
       />

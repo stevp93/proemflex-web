@@ -2,29 +2,33 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { CertificateIcon, ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
 const certifications = [
   {
     title: "ISO 9001:2015",
-    description: "Sistema de Gestión de Calidad certificado internacionalmente. Garantiza procesos estandarizados, mejora continua y satisfacción del cliente en cada orden de producción.",
-    items: ["Auditorías internas periódicas", "Control estadístico de procesos", "Gestión documental integrada", "Seguimiento de indicadores KPI"],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="8" r="7" />
-        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-      </svg>
-    ),
+    description:
+      "Sistema de Gestión de Calidad certificado internacionalmente. Garantiza procesos estandarizados, mejora continua y satisfacción del cliente en cada orden de producción.",
+    items: [
+      "Auditorías internas periódicas",
+      "Control estadístico de procesos",
+      "Gestión documental integrada",
+      "Seguimiento de indicadores KPI",
+    ],
+    Icon: CertificateIcon,
     color: "#00F2FE",
   },
   {
     title: "BPM — Buenas Prácticas de Manufactura",
-    description: "Estándares de manufactura que aseguran la inocuidad, trazabilidad y calidad de los empaques en contacto con alimentos y productos farmacéuticos.",
-    items: ["Control de contaminación cruzada", "Trazabilidad lote a lote", "Personal capacitado en higiene", "Inspección visual y dimensional"],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      </svg>
-    ),
+    description:
+      "Estándares de manufactura que aseguran la inocuidad, trazabilidad y calidad de los empaques en contacto con alimentos y productos farmacéuticos.",
+    items: [
+      "Control de contaminación cruzada",
+      "Trazabilidad lote a lote",
+      "Personal capacitado en higiene",
+      "Inspección visual y dimensional",
+    ],
+    Icon: ShieldCheckIcon,
     color: "#10B981",
   },
 ];
@@ -42,9 +46,13 @@ export default function CalidadContent() {
   return (
     <div>
       {/* Certifications */}
-      <section className="py-16 sm:py-20 md:py-28" style={{ background: "#111820" }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-24">
+      <section
+        className="section"
+        style={{ background: "#111820" }}
+        aria-label="Certificaciones de calidad"
+      >
+        <div className="container-pf">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-20">
             {certifications.map((cert, i) => (
               <motion.div
                 key={cert.title}
@@ -52,19 +60,26 @@ export default function CalidadContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass rounded-2xl p-6 sm:p-8 lg:p-10"
+                className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
               >
-                <div className="w-12 h-12 rounded-xl bg-[rgba(0,242,254,0.08)] flex items-center justify-center mb-4">
-                  {cert.icon}
-                </div>
-                <h2 className="font-display font-bold text-xl sm:text-2xl text-white mb-3">{cert.title}</h2>
-                <p className="text-sm sm:text-base text-[#9CA3AF] leading-relaxed mb-5">{cert.description}</p>
-                <ul className="space-y-2.5">
+                <span
+                  className="grid place-items-center w-12 h-12 rounded-xl mb-5"
+                  style={{ background: `${cert.color}1a`, color: cert.color }}
+                >
+                  <cert.Icon size={26} color={cert.color} />
+                </span>
+                <h2 className="font-display font-bold text-xl sm:text-2xl text-white mb-3">
+                  {cert.title}
+                </h2>
+                <p className="text-sm sm:text-base text-[#9CA3AF] leading-relaxed mb-5">
+                  {cert.description}
+                </p>
+                <ul className="space-y-2.5" role="list">
                   {cert.items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-sm text-[#9CA3AF]">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={cert.color} strokeWidth="2" className="shrink-0 mt-0.5">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                      <span className="shrink-0 mt-0.5" style={{ color: cert.color }}>
+                        <CheckIcon size={16} color={cert.color} />
+                      </span>
                       {item}
                     </li>
                   ))}
@@ -75,18 +90,20 @@ export default function CalidadContent() {
 
           {/* Control Points */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-14"
+            className="grid place-items-center text-center max-w-2xl mx-auto mb-10 sm:mb-14"
           >
-            <h2 className="font-display font-bold text-2xl sm:text-4xl tracking-tight mb-4">
+            <p className="eyebrow mb-3">Control de procesos</p>
+            <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
               Puntos de Control de{" "}
               <span className="text-gradient-cyan">Calidad</span>
             </h2>
-            <p className="text-[#9CA3AF] text-sm sm:text-base max-w-2xl mx-auto">
-              Cada etapa de producción cuenta con inspecciones rigurosas para asegurar el cumplimiento de especificaciones.
+            <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
+              Cada etapa de producción cuenta con inspecciones rigurosas para asegurar el
+              cumplimiento de especificaciones.
             </p>
           </motion.div>
 
@@ -98,9 +115,9 @@ export default function CalidadContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="glass rounded-xl p-5 sm:p-6 flex items-start gap-4"
+                className="glass-card rounded-xl p-5 sm:p-6 flex items-start gap-4 transition-colors duration-300 hover:border-white/15"
               >
-                <div className="shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00F2FE]/20 to-[#4FACFE]/10 flex items-center justify-center font-display font-bold text-sm text-[#00F2FE]">
+                <div className="shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br from-[#00F2FE]/20 to-[#4FACFE]/10 grid place-items-center font-display font-bold text-sm text-[#00F2FE]">
                   {cp.step}
                 </div>
                 <div>
@@ -112,12 +129,10 @@ export default function CalidadContent() {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-10 sm:mt-14">
-            <Link href="/contacto" className="btn-primary text-sm sm:text-base inline-flex items-center gap-2">
+          <div className="mt-10 sm:mt-14 grid place-items-center">
+            <Link href="/contacto" className="btn-primary">
               Solicitar Documentación de Calidad
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <ArrowRightIcon size={16} />
             </Link>
           </div>
         </div>

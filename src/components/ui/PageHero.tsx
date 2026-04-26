@@ -6,7 +6,7 @@ import Link from "next/link";
 interface PageHeroProps {
   overline: string;
   title: string;
-  titleHighlight?: string;  // highlighted part (cyan gradient)
+  titleHighlight?: string;
   description?: string;
   badge?: string;
   breadcrumb?: { label: string; href: string };
@@ -22,17 +22,26 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className="relative py-20 sm:py-28 md:py-36 overflow-hidden"
+      className="relative pt-16 pb-20 sm:pt-24 sm:pb-28 md:pt-28 md:pb-32 overflow-hidden"
       style={{ background: "linear-gradient(160deg, #111820 0%, #1a2332 50%, #0d1f2d 100%)" }}
+      aria-label={overline}
     >
-      {/* Ambient glow */}
       <div
-        className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: "radial-gradient(circle at 70% 30%, rgba(0,242,254,0.07) 0%, transparent 60%)" }}
+        aria-hidden
+        className="absolute inset-0 -z-10 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.6) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute top-0 right-0 w-[480px] h-[480px] pointer-events-none -z-10"
+        style={{ background: "radial-gradient(circle at 70% 30%, rgba(0,242,254,0.08) 0%, transparent 60%)" }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
+      <div className="container-pf relative z-10">
         {breadcrumb && (
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -48,35 +57,34 @@ export default function PageHero({
           </motion.div>
         )}
 
-        {/* Overline */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="font-display text-xs sm:text-sm uppercase tracking-[0.3em] text-[#00F2FE] mb-3 sm:mb-4"
+          className="eyebrow mb-3 sm:mb-4"
         >
           {overline}
         </motion.p>
 
-        {/* Badge */}
         {badge && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.05 }}
-            className="inline-flex items-center gap-2 eco-badge mb-4"
+            className="mb-4"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-            {badge}
+            <span className="eco-badge">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              {badge}
+            </span>
           </motion.div>
         )}
 
-        {/* Title */}
         <motion.h1
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display font-bold text-3xl sm:text-5xl md:text-6xl tracking-tight mb-4 sm:mb-6 max-w-4xl"
+          className="h-display text-[2.25rem] sm:text-5xl md:text-[3.4rem] lg:text-6xl mb-4 sm:mb-6 max-w-4xl"
         >
           {title}{" "}
           {titleHighlight && (
@@ -84,10 +92,9 @@ export default function PageHero({
           )}
         </motion.h1>
 
-        {/* Description */}
         {description && (
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#9CA3AF] text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl"
@@ -97,8 +104,10 @@ export default function PageHero({
         )}
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#111820] to-transparent pointer-events-none" />
+      <div
+        aria-hidden
+        className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#111820] to-transparent pointer-events-none"
+      />
     </section>
   );
 }
