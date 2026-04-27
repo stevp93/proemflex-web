@@ -204,7 +204,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[#9CA3AF] hover:text-[#00F2FE] transition-colors font-semibold"
             >
-              Steven Pedraza
+              SP AUTOMATIZACIONES
             </a>
           </p>
           <p>

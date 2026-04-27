@@ -30,7 +30,7 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      const res = await fetch("https://formspree.io/f/xpwdgpnj", {
+      const res = await fetch("https://formsubmit.co/ajax/proemflex.sas@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
