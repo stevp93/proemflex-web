@@ -11,7 +11,7 @@ const caps = [
     detail: "Película flexible 3 — 100 cm",
     description: "Control preciso de calibre y resistencia mecánica en cada metro.",
     Icon: ExtrusionIcon,
-    image: "/images/procesos/optimized/extrusion-2.jpg",
+    image: "/proemflex-web/images/procesos/optimized/extrusion-2.jpg",
     accent: "#00F2FE",
   },
   {
@@ -19,7 +19,7 @@ const caps = [
     detail: "Tambor central flexográfico",
     description: "Registro perfecto y alta definición para branding premium.",
     Icon: PrintingIcon,
-    image: "/images/procesos/optimized/sellado-2.jpg",
+    image: "/proemflex-web/images/procesos/optimized/sellado-2.jpg",
     accent: "#4FACFE",
   },
   {
@@ -27,7 +27,7 @@ const caps = [
     detail: "Juntas 100% herméticas",
     description: "Líneas de alta velocidad con control de temperatura y presión.",
     Icon: SealingIcon,
-    image: "/images/procesos/optimized/sellado-3.jpg",
+    image: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
     accent: "#10B981",
   },
 ];

@@ -21,7 +21,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <span className="grid place-items-center w-11 h-11 rounded-lg bg-white/[0.04] border border-white/[0.06]">
                 <Image
-                  src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+                  src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
                   alt=""
                   width={36}
                   height={36}

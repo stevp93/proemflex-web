@@ -20,7 +20,7 @@ const capabilities = [
       "Película flexible en anchos de 3 cm hasta 100 cm con control preciso de calibre y resistencia mecánica.",
     stat: "3 — 100",
     statUnit: "cm de ancho",
-    image: "/images/procesos/optimized/extrusion-detalle-2.jpg",
+    image: "/proemflex-web/images/procesos/optimized/extrusion-detalle-2.jpg",
     Icon: ExtrusionIcon,
   },
   {
@@ -29,7 +29,7 @@ const capabilities = [
       "Sistema de impresión flexográfica de 6 colores con registro perfecto y alta definición para branding premium.",
     stat: "6",
     statUnit: "colores",
-    image: "/images/procesos/optimized/sellado-2.jpg",
+    image: "/proemflex-web/images/procesos/optimized/sellado-2.jpg",
     Icon: PrintingIcon,
   },
   {
@@ -38,7 +38,7 @@ const capabilities = [
       "Líneas de sellado de alta velocidad con control de temperatura y presión para juntas herméticas impecables.",
     stat: "100%",
     statUnit: "hermético",
-    image: "/images/procesos/optimized/sellado-3.jpg",
+    image: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
     Icon: SealingIcon,
   },
   {
@@ -47,7 +47,7 @@ const capabilities = [
       "Laminados multicapa con barrera a gases, humedad y UV para productos sensibles que requieren máxima protección.",
     stat: "Multi",
     statUnit: "capa barrera",
-    image: "/images/procesos/optimized/extrusion-1.jpg",
+    image: "/proemflex-web/images/procesos/optimized/extrusion-1.jpg",
     Icon: LaminationIcon,
   },
   {
@@ -56,7 +56,7 @@ const capabilities = [
       "Cortado longitudinal de bobinas en anchos personalizados con tolerancias estrechas y bordes uniformes.",
     stat: "±0.5",
     statUnit: "mm tolerancia",
-    image: "/images/procesos/optimized/fajilla-3.jpg",
+    image: "/proemflex-web/images/procesos/optimized/fajilla-3.jpg",
     Icon: SlittingIcon,
   },
   {
@@ -65,7 +65,7 @@ const capabilities = [
       "Líneas de perforación y pre-corte para empaques con apertura fácil y ahorro en operaciones aguas abajo.",
     stat: "20 — 75",
     statUnit: "cm de ancho",
-    image: "/images/procesos/optimized/precorte-2.jpg",
+    image: "/proemflex-web/images/procesos/optimized/precorte-2.jpg",
     Icon: PrecutIcon,
   },
 ];

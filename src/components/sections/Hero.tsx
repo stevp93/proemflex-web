@@ -186,7 +186,7 @@ export default function Hero() {
             {/* Main image — factory shot */}
             <div className="photo-frame absolute inset-0 ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,242,254,0.25)]">
               <Image
-                src="/images/procesos/optimized/extrusion-detalle-1.jpg"
+                src="/proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg"
                 alt="Línea de extrusión PROEMFLEX en operación — película flexible saliendo del dado de extrusión"
                 width={480}
                 height={576}
@@ -244,7 +244,7 @@ export default function Hero() {
         >
           <div className="photo-frame rounded-xl aspect-[16/9] max-h-52 ring-1 ring-white/10">
             <Image
-              src="/images/procesos/optimized/extrusion-detalle-1.jpg"
+              src="/proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg"
               alt="Línea de extrusión PROEMFLEX en operación"
               width={640}
               height={360}

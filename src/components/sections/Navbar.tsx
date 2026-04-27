@@ -62,7 +62,7 @@ export default function Navbar() {
         >
           <span className="grid place-items-center w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
             <Image
-              src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+              src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
               alt=""
               width={32}
               height={32}

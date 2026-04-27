@@ -14,31 +14,31 @@ import { ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
 const shots = [
   {
-    src: "/images/procesos/optimized/extrusion-3.jpg",
+    src: "/proemflex-web/images/procesos/optimized/extrusion-3.jpg",
     alt: "Extrusora industrial PROEMFLEX en operación",
     label: "Extrusión",
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/images/procesos/optimized/sellado-2.jpg",
+    src: "/proemflex-web/images/procesos/optimized/sellado-2.jpg",
     alt: "Línea de sellado automático",
     label: "Sellado automático",
     span: "",
   },
   {
-    src: "/images/procesos/optimized/fajilla-2.jpg",
+    src: "/proemflex-web/images/procesos/optimized/fajilla-2.jpg",
     alt: "Producción de fajillas termoencogibles",
     label: "Fajillas",
     span: "",
   },
   {
-    src: "/images/procesos/optimized/precorte-1.jpg",
+    src: "/proemflex-web/images/procesos/optimized/precorte-1.jpg",
     alt: "Sistema de precorte de película",
     label: "Pre-corte",
     span: "",
   },
   {
-    src: "/images/procesos/optimized/sellado-3.jpg",
+    src: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
     alt: "Detalle del proceso de sellado",
     label: "Control de calidad",
     span: "",
