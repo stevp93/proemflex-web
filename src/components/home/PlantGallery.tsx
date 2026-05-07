@@ -66,7 +66,7 @@ export default function PlantGallery() {
             <span className="text-gradient-cyan">en cada metro</span>
           </h2>
           <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
-            Líneas certificadas BPM operadas por personal capacitado.
+            Líneas con altos estándares de calidad operadas por personal capacitado.
             Una mirada al interior de PROEMFLEX.
           </p>
         </motion.div>

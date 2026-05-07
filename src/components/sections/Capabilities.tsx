@@ -17,7 +17,7 @@ const capabilities = [
   {
     title: "Extrusión",
     description:
-      "Película flexible en anchos de 3 cm hasta 100 cm con control preciso de calibre y resistencia mecánica.",
+      "Fabricación de película plástica con control preciso de calibre, resistencia y uniformidad para aplicaciones industriales.",
     stat: "3 — 100",
     statUnit: "cm de ancho",
     image: "/proemflex-web/images/procesos/optimized/extrusion-detalle-2.jpg",
@@ -26,16 +26,16 @@ const capabilities = [
   {
     title: "Impresión Tambor Central",
     description:
-      "Sistema de impresión flexográfica de 6 colores con registro perfecto y alta definición para branding premium.",
+      "Impresión flexográfica de alta definición que garantiza colores precisos, registro perfecto y excelente presentación del producto.",
     stat: "6",
     statUnit: "colores",
-    image: "/proemflex-web/images/procesos/optimized/sellado-2.jpg",
+    image: "/proemflex-web/images/procesos/optimized/extrusion-1.jpg",
     Icon: PrintingIcon,
   },
   {
     title: "Sellado Automático",
     description:
-      "Líneas de sellado de alta velocidad con control de temperatura y presión para juntas herméticas impecables.",
+      "Sellado de alta velocidad con control de temperatura y presión para empaques herméticos y confiables.",
     stat: "100%",
     statUnit: "hermético",
     image: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
@@ -44,25 +44,25 @@ const capabilities = [
   {
     title: "Laminación",
     description:
-      "Laminados multicapa con barrera a gases, humedad y UV para productos sensibles que requieren máxima protección.",
+      "Unión de materiales plásticos para crear estructuras multicapa con mayor protección, resistencia y desempeño.",
     stat: "Multi",
     statUnit: "capa barrera",
-    image: "/proemflex-web/images/procesos/optimized/extrusion-1.jpg",
+    image: "/proemflex-web/images/procesos/optimized/fajilla-3.jpg",
     Icon: LaminationIcon,
   },
   {
     title: "Refilado",
     description:
-      "Cortado longitudinal de bobinas en anchos personalizados con tolerancias estrechas y bordes uniformes.",
+      "Corte preciso de bobinas para obtener anchos personalizados con acabados uniformes y alta exactitud.",
     stat: "±0.5",
     statUnit: "mm tolerancia",
-    image: "/proemflex-web/images/procesos/optimized/fajilla-3.jpg",
+    image: "/proemflex-web/images/procesos/optimized/fajilla-5.jpg",
     Icon: SlittingIcon,
   },
   {
     title: "Pre-corte",
     description:
-      "Líneas de perforación y pre-corte para empaques con apertura fácil y ahorro en operaciones aguas abajo.",
+      "Perforación y pre-corte que facilitan el uso del empaque, optimizando procesos y mejorando la experiencia final.",
     stat: "20 — 75",
     statUnit: "cm de ancho",
     image: "/proemflex-web/images/procesos/optimized/precorte-2.jpg",

@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 
-const WHATSAPP_NUMBER = "573001234567"; // Actualizar con número real
+const WHATSAPP_NUMBER = "573222178185";
 
 const products = [
   {
     title: "Bolsas de Polietileno",
-    description: "Bolsas de alta y baja densidad en diversas medidas y calibres para uso industrial y comercial.",
-    specs: "Calibres: 1 — 6 · Anchos: 3 — 100 cm",
+    description: "Soluciones versátiles para empaque industrial y comercial, con excelente resistencia y adaptabilidad a diferentes usos.",
+    specs: "Calibres personalizados · Alta resistencia",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -18,21 +18,20 @@ const products = [
     ),
   },
   {
-    title: "Película Stretch",
-    description: "Película extensible para embalaje y protección de productos en pallets y tarimas.",
-    specs: "Manual e industrial · Alta adherencia",
+    title: "Laminación",
+    description: "Desarrollamos estructuras multicapa mediante la unión de materiales como polietileno, polipropileno y películas metalizadas, optimizando la conservación, resistencia y presentación del empaque.",
+    specs: "Multicapa · Conservación óptima",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="6" rx="9" ry="3" />
-        <path d="M3 6v12a9 3 0 0018 0V6" />
-        <path d="M3 12a9 3 0 0018 0" />
+        <path d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        <rect x="3" y="4" width="18" height="16" rx="2" />
       </svg>
     ),
   },
   {
     title: "Bolsas Impresas",
-    description: "Bolsas con impresión flexográfica hasta 6 colores para branding y presentación de producto.",
-    specs: "Hasta 6 colores · Registro perfecto",
+    description: "Empaques personalizados que fortalecen la imagen de tu marca con impresión de alta calidad.",
+    specs: "Hasta 6 colores · Acabado profesional",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="4" y="3" width="16" height="18" rx="1.5" />
@@ -42,8 +41,8 @@ const products = [
   },
   {
     title: "Fajillas y Mangas",
-    description: "Mangas y fajillas termoencogibles para envases, botellas y empaques unitarios.",
-    specs: "Termoencogible · Alta calidad visual",
+    description: "Soluciones termo encogibles ideales para presentación, agrupación y protección de productos.",
+    specs: "Alta calidad visual · Ajuste perfecto",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 3h6v18H9z" />
@@ -52,20 +51,9 @@ const products = [
     ),
   },
   {
-    title: "Bolsas de Alta Barrera",
-    description: "Empaques multicapa con barrera a gases, humedad y UV para productos sensibles.",
-    specs: "Multicapa · Laminados · Barrera UV",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Sacos Industriales",
-    description: "Sacos de alta resistencia para productos en polvo y granulados de hasta 50 kg.",
-    specs: "Hasta 50 kg · Alta resistencia mecánica",
+    title: "Bolsas Industriales",
+    description: "Empaques resistentes para el manejo seguro de productos pesados.",
+    specs: "Alta capacidad · Máxima resistencia",
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M8 4h8l2 4v12a2 2 0 01-2 2H8a2 2 0 01-2-2V8z" />
@@ -99,7 +87,7 @@ export default function ProductBand() {
             <span className="text-gradient-cyan">soluciones de empaque</span>
           </h2>
           <p className="text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
-            Línea completa de productos de empaque flexible adaptados a las necesidades de cada industria.
+            Soluciones flexibles diseñadas para proteger, optimizar y destacar tus productos en cada industria.
           </p>
         </motion.div>
 

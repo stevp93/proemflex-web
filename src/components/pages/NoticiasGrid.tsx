@@ -8,7 +8,7 @@ const newsArticles = [
   {
     id: 1,
     tag: "Certificación",
-    title: "Renovación Certificación ISO 9001:2015",
+    title: "Innovación en empaques compostables",
     excerpt:
       "Renovamos exitosamente nuestra certificación de gestión de calidad, reafirmando nuestro compromiso con los más altos estándares internacionales en cada proceso productivo.",
     date: "15 Ene 2026",
@@ -60,7 +60,7 @@ const newsArticles = [
     tag: "Capacitación",
     title: "Programa de Formación Continua al 100% del Equipo",
     excerpt:
-      "Completamos el programa de capacitación en calidad, BPM, trabajo en equipo y reducción de desperdicios, capacitando al 100% de nuestro equipo operativo y administrativo.",
+      "Completamos el programa de capacitación en calidad, BPF, trabajo en equipo y reducción de desperdicios, capacitando al 100% de nuestro equipo operativo y administrativo.",
     date: "10 Ago 2025",
     readTime: "3 min",
     accent: "#06B6D4",

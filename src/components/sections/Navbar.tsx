@@ -60,12 +60,12 @@ export default function Navbar() {
           className="flex items-center gap-3 group shrink-0"
           aria-label="PROEMFLEX — Inicio"
         >
-          <span className="grid place-items-center w-10 h-10 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
+          <span className="grid place-items-center w-12 h-12 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
             <Image
               src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
               alt=""
-              width={32}
-              height={32}
+              width={40}
+              height={40}
               priority
               className="object-contain transition-transform duration-300 group-hover:scale-105"
             />
@@ -81,7 +81,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-1" role="menubar">
+        <ul className="hidden lg:flex items-center gap-3" role="menubar">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (

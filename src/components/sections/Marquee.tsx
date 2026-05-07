@@ -5,8 +5,8 @@ const TOKENS = [
   "REÚSA",
   "RECICLA",
   "100% ECO-FRIENDLY",
-  "ISO 9001",
-  "33+ AÑOS",
+  "BPF Certificado",
+  "30+ AÑOS",
   "EMPAQUES FLEXIBLES",
 ];
 

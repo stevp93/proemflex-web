@@ -44,7 +44,7 @@ export default function SustainabilityPreview() {
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Link href="/calidad" className="btn-outline">
-              Calidad y BPM <ArrowRightIcon size={14} />
+              Calidad y BPF <ArrowRightIcon size={14} />
             </Link>
             <Link href="/nosotros" className="btn-outline">
               Nuestra historia <ArrowRightIcon size={14} />

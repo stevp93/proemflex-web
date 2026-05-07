@@ -42,8 +42,8 @@ export default function SectorsPreview() {
             <span className="text-gradient-cyan">cada industria</span>
           </h2>
           <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
-            Soluciones especializadas respaldadas por +33 años de experiencia y procesos
-            certificados BPM e ISO 9001.
+            Soluciones especializadas respaldadas por +30 años de experiencia y procesos
+            con altos estándares de calidad.
           </p>
         </motion.div>
 

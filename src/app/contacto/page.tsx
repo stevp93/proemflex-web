@@ -14,9 +14,9 @@ export default function ContactoPage() {
     <main id="main-content" style={{ paddingTop: "var(--nav-height)" }}>
       <PageHero
         overline="Contáctanos"
-        title="Cotice su proyecto de"
+        title="Cotiza tu proyecto de"
         titleHighlight="empaque"
-        description="Nuestro equipo de ingeniería diseña soluciones a medida. Cuéntenos sus necesidades y recibirá una propuesta personalizada en menos de 48 horas hábiles."
+        description="Nuestro equipo desarrolla soluciones a medida según tus necesidades. Cuéntanos tu requerimiento y recibe una propuesta clara y personalizada en menos de 48 horas hábiles."
         breadcrumb={{ label: "Contacto", href: "/contacto" }}
       />
       <Contact />

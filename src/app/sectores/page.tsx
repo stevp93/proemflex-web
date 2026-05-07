@@ -6,7 +6,7 @@ import PageHero from "@/components/ui/PageHero";
 export const metadata: Metadata = {
   title: "Sectores — Soluciones de empaque por industria",
   description:
-    "Empaques flexibles para alimentos, laboratorios farmacéuticos, textiles, líneas comerciales, almacenes de cadena y aseo. Soluciones certificadas BPM e ISO 9001.",
+    "Empaques flexibles para alimentos, laboratorios farmacéuticos, textiles, líneas comerciales, almacenes de cadena y aseo. Soluciones con altos estándares de calidad.",
   alternates: { canonical: "/sectores" },
 };
 
@@ -17,7 +17,7 @@ export default function SectoresPage() {
         overline="Soluciones por sector"
         title="Empaques flexibles para"
         titleHighlight="cada industria"
-        description="Soluciones especializadas respaldadas por +33 años de experiencia y procesos certificados BPM e ISO 9001. Empaque a medida para cada necesidad industrial."
+        description="Soluciones especializadas respaldadas por +30 años de experiencia y procesos con altos estándares de calidad. Empaque a medida para cada necesidad industrial."
         breadcrumb={{ label: "Sectores", href: "/sectores" }}
       />
       <Sectors />

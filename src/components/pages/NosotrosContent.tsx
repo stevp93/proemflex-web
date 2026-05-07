@@ -9,16 +9,16 @@ import {
 } from "@/components/ui/ProcessIcons";
 
 const timeline = [
-  { year: "1993", title: "Fundación", desc: "Nace PROEMFLEX S.A.S. con la visión de producir empaques flexibles de calidad para la industria colombiana." },
-  { year: "2002", title: "Certificación ISO 9001", desc: "Obtenemos la certificación internacional de gestión de calidad, validando nuestros procesos y estándares." },
-  { year: "2010", title: "Ampliación de planta", desc: "Duplicamos nuestra capacidad de producción con nuevas líneas de extrusión e impresión de última generación." },
-  { year: "2018", title: "Implementación BPM", desc: "Adoptamos Buenas Prácticas de Manufactura para garantizar la inocuidad en empaques alimentarios y farmacéuticos." },
-  { year: "2024", title: "Innovación continua", desc: "Inversión en tecnología de impresión flexográfica de 6 colores con tambor central y sellado automático de alta velocidad." },
-  { year: "2026", title: "33+ años de liderazgo", desc: "Más de tres décadas sirviendo a la industria colombiana con empaques flexibles de precisión y calidad certificada." },
+  { year: "1989", title: "Origen", desc: "Nace Plásticos La Hogareña S.A.S. con la iniciativa de fabricar y comercializar empaques plásticos para pequeños negocios, dando inicio a una trayectoria en el sector." },
+  { year: "—", title: "Crecimiento industrial", desc: "La empresa evoluciona, incorporando procesos como extrusión y fortaleciendo su infraestructura productiva para responder a la demanda del mercado." },
+  { year: "—", title: "Consolidación", desc: "Gracias a su compromiso con la calidad, La Hogareña logra posicionarse como un referente en empaques flexibles a nivel industrial." },
+  { year: "—", title: "Evolución", desc: "Se fortalecen áreas clave como impresión, corte, sellado y laminación, permitiendo ofrecer soluciones más completas y eficientes." },
+  { year: "—", title: "Alianza estratégica — Nace Proemflex", desc: "Surge Proemflex como la integración entre Plásticos La Hogareña S.A.S. y Cambreplast, uniendo experiencia, tecnología y capacidad productiva." },
+  { year: "Hoy", title: "Proyección y liderazgo", desc: "Proemflex continúa creciendo como aliado estratégico en empaques flexibles, ofreciendo soluciones innovadoras, sostenibles y con cobertura a nivel nacional." },
 ];
 
 const values = [
-  { title: "Calidad", desc: "Procesos certificados ISO 9001 y BPM que garantizan la excelencia en cada producto.", Icon: CertificateIcon, color: "#00F2FE" },
+  { title: "Calidad", desc: "Procesos con altos estándares y concepto favorable de la Secretaría que garantizan la excelencia en cada producto.", Icon: CertificateIcon, color: "#00F2FE" },
   { title: "Innovación", desc: "Inversión continua en tecnología de punta para ofrecer las mejores soluciones de empaque.", Icon: FactoryIcon, color: "#EC4899" },
   { title: "Responsabilidad", desc: "Compromiso con la sostenibilidad ambiental y la economía circular.", Icon: RecycleIcon, color: "#10B981" },
   { title: "Servicio", desc: "Acompañamiento integral desde el diseño hasta la entrega, con tiempos de respuesta ágiles.", Icon: ShieldCheckIcon, color: "#F59E0B" },
@@ -45,7 +45,7 @@ export default function NosotrosContent() {
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
                 Fabricar empaques flexibles de alta calidad que satisfagan las necesidades de
                 nuestros clientes industriales, operando bajo estándares de Buenas Prácticas
-                de Manufactura (BPM) e ISO 9001, con un firme compromiso con la sostenibilidad
+                de Fabricación (BPF), con un firme compromiso con la sostenibilidad
                 ambiental y el desarrollo continuo de nuestro equipo humano.
               </p>
             </motion.div>
@@ -130,7 +130,7 @@ export default function NosotrosContent() {
 
             {timeline.map((item, i) => (
               <motion.div
-                key={item.year}
+                key={item.title}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -149,21 +149,21 @@ export default function NosotrosContent() {
                 <div className="shrink-0 relative z-10">
                   <div className="grid place-items-center w-9 h-9 rounded-full bg-[#111820] border-2 border-[#00F2FE]">
                     <span className="font-display font-bold text-[0.6rem] text-[#00F2FE]">
-                      {item.year.slice(-2)}
+                      {item.year === "—" ? "•" : item.year.length <= 3 ? item.year : item.year.slice(-2)}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex-1 sm:hidden">
                   <div className="glass-card rounded-xl p-4">
-                    <p className="font-display text-xs text-[#00F2FE] font-semibold mb-1">{item.year}</p>
+                    <p className="font-display text-xs text-[#00F2FE] font-semibold mb-1">{item.year === "—" ? "" : item.year}</p>
                     <h3 className="font-display font-bold text-base text-white mb-1">{item.title}</h3>
                     <p className="text-xs text-[#9CA3AF] leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
 
                 <div className={`flex-1 hidden sm:flex items-center ${i % 2 === 0 ? "" : "justify-end"}`}>
-                  <span className="font-display font-bold text-2xl text-gradient-cyan">{item.year}</span>
+                  <span className="font-display font-bold text-2xl text-gradient-cyan">{item.year === "—" ? "" : item.year}</span>
                 </div>
               </motion.div>
             ))}

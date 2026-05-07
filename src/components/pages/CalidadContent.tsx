@@ -6,27 +6,14 @@ import { CertificateIcon, ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/c
 
 const certifications = [
   {
-    title: "ISO 9001:2015",
+    title: "BPF — Buenas Prácticas de Fabricación",
     description:
-      "Sistema de Gestión de Calidad certificado internacionalmente. Garantiza procesos estandarizados, mejora continua y satisfacción del cliente en cada orden de producción.",
-    items: [
-      "Auditorías internas periódicas",
-      "Control estadístico de procesos",
-      "Gestión documental integrada",
-      "Seguimiento de indicadores KPI",
-    ],
-    Icon: CertificateIcon,
-    color: "#00F2FE",
-  },
-  {
-    title: "BPM — Buenas Prácticas de Manufactura",
-    description:
-      "Estándares de manufactura que aseguran la inocuidad, trazabilidad y calidad de los empaques en contacto con alimentos y productos farmacéuticos.",
+      "Estándares de fabricación que aseguran la inocuidad, trazabilidad y calidad de los empaques en contacto con alimentos y productos farmacéuticos. Contamos con el concepto favorable de la Secretaría.",
     items: [
       "Control de contaminación cruzada",
       "Trazabilidad lote a lote",
       "Personal capacitado en higiene",
-      "Inspección visual y dimensional",
+      "Concepto favorable de la Secretaría",
     ],
     Icon: ShieldCheckIcon,
     color: "#10B981",
@@ -34,12 +21,12 @@ const certifications = [
 ];
 
 const controlPoints = [
-  { title: "Materia Prima", desc: "Inspección y certificación de resinas y tintas al ingreso.", step: "01" },
-  { title: "Extrusión", desc: "Control de calibre, resistencia y transparencia en línea.", step: "02" },
-  { title: "Impresión", desc: "Verificación de registro, color y adherencia de tintas.", step: "03" },
-  { title: "Sellado", desc: "Pruebas de hermeticidad y resistencia de juntas.", step: "04" },
-  { title: "Producto Terminado", desc: "Inspección final, empaque y liberación de lote.", step: "05" },
-  { title: "Despacho", desc: "Documentación completa, trazabilidad y condiciones de transporte.", step: "06" },
+  { title: "Materia Prima", desc: "Verificamos la calidad de resinas y tintas desde su ingreso, asegurando que cumplan con los estándares requeridos.", step: "01" },
+  { title: "Extrusión", desc: "Controlamos variables clave como calibre, resistencia y uniformidad para garantizar un material base de alta calidad.", step: "02" },
+  { title: "Impresión", desc: "Supervisamos registro, color y adherencia, asegurando acabados consistentes y una correcta presentación del producto.", step: "03" },
+  { title: "Sellado", desc: "Realizamos pruebas de hermeticidad y resistencia para garantizar empaques seguros y funcionales.", step: "04" },
+  { title: "Producto Terminado", desc: "Inspeccionamos el producto final antes de su despacho, verificando calidad, presentación y cumplimiento de especificaciones.", step: "05" },
+  { title: "Despacho", desc: "Aseguramos trazabilidad, documentación y condiciones óptimas de entrega para garantizar un servicio confiable.", step: "06" },
 ];
 
 export default function CalidadContent() {
@@ -52,7 +39,7 @@ export default function CalidadContent() {
         aria-label="Certificaciones de calidad"
       >
         <div className="container-pf">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-20">
+          <div className="grid md:grid-cols-1 max-w-2xl mx-auto gap-6 sm:gap-8 mb-16 sm:mb-20">
             {certifications.map((cert, i) => (
               <motion.div
                 key={cert.title}

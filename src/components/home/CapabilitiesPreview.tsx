@@ -54,7 +54,7 @@ export default function CapabilitiesPreview() {
             <span className="text-gradient-cyan">manufactura</span>
           </h2>
           <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
-            Maquinaria de última generación y procesos certificados BPM, supervisados
+            Maquinaria de última generación y procesos con altos estándares de calidad, supervisados
             metro a metro para garantizar calidad constante.
           </p>
         </motion.div>

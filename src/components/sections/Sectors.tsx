@@ -15,7 +15,7 @@ const sectors = [
     tag: "Sector Alimentario",
     title: "Alimentos",
     description:
-      "Empaques flexibles de alta barrera para productos alimenticios. Certificados para contacto directo con alimentos bajo normativas BPM.",
+      "Empaques flexibles de alta barrera para productos alimenticios. Certificados para contacto directo con alimentos bajo normativas BPF.",
     specs: ["Panela", "Leche larga vida", "Six-packs", "Barrera UV"],
     Icon: FoodIcon,
     accent: "#F59E0B",
@@ -24,7 +24,7 @@ const sectors = [
     tag: "Sector Farmacéutico",
     title: "Laboratorios Farmacéuticos",
     description:
-      "Empaque especializado para laboratorios farmacéuticos y dispositivos médicos. Estándares de higiene, trazabilidad y BPM garantizados.",
+      "Empaque especializado para laboratorios farmacéuticos y dispositivos médicos. Estándares de higiene, trazabilidad y BPF garantizados.",
     specs: ["Medicamentos", "Dispositivos Médicos", "Empaques estériles", "Trazabilidad"],
     Icon: PharmaIcon,
     accent: "#EC4899",

@@ -8,30 +8,30 @@ import { ArrowRightIcon } from "@/components/ui/ProcessIcons";
 const newsItems = [
   {
     id: 1,
-    tag: "Certificación",
-    title: "Renovación Certificación ISO 9001:2015",
+    tag: "Sostenibilidad",
+    title: "Innovación en empaques compostables",
     description:
-      "Renovamos exitosamente nuestra certificación de gestión de calidad, reafirmando nuestro compromiso con los más altos estándares internacionales.",
+      "En Proemflex avanzamos hacia soluciones más sostenibles con el desarrollo de empaques compostables, diseñados para reducir el impacto ambiental sin comprometer la calidad ni la funcionalidad en la industria.",
     cta: "Conocer más",
-    accent: "#00F2FE",
-  },
-  {
-    id: 2,
-    tag: "Innovación",
-    title: "Nueva línea de impresión flexográfica 6 colores",
-    description:
-      "Ampliamos nuestra capacidad con tecnología de tambor central, permitiendo mayor definición y registro perfecto.",
-    cta: "Ver capacidades",
     accent: "#10B981",
   },
   {
-    id: 3,
-    tag: "Sostenibilidad",
-    title: "Compromiso con empaques 100% reciclables",
+    id: 2,
+    tag: "Compromiso",
+    title: "Compromiso con materiales reciclados",
     description:
-      "Avanzamos en nuestra meta de producir soluciones que contribuyan a la economía circular y la protección del medio ambiente.",
+      "Fortalecemos nuestra operación mediante el uso de materiales 100% reciclados, aportando a la economía circular y ofreciendo alternativas responsables para nuestros clientes.",
     cta: "Leer más",
     accent: "#F59E0B",
+  },
+  {
+    id: 3,
+    tag: "Crecimiento",
+    title: "Fortalecimiento de nuestra capacidad productiva",
+    description:
+      "Gracias a la integración estratégica con aliados del sector, ampliamos nuestras capacidades en procesos como extrusión, impresión y laminación, garantizando mayor eficiencia y cumplimiento a nivel nacional.",
+    cta: "Ver capacidades",
+    accent: "#00F2FE",
   },
 ];
 

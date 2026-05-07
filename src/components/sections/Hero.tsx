@@ -88,9 +88,9 @@ export default function Hero() {
           <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible" className="flex flex-wrap gap-2">
             <span className="eco-badge">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              Certificado BPM &amp; ISO 9001
+              Alianza Estratégica
             </span>
-            <span className="trust-pill">+33 años en Colombia</span>
+            <span className="trust-pill">+30 años de experiencia</span>
           </motion.div>
 
           <motion.h1
@@ -124,10 +124,7 @@ export default function Hero() {
             animate="visible"
             className="text-base sm:text-lg md:text-xl text-[#9CA3AF] leading-relaxed"
           >
-            <span className="text-white font-semibold">PROEMFLEX S.A.S.</span> —
-            fabricante colombiano de empaques flexibles con procesos certificados{" "}
-            <span className="text-white font-semibold">BPM e ISO 9001</span>{" "}
-            para alimentos, farmacéuticos, textiles, aseo y más.
+            <span className="text-white font-semibold">PROEMFLEX S.A.S.</span> — alianza estratégica con más de 30 años de experiencia en empaques flexibles, ofreciendo soluciones integrales con altos estándares de calidad para la industria.
           </motion.p>
 
           {/* CTAs */}
@@ -156,9 +153,9 @@ export default function Hero() {
             className="grid grid-cols-3 gap-3 sm:gap-4 pt-3 sm:pt-4 border-t border-white/[0.06]"
           >
             {[
-              { Icon: CertificateIcon, label: "ISO 9001:2015", color: "#00F2FE" },
-              { Icon: ShieldCheckIcon, label: "BPM Certificado", color: "#10B981" },
-              { Icon: FactoryIcon, label: "33+ años", color: "#9CA3AF" },
+              { Icon: CertificateIcon, label: "BPF Certificado", color: "#00F2FE" },
+              { Icon: ShieldCheckIcon, label: "Concepto Favorable", color: "#10B981" },
+              { Icon: FactoryIcon, label: "30+ años", color: "#9CA3AF" },
             ].map(({ Icon, label, color }) => (
               <div key={label} className="flex items-center gap-2.5">
                 <span
