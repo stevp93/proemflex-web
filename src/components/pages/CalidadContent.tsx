@@ -41,7 +41,7 @@ export default function CalidadContent() {
         aria-label="Certificaciones de calidad"
       >
         <div className="container-pf">
-          <div className="grid md:grid-cols-1 max-w-2xl mx-auto gap-6 sm:gap-8 mb-16 sm:mb-20">
+          <div className="flex flex-col items-center gap-6 sm:gap-8 mb-16 sm:mb-20">
             {certifications.map((cert, i) => (
               <motion.div
                 key={cert.title}
@@ -49,7 +49,7 @@ export default function CalidadContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
+                className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10 w-full max-w-2xl"
               >
                 <span
                   className="grid place-items-center w-12 h-12 rounded-xl mb-5"

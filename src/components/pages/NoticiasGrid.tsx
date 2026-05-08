@@ -121,7 +121,7 @@ export default function NoticiasGrid() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {newsArticles.slice(1).map((article, i) => (
             <motion.article
               key={article.id}
@@ -129,12 +129,12 @@ export default function NoticiasGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group glass-card rounded-xl p-5 sm:p-6 flex flex-col transition-all duration-300 hover:border-white/15 hover:-translate-y-0.5"
+              className="group glass-card rounded-xl p-6 sm:p-7 lg:p-8 flex flex-col transition-all duration-300 hover:border-white/15 hover:-translate-y-0.5"
               style={{
                 background: `linear-gradient(180deg, ${article.accent}0d 0%, transparent 65%)`,
               }}
             >
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between mb-4">
                 <span
                   className="text-[0.65rem] sm:text-xs font-display font-semibold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full"
                   style={{
@@ -151,11 +151,11 @@ export default function NoticiasGrid() {
                 {article.title}
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed mb-4 flex-1">
+              <p className="text-xs sm:text-sm text-[#9CA3AF] leading-relaxed mb-5 flex-1">
                 {article.excerpt}
               </p>
 
-              <div className="flex items-center justify-between border-t border-white/[0.04] pt-3">
+              <div className="flex items-center justify-between border-t border-white/[0.04] pt-4 mt-1">
                 <span className="text-[0.65rem] text-[#4B5563]">
                   {article.readTime} de lectura
                 </span>
