@@ -85,6 +85,7 @@ export default function Hero() {
       <div className="container-pf relative z-10 grid items-center lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 py-20 sm:py-24 lg:py-28">
         {/* Left — Copy */}
         <div className="lg:col-span-7 flex flex-col gap-6 sm:gap-7 max-w-2xl">
+          {/* ── BADGES HERO: Aquí puedes cambiar el texto de los badges (etiquetas superiores) ── */}
           <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible" className="flex flex-wrap gap-2">
             <span className="eco-badge">
               <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
@@ -93,6 +94,7 @@ export default function Hero() {
             <span className="trust-pill">+30 años de experiencia</span>
           </motion.div>
 
+          {/* ── TÍTULO PRINCIPAL HERO: Aquí puedo cambiar el título principal de la sección ── */}
           <motion.h1
             custom={1}
             variants={textVariants}
@@ -117,6 +119,7 @@ export default function Hero() {
             </span>
           </motion.h1>
 
+          {/* ── DESCRIPCIÓN HERO: Aquí puedo cambiar el texto descriptivo del héroe ── */}
           <motion.p
             custom={2}
             variants={textVariants}
@@ -127,7 +130,7 @@ export default function Hero() {
             <span className="text-white font-semibold">PROEMFLEX S.A.S.</span> — alianza estratégica con más de 30 años de experiencia en empaques flexibles, ofreciendo soluciones integrales con altos estándares de calidad para la industria.
           </motion.p>
 
-          {/* CTAs */}
+          {/* ── BOTONES CTA: Aquí puedo cambiar el texto de los botones y sus enlaces (/contacto, /capacidades) ── */}
           <motion.div
             custom={3}
             variants={textVariants}
@@ -172,6 +175,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
+        {/* ── IMAGEN HERO (Desktop): Reemplaza el archivo en /proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg con tu nueva imagen de la planta ── */}
         {/* Right — Real factory photo collage */}
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -192,6 +196,7 @@ export default function Hero() {
               />
             </div>
 
+            {/* ── BADGES ESTADÍSTICAS: Aquí puedo cambiar los valores de estadísticas (3 — 100 cm, 6 colores, 100% hermético) ── */}
             {/* Stat badge — top */}
             <motion.div
               initial={{ opacity: 0, y: -12 }}
@@ -232,6 +237,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
+        {/* ── IMAGEN HERO (Mobile): Reemplaza el archivo en /proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg con tu nueva imagen para celular ── */}
         {/* Mobile — condensed photo strip (visible only on small screens) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}

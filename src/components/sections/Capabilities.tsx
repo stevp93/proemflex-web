@@ -13,6 +13,7 @@ import {
   ArrowRightIcon,
 } from "@/components/ui/ProcessIcons";
 
+// ── CAPACIDADES/PROCESOS: Para cambiar los 6 procesos, edita este array. Cada objeto tiene: title (título), description (descripción), stat (número/valor), statUnit (unidad), image (ruta del archivo de imagen en /proemflex-web/images/procesos/optimized/), Icon (icono) ──
 const capabilities = [
   {
     title: "Extrusión",
@@ -105,14 +106,15 @@ export default function Capabilities() {
                 </span>
               </div>
 
-              <div className="p-5 sm:p-6 flex-1 flex flex-col gap-3">
+              {/* ── CONTENIDO TARJETA: Título, descripción y estadística de cada proceso ── */}
+              <div className="p-6 sm:p-7 lg:p-8 flex-1 flex flex-col gap-3">
                 <h3 className="font-display font-bold text-lg sm:text-xl text-white tracking-tight">
                   {cap.title}
                 </h3>
                 <p className="text-sm text-[#9CA3AF] leading-relaxed flex-1">
                   {cap.description}
                 </p>
-                <div className="border-t border-white/[0.06] pt-3 flex items-baseline justify-between">
+                <div className="border-t border-white/[0.06] pt-4 mt-1 flex items-baseline justify-between">
                   <span className="font-display font-bold text-2xl sm:text-3xl text-gradient-cyan">
                     {cap.stat}
                   </span>

@@ -29,19 +29,20 @@ export default function SectorsPreview() {
       aria-label="Sectores que atendemos"
     >
       <div className="container-pf">
+        {/* ── TÍTULO SECCIÓN SECTORES: Texto principal de la sección de sectores en el home ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
+          className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
         >
           <p className="eyebrow mb-3">Soluciones por sector</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
             Empaques flexibles para{" "}
             <span className="text-gradient-cyan">cada industria</span>
           </h2>
-          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
             Soluciones especializadas respaldadas por +30 años de experiencia y procesos
             con altos estándares de calidad.
           </p>

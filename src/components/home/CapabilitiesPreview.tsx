@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExtrusionIcon, PrintingIcon, SealingIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
+// ── CAPACIDADES PREVIEW (3 PROCESOS): Para cambiar las 3 capacidades principales del home, edita este array. Cada objeto tiene: title (nombre), detail (detalle técnico), description (descripción), Icon (icono), image (ruta en /proemflex-web/images/procesos/optimized/), accent (color hexadecimal) ──
 const caps = [
   {
     title: "Extrusión",
@@ -40,20 +41,20 @@ export default function CapabilitiesPreview() {
       aria-label="Capacidades de manufactura"
     >
       <div className="container-pf">
-        {/* Header — centered */}
+        {/* ── TÍTULO SECCIÓN CAPACIDADES: Texto principal de la sección proceso de producción en el home ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
+          className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
         >
           <p className="eyebrow mb-3">Proceso de producción</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
             Nuestro proceso de{" "}
             <span className="text-gradient-cyan">manufactura</span>
           </h2>
-          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
             Maquinaria de última generación y procesos con altos estándares de calidad, supervisados
             metro a metro para garantizar calidad constante.
           </p>

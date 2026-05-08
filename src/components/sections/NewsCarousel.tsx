@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
+// ── NOTICIAS: Para agregar o cambiar noticias, edita este array con objetos que tengan: id (número único), tag (categoría), title (título), description (contenido), cta (botón), accent (color) ──
 const newsItems = [
   {
     id: 1,

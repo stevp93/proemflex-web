@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { CertificateIcon, ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
+// ── CERTIFICACIONES: Para agregar o cambiar certificaciones, edita este array con objetos que tengan: title (nombre), description (descripción), items (array de puntos), Icon (icono), color (color hexadecimal) ──
 const certifications = [
   {
     title: "BPF — Buenas Prácticas de Fabricación",
@@ -20,6 +21,7 @@ const certifications = [
   },
 ];
 
+// ── PUNTOS DE CONTROL DE CALIDAD: Para cambiar los 6 puntos de control, edita este array con objetos que tengan: title (nombre del punto), desc (descripción), step (número) ──
 const controlPoints = [
   { title: "Materia Prima", desc: "Verificamos la calidad de resinas y tintas desde su ingreso, asegurando que cumplan con los estándares requeridos.", step: "01" },
   { title: "Extrusión", desc: "Controlamos variables clave como calibre, resistencia y uniformidad para garantizar un material base de alta calidad.", step: "02" },
@@ -75,20 +77,20 @@ export default function CalidadContent() {
             ))}
           </div>
 
-          {/* Control Points */}
+          {/* ── TÍTULO PUNTOS DE CONTROL: Encabezado de los 6 puntos de calidad ── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="grid place-items-center text-center max-w-2xl mx-auto mb-10 sm:mb-14"
+            className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-14"
           >
             <p className="eyebrow mb-3">Control de procesos</p>
             <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
               Puntos de Control de{" "}
               <span className="text-gradient-cyan">Calidad</span>
             </h2>
-            <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed">
+            <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
               Cada etapa de producción cuenta con inspecciones rigurosas para asegurar el
               cumplimiento de especificaciones.
             </p>

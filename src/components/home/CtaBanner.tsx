@@ -19,13 +19,14 @@ export default function CtaBanner() {
         }}
       />
 
-      <div className="container-pf relative z-10 grid place-items-center text-center max-w-3xl mx-auto">
+      {/* ── SECCIÓN CTA: Llamado a cotizar al final del home ── */}
+      <div className="container-pf relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center gap-6"
+          className="flex flex-col items-center text-center gap-6"
         >
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
             ¿Listo para cotizar su{" "}

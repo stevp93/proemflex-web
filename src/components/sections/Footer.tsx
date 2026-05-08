@@ -18,19 +18,20 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-4 flex flex-col gap-4">
+            {/* ── LOGO DEL FOOTER: Para cambiarlo, reemplaza la imagen en /public/images/logos/ ── */}
             <Link href="/" className="flex items-center gap-3 group w-fit">
-              <span className="grid place-items-center w-11 h-11 rounded-lg bg-white/[0.04] border border-white/[0.06]">
+              <span className="grid place-items-center w-14 h-14 rounded-lg bg-white/[0.04] border border-white/[0.06]">
                 <Image
                   src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
                   alt=""
-                  width={36}
-                  height={36}
+                  width={48}
+                  height={48}
                   className="object-contain"
                 />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-display font-bold text-white text-lg tracking-tight">
-                  PROEM<span className="text-gradient-cyan">FLEX</span>
+                  PROEMFLEX
                 </span>
                 <span className="mt-1 text-[0.62rem] text-[#9CA3AF] tracking-[0.22em] uppercase">
                   S.A.S. — Empaques Flexibles

@@ -11,13 +11,14 @@ export default function SustainabilityPreview() {
       style={{ background: "linear-gradient(180deg, #111820 0%, #0d1a14 50%, #111820 100%)" }}
       aria-label="Compromiso de sostenibilidad"
     >
-      <div className="container-pf grid place-items-center text-center max-w-3xl mx-auto">
+      {/* ── SECCIÓN SOSTENIBILIDAD: Compromiso ambiental y reciclaje ── */}
+      <div className="container-pf flex flex-col items-center text-center max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center gap-6"
+          className="flex flex-col items-center text-center gap-6"
         >
           <span className="eco-badge">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />

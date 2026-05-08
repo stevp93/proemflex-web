@@ -80,6 +80,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="flex flex-col gap-6 sm:gap-8"
           >
+            {/* ── INFORMACIÓN DE CONTACTO: Aquí puedo cambiar la dirección, teléfono, email y horarios de respuesta. Los valores están en el array de objetos ── */}
             <div className="flex flex-col gap-3">
               {[
                 { Icon: TimerIcon, label: "Respuesta en", value: "< 48 horas hábiles" },
@@ -146,6 +147,7 @@ export default function Contact() {
               ))}
             </div>
 
+            {/* ── REDES SOCIALES: Aquí puedo cambiar los URLs de Facebook, Instagram y TikTok. Los links están en los href de cada botón ── */}
             {/* Social Media */}
             <div className="flex flex-col gap-3">
               <p className="text-[0.7rem] sm:text-xs text-[#9CA3AF] uppercase tracking-[0.16em] font-display font-semibold">
@@ -189,6 +191,7 @@ export default function Contact() {
             </div>
           </motion.div>
 
+          {/* ── FORMULARIO DE CONTACTO: Este formulario envía los datos a proemflex.sas@gmail.com. Para cambiar el email, modifica la URL en fetch() ── */}
           {/* Right — Form */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}

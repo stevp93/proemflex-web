@@ -60,19 +60,21 @@ export default function Navbar() {
           className="flex items-center gap-3 group shrink-0"
           aria-label="PROEMFLEX — Inicio"
         >
-          <span className="grid place-items-center w-12 h-12 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
+          {/* ── LOGO: Para cambiar el logo, reemplaza la imagen en /public/images/logos/ ── */}
+          <span className="grid place-items-center w-14 h-14 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
             <Image
               src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
               alt=""
-              width={40}
-              height={40}
+              width={48}
+              height={48}
               priority
               className="object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </span>
+          {/* ── NOMBRE DE MARCA: Texto al lado del logo ── */}
           <span className="hidden min-[420px]:flex flex-col leading-none">
             <span className="font-display font-bold text-white text-base sm:text-lg tracking-tight">
-              PROEM<span className="text-gradient-cyan">FLEX</span>
+              PROEMFLEX
             </span>
             <span className="mt-1 text-[0.6rem] sm:text-[0.62rem] text-[#9CA3AF] tracking-[0.22em] uppercase">
               Empaques Flexibles

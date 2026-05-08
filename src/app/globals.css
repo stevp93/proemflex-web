@@ -116,6 +116,8 @@ button { font: inherit; }
   font-weight: 700;
   letter-spacing: -0.015em;
   line-height: 1.1;
+  text-align: center;
+  width: 100%;
 }
 .eyebrow {
   font-family: var(--font-display);
@@ -124,6 +126,8 @@ button { font: inherit; }
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--cyan-500);
+  text-align: center;
+  width: 100%;
 }
 
 /* ═══════ Glass Morphism ═══════ */

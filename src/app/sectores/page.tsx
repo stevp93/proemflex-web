@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Sectors from "@/components/sections/Sectors";
-import ProductBand from "@/components/sections/ProductBand";
 import PageHero from "@/components/ui/PageHero";
 
 export const metadata: Metadata = {
@@ -21,8 +20,6 @@ export default function SectoresPage() {
         breadcrumb={{ label: "Sectores", href: "/sectores" }}
       />
       <Sectors />
-      <div className="section-divider" />
-      <ProductBand />
     </main>
   );
 }

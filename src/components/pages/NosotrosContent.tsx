@@ -8,6 +8,7 @@ import {
   FactoryIcon,
 } from "@/components/ui/ProcessIcons";
 
+// ── LÍNEA DE TIEMPO/TRAYECTORIA: Para cambiar los eventos de la trayectoria, edita este array con objetos que tengan: year (año o "—" o "Hoy"), title (nombre del evento), desc (descripción) ──
 const timeline = [
   { year: "1989", title: "Origen", desc: "Nace Plásticos La Hogareña S.A.S. con la iniciativa de fabricar y comercializar empaques plásticos para pequeños negocios, dando inicio a una trayectoria en el sector." },
   { year: "—", title: "Crecimiento industrial", desc: "La empresa evoluciona, incorporando procesos como extrusión y fortaleciendo su infraestructura productiva para responder a la demanda del mercado." },
@@ -17,6 +18,7 @@ const timeline = [
   { year: "Hoy", title: "Proyección y liderazgo", desc: "Proemflex continúa creciendo como aliado estratégico en empaques flexibles, ofreciendo soluciones innovadoras, sostenibles y con cobertura a nivel nacional." },
 ];
 
+// ── VALORES CORPORATIVOS: Para cambiar los 4 valores, edita este array con objetos que tengan: title (nombre del valor), desc (descripción), Icon (icono), color (código hexadecimal del color) ──
 const values = [
   { title: "Calidad", desc: "Procesos con altos estándares y concepto favorable de la Secretaría que garantizan la excelencia en cada producto.", Icon: CertificateIcon, color: "#00F2FE" },
   { title: "Innovación", desc: "Inversión continua en tecnología de punta para ofrecer las mejores soluciones de empaque.", Icon: FactoryIcon, color: "#EC4899" },
@@ -41,6 +43,7 @@ export default function NosotrosContent() {
               <span className="grid place-items-center w-12 h-12 rounded-xl bg-[#00F2FE]/10 text-[#00F2FE] mb-4">
                 <CertificateIcon size={26} />
               </span>
+              {/* ── MISIÓN: Aquí cambio el texto de la misión de la empresa ── */}
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Misión</h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
                 Fabricar empaques flexibles de alta calidad que satisfagan las necesidades de
@@ -60,6 +63,7 @@ export default function NosotrosContent() {
               <span className="grid place-items-center w-12 h-12 rounded-xl bg-[#10B981]/10 text-[#10B981] mb-4">
                 <ShieldCheckIcon size={26} color="#10B981" />
               </span>
+              {/* ── VISIÓN: Aquí cambio el texto de la visión de la empresa ── */}
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Visión</h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
                 Ser reconocidos como la empresa líder en empaques flexibles en Colombia,
@@ -70,13 +74,13 @@ export default function NosotrosContent() {
             </motion.div>
           </div>
 
-          {/* Valores */}
+          {/* ── TÍTULO VALORES: Encabezado de la sección de valores corporativos ── */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid place-items-center text-center mb-10 sm:mb-12"
+            className="flex flex-col items-center text-center mb-10 sm:mb-12"
           >
             <h2 className="h-section text-3xl sm:text-4xl">
               Nuestros <span className="text-gradient-cyan">valores</span>
@@ -118,8 +122,9 @@ export default function NosotrosContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid place-items-center text-center mb-10 sm:mb-14"
+            className="flex flex-col items-center text-center mb-10 sm:mb-14"
           >
+            {/* ── TÍTULO TRAYECTORIA: Encabezado del timeline ── */}
             <h2 className="h-section text-3xl sm:text-4xl">
               Nuestra <span className="text-gradient-cyan">trayectoria</span>
             </h2>
