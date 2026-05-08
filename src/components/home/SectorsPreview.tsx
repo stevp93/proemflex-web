@@ -35,7 +35,7 @@ export default function SectorsPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
+          className="container-pf flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
         >
           <p className="eyebrow mb-3">Soluciones por sector</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
