@@ -132,7 +132,7 @@ export default function Capabilities() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-10 sm:mt-12 grid place-items-center"
+          className="mt-14 sm:mt-16 mb-2 grid place-items-center"
         >
           <Link href="/contacto" className="btn-primary">
             Solicitar ficha técnica completa

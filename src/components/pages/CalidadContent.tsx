@@ -118,7 +118,7 @@ export default function CalidadContent() {
           </div>
 
           {/* CTA */}
-          <div className="mt-10 sm:mt-14 grid place-items-center">
+          <div className="mt-14 sm:mt-16 mb-2 grid place-items-center">
             <Link href="/contacto" className="btn-primary">
               Solicitar Documentación de Calidad
               <ArrowRightIcon size={16} />
