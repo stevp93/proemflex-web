@@ -63,11 +63,11 @@ export default function PlantGallery() {
           className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">La planta</p>
-          <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
+          <h2 className="container-pf h-section text-3xl sm:text-4xl md:text-5xl">
             Manufactura{" "}
             <span className="text-gradient-cyan whitespace-nowrap">en cada metro</span>
           </h2>
-          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
+          <p className="container-pf mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Líneas con altos estándares de calidad operadas por personal capacitado.
             Una mirada al interior de PROEMFLEX.
           </p>
