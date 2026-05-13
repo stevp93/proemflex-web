@@ -35,14 +35,14 @@ export default function SectorsPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
+          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Soluciones por sector</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
             Empaques flexibles para{" "}
-            <span className="text-gradient-cyan">cada industria</span>
+            <span className="text-gradient-cyan whitespace-nowrap">cada industria</span>
           </h2>
-          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
+          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Soluciones especializadas respaldadas por +30 años de experiencia y procesos
             con altos estándares de calidad.
           </p>
@@ -71,7 +71,7 @@ export default function SectorsPreview() {
           ))}
         </div>
 
-        <div className="mt-10 sm:mt-12 grid place-items-center">
+        <div className="mt-16 sm:mt-20 grid place-items-center">
           <Link href="/sectores" className="btn-primary">
             Ver todos los sectores
             <ArrowRightIcon size={16} />

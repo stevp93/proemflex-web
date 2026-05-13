@@ -83,20 +83,20 @@ export default function CalidadContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col items-center text-center max-w-2xl mx-auto mb-10 sm:mb-14"
+            className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
           >
             <p className="eyebrow mb-3">Control de procesos</p>
             <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
               Puntos de Control de{" "}
-              <span className="text-gradient-cyan">Calidad</span>
+              <span className="text-gradient-cyan whitespace-nowrap">Calidad</span>
             </h2>
-            <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
+            <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
               Cada etapa de producción cuenta con inspecciones rigurosas para asegurar el
               cumplimiento de especificaciones.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
             {controlPoints.map((cp, i) => (
               <motion.div
                 key={cp.step}
@@ -118,7 +118,7 @@ export default function CalidadContent() {
           </div>
 
           {/* CTA */}
-          <div className="mt-14 sm:mt-16 mb-2 grid place-items-center">
+          <div className="mt-20 sm:mt-24 mb-4 grid place-items-center">
             <Link href="/contacto" className="btn-primary">
               Solicitar Documentación de Calidad
               <ArrowRightIcon size={16} />

@@ -81,7 +81,7 @@ export default function NoticiasGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-10 sm:mb-14"
+          className="mb-14 sm:mb-20"
         >
           <article
             className="glass-card rounded-2xl p-6 sm:p-8 lg:p-10"
@@ -121,7 +121,7 @@ export default function NoticiasGrid() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 sm:gap-8 lg:gap-10">
           {newsArticles.slice(1).map((article, i) => (
             <motion.article
               key={article.id}
@@ -177,7 +177,7 @@ export default function NoticiasGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-10 sm:mt-14 grid place-items-center"
+          className="mt-16 sm:mt-20 grid place-items-center"
         >
           <div className="glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-2xl w-full text-center">
             <h3 className="font-display font-bold text-lg sm:text-xl text-white mb-2">

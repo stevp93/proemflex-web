@@ -47,14 +47,14 @@ export default function CapabilitiesPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
+          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Proceso de producción</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
             Nuestro proceso de{" "}
-            <span className="text-gradient-cyan">manufactura</span>
+            <span className="text-gradient-cyan whitespace-nowrap">manufactura</span>
           </h2>
-          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
+          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Maquinaria de última generación y procesos con altos estándares de calidad, supervisados
             metro a metro para garantizar calidad constante.
           </p>
@@ -104,7 +104,7 @@ export default function CapabilitiesPreview() {
           ))}
         </div>
 
-        <div className="mt-10 sm:mt-12 grid place-items-center">
+        <div className="mt-16 sm:mt-20 grid place-items-center">
           <Link href="/capacidades" className="btn-outline">
             Conocer nuestra planta
             <ArrowRightIcon size={16} />

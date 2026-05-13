@@ -18,7 +18,7 @@ export default function SustainabilityPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center gap-6"
+          className="container-pf flex flex-col items-center text-center gap-6"
         >
           <span className="eco-badge">
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />

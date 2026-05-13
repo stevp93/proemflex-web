@@ -82,14 +82,14 @@ export default function ProductBand() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center text-center max-w-2xl mx-auto mb-12 sm:mb-14"
+          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Catálogo de productos</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl mb-4">
             Nuestras{" "}
-            <span className="text-gradient-cyan">soluciones de empaque</span>
+            <span className="text-gradient-cyan whitespace-nowrap">soluciones de empaque</span>
           </h2>
-          <p className="text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center">
+          <p className="text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Soluciones flexibles diseñadas para proteger, optimizar y destacar tus productos en cada industria.
           </p>
         </motion.div>
