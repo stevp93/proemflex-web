@@ -83,7 +83,7 @@ export default function CalidadContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+            className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
           >
             <p className="eyebrow mb-3">Control de procesos</p>
             <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
