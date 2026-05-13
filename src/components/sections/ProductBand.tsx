@@ -75,14 +75,14 @@ export default function ProductBand() {
       }}
       aria-label="Banda de productos"
     >
-      <div className="container-pf">
+      <div className="container-pf text-center">
         {/* ── TÍTULO SECCIÓN PRODUCTOS: Texto principal del catálogo de productos ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Catálogo de productos</p>
           <h2 className="h-section text-3xl sm:text-4xl md:text-5xl mb-4">
