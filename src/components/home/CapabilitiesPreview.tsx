@@ -28,7 +28,7 @@ const caps = [
     detail: "Juntas 100% herméticas",
     description: "Líneas de alta velocidad con control de temperatura y presión.",
     Icon: SealingIcon,
-    image: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
+    image: "/proemflex-web/images/procesos/optimized/sellado_automatico.jpeg",
     accent: "#10B981",
   },
 ];
@@ -47,7 +47,7 @@ export default function CapabilitiesPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+          className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Proceso de producción</p>
           <h2 className="container-pf text-center h-section text-3xl sm:text-4xl md:text-5xl">
