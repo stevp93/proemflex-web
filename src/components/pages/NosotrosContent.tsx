@@ -46,10 +46,16 @@ export default function NosotrosContent() {
               {/* ── MISIÓN: Aquí cambio el texto de la misión de la empresa ── */}
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Misión</h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
-                Fabricar empaques flexibles de alta calidad que satisfagan las necesidades de
-                nuestros clientes industriales, operando bajo estándares de Buenas Prácticas
-                de Fabricación (BPF), con un firme compromiso con la sostenibilidad
-                ambiental y el desarrollo continuo de nuestro equipo humano.
+                En Proemflex S.A.S., fabricamos y comercializamos productos plásticos
+                de alta calidad, ofreciendo soluciones innovadoras que responden a las
+                necesidades de nuestros clientes, mientras nos comprometemos
+                firmemente con la sostenibilidad. A través de la adopción de tecnologías
+                avanzadas y el enfoque en las tres R (Reducir, Reutilizar, Reciclar),
+                optimizamos el uso de recursos, minimizamos el impacto ambiental y
+                promovemos una economía circular. Nuestro equipo experto trabaja
+                continuamente en la mejora de procesos para ofrecer un servicio
+                excepcional, contribuyendo al uso responsable del plástico y a la
+                protección del medio ambiente.
               </p>
             </motion.div>
 
@@ -66,10 +72,16 @@ export default function NosotrosContent() {
               {/* ── VISIÓN: Aquí cambio el texto de la visión de la empresa ── */}
               <h2 className="font-display font-bold text-2xl sm:text-3xl text-white mb-4">Visión</h2>
               <p className="text-[#9CA3AF] text-sm sm:text-base leading-relaxed">
-                Ser reconocidos como la empresa líder en empaques flexibles en Colombia,
-                distinguidos por la innovación tecnológica, la excelencia operativa y el
-                compromiso con prácticas de manufactura que garanticen la inocuidad y
-                sostenibilidad de nuestros productos.
+                Para el año 2028, ser una empresa líder en la fabricación y
+                comercialización de productos plásticos sostenibles e innovadores,
+                reconocida a nivel internacional por nuestra contribución al desarrollo de
+                soluciones que respeten el medio ambiente y promuevan una economía
+                circular. Aspiramos a expandir nuestra presencia en América Latina,
+                ofreciendo una amplia gama de productos accesibles y de alta calidad, que
+                impulsen un crecimiento rentable y responsable. En Proemflex S.A.S.,
+                buscamos no solo satisfacer las necesidades de nuestros clientes, sino
+                también marcar la diferencia en la preservación del planeta a través de
+                tecnologías avanzadas y prácticas sostenibles.
               </p>
             </motion.div>
           </div>
@@ -140,9 +152,8 @@ export default function NosotrosContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.06 }}
-                className={`relative flex items-start gap-4 sm:gap-8 mb-8 sm:mb-10 ${
-                  i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-                }`}
+                className={`relative flex items-start gap-4 sm:gap-8 mb-8 sm:mb-10 ${i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
+                  }`}
               >
                 <div className={`flex-1 hidden sm:block ${i % 2 === 0 ? "text-right" : "text-left"}`}>
                   <div className="glass-card rounded-xl p-5">
