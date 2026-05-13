@@ -21,7 +21,7 @@ const shots = [
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/proemflex-web/images/procesos/optimized/sellado-2.jpg",
+    src: "/proemflex-web/images/procesos/optimized/sellado_automatico.png",
     alt: "Línea de sellado automático",
     label: "Sellado automático",
     span: "",
@@ -39,7 +39,7 @@ const shots = [
     span: "",
   },
   {
-    src: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
+    src: "/proemflex-web/images/procesos/optimized/calidad.jpg",
     alt: "Detalle del proceso de sellado",
     label: "Control de calidad",
     span: "",
