@@ -75,17 +75,17 @@ export default function ProductBand() {
       }}
       aria-label="Banda de productos"
     >
-      <div className="container-pf text-center">
+      <div className="container-pf ">
         {/* ── TÍTULO SECCIÓN PRODUCTOS: Texto principal del catálogo de productos ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+          className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Catálogo de productos</p>
-          <h2 className="text-center h-section text-3xl sm:text-4xl md:text-5xl mb-4">
+          <h2 className="container-pf text-center h-section text-3xl sm:text-4xl md:text-5xl mb-4">
             Nuestras{" "}
             <span className="text-gradient-cyan whitespace-nowrap">soluciones de empaque</span>
           </h2>
