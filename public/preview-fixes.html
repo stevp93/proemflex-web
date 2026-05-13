@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Verificación — Correcciones Proemflex</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --obsidian-2:#111820; --cyan-500:#00F2FE; --cyan-600:#4FACFE;
+    --frost-300:#9CA3AF; --frost-700:#4B5563; --section-y: clamp(4rem, 8vw, 7rem);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#111820;color:#fff;font-family:'Inter',sans-serif;overflow-x:hidden}
+  .container-pf{max-width:80rem;margin-inline:auto;padding-inline:1rem}
+  @media(min-width:640px){.container-pf{padding-inline:1.5rem}}
+  @media(min-width:1024px){.container-pf{padding-inline:2rem}}
+  .section{position:relative;padding-block:var(--section-y);overflow:hidden}
+  .h-section{font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:-0.015em;line-height:1.1;text-align:center;width:100%}
+  .eyebrow{font-family:'Outfit',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;color:#00F2FE;text-align:center;width:100%}
+  .text-gradient-cyan{background:linear-gradient(135deg,#00F2FE 0%,#4FACFE 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .glass-card{background:linear-gradient(180deg,rgba(255,255,255,.04) 0%,rgba(255,255,255,.015) 100%);border:1px solid rgba(255,255,255,.06)}
+  .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;padding:.75rem 1.75rem;min-height:44px;border-radius:8px;background:linear-gradient(135deg,#00F2FE 0%,#4FACFE 100%);color:#06121b;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;line-height:1}
+  .btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:'Outfit',sans-serif;font-weight:600;font-size:.9rem;padding:.75rem 1.75rem;min-height:44px;border-radius:8px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18);text-decoration:none;white-space:nowrap;line-height:1}
+  .ruler{height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(0,242,254,.3) 50%,transparent)}
+  .vguide{position:absolute;top:0;bottom:0;left:50%;width:1px;background:rgba(244,63,94,.45);z-index:50;pointer-events:none}
+  .vguide::before{content:'CENTRO VIEWPORT';position:absolute;top:8px;left:8px;color:#f43f5e;font-family:'Outfit';font-weight:700;font-size:10px;letter-spacing:.15em;background:#111820;padding:2px 6px;border:1px solid #f43f5e;border-radius:4px}
+  .label{position:absolute;left:50%;transform:translateX(-50%);top:-28px;background:#10B981;color:#000;padding:3px 10px;border-radius:4px;font-family:'Outfit';font-weight:700;font-size:11px;letter-spacing:.1em}
+  .demo-wrap{position:relative;border:2px dashed rgba(16,185,129,.3);border-radius:8px;margin:60px auto 24px;max-width:90rem;background:rgba(16,185,129,.02)}
+  h1.title{font-family:'Outfit';font-weight:800;font-size:1.5rem;text-align:center;padding:24px;background:#0a0f16;border-bottom:1px solid rgba(255,255,255,.06)}
+  /* GRID utilities */
+  .grid{display:grid}
+  .place-items-center{place-items:center}
+  .text-center{text-align:center}
+  .max-w-3xl{max-width:48rem}
+  .max-w-2xl{max-width:42rem}
+  .mx-auto{margin-inline:auto}
+  .mb-14{margin-bottom:3.5rem}@media(min-width:640px){.sm\:mb-16{margin-bottom:4rem}}
+  .px-4{padding-left:1rem;padding-right:1rem}
+  .mb-3{margin-bottom:.75rem}
+  .mt-4{margin-top:1rem}
+  .mt-16{margin-top:4rem}@media(min-width:640px){.sm\:mt-20{margin-top:5rem}}
+  .mt-20{margin-top:5rem}@media(min-width:640px){.sm\:mt-24{margin-top:6rem}}
+  .text-3xl{font-size:1.875rem;line-height:2.25rem}
+  @media(min-width:640px){.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}}
+  @media(min-width:768px){.md\:text-5xl{font-size:3rem;line-height:1}}
+  .whitespace-nowrap{white-space:nowrap}
+  .text-base{font-size:1rem;line-height:1.5rem}
+  .leading-relaxed{line-height:1.625}
+  @media(min-width:640px){.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}}
+  .gap-3{gap:.75rem}@media(min-width:640px){.sm\:gap-4{gap:1rem}}
+  .gap-5{gap:1.25rem}@media(min-width:640px){.sm\:gap-6{gap:1.5rem}}@media(min-width:1024px){.lg\:gap-7{gap:1.75rem}}
+  .grid-cols-6{grid-template-columns:repeat(6,1fr)}
+  .grid-cols-3{grid-template-columns:repeat(3,1fr)}
+  .aspect-square{aspect-ratio:1/1}
+  .rounded-xl{border-radius:.75rem}
+  .p-5{padding:1.25rem}@media(min-width:640px){.sm\:p-6{padding:1.5rem}}
+  .w-12{width:3rem}.h-12{height:3rem}
+  .text-frost{color:#9CA3AF}
+</style>
+</head>
+<body>
+
+<h1 class="title">Vista previa de las correcciones aplicadas — Layout actualizado</h1>
+
+<!-- ============ SECTORS ============ -->
+<div class="demo-wrap">
+  <div class="label">1. SECTORES (image0) — Título centrado + CTA con respiración</div>
+  <section class="section" style="background:linear-gradient(180deg,#111820,#0e1a26,#111820)">
+    <div class="vguide"></div>
+    <div class="container-pf">
+      <div class="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4" style="position:relative">
+        <p class="eyebrow mb-3">Soluciones por sector</p>
+        <h2 class="h-section text-3xl sm:text-4xl md:text-5xl">
+          Empaques flexibles para
+          <span class="text-gradient-cyan whitespace-nowrap">cada industria</span>
+        </h2>
+        <p class="mt-4 leading-relaxed text-center max-w-2xl mx-auto" style="color:#9CA3AF;font-size:1.05rem">
+          Soluciones especializadas respaldadas por +30 años de experiencia y procesos con altos estándares de calidad.
+        </p>
+      </div>
+      <div class="grid grid-cols-6 gap-3 sm:gap-4">
+        <div class="glass-card rounded-xl p-5 sm:p-6 grid place-items-center aspect-square">
+          <span class="grid place-items-center w-12 h-12 rounded-xl" style="background:rgba(245,158,11,.1);color:#F59E0B">☕</span>
+          <p style="font-family:Outfit;font-weight:600;font-size:.85rem;margin-top:8px">Alimentos</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 sm:p-6 grid place-items-center aspect-square">
+          <span class="grid place-items-center w-12 h-12 rounded-xl" style="background:rgba(236,72,153,.1);color:#EC4899">⚗</span>
+          <p style="font-family:Outfit;font-weight:600;font-size:.85rem;margin-top:8px">Farmacéuticos</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 sm:p-6 grid place-items-center aspect-square">
+          <span class="grid place-items-center w-12 h-12 rounded-xl" style="background:rgba(139,92,246,.1);color:#8B5CF6">👕</span>
+          <p style="font-family:Outfit;font-weight:600;font-size:.85rem;margin-top:8px">Textiles</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 sm:p-6 grid place-items-center aspect-square">
+          <span class="grid place-items-center w-12 h-12 rounded-xl" style="background:rgba(6,182,212,.1);color:#06B6D4">💻</span>
+          <p style="font-family:Outfit;font-weight:600;font-size:.85rem;margin-top:8px">Líneas Comerciales</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 sm:p-6 grid place-items-center aspect-square">
+          <span class="grid place-items-center w-12 h-12 rounded-xl" style="background:rgba(20,184,166,.1);color:#14B8A6">📦</span>
+          <p style="font-family:Outfit;font-weight:600;font-size:.85rem;margin-top:8px">Almacenes de Cadena</p>
+        </div>
+        <div class="glass-card rounded-xl p-5 sm:p-6 grid place-items-center aspect-square">
+          <span class="grid place-items-center w-12 h-12 rounded-xl" style="background:rgba(34,211,238,.1);color:#22D3EE">🧴</span>
+          <p style="font-family:Outfit;font-weight:600;font-size:.85rem;margin-top:8px">Aseo & Desinfección</p>
+        </div>
+      </div>
+      <div class="mt-16 sm:mt-20 grid place-items-center">
+        <a href="#" class="btn-primary">Ver todos los sectores →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CAPABILITIES ============ -->
+<div class="demo-wrap">
+  <div class="label">2. PROCESO DE PRODUCCIÓN (image1) — Título centrado + CTA separado</div>
+  <section class="section" style="background:linear-gradient(180deg,#111820,#0a1018,#111820)">
+    <div class="vguide"></div>
+    <div class="container-pf">
+      <div class="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4">
+        <p class="eyebrow mb-3">Proceso de producción</p>
+        <h2 class="h-section text-3xl sm:text-4xl md:text-5xl">
+          Nuestro proceso de
+          <span class="text-gradient-cyan whitespace-nowrap">manufactura</span>
+        </h2>
+        <p class="mt-4 leading-relaxed text-center max-w-2xl mx-auto" style="color:#9CA3AF;font-size:1.05rem">
+          Maquinaria de última generación y procesos con altos estándares de calidad, supervisados metro a metro para garantizar calidad constante.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-5 sm:gap-6">
+        <div class="glass-card rounded-xl" style="aspect-ratio:4/3;display:grid;place-items:center"><span style="font-family:Outfit;font-weight:700">Extrusión</span></div>
+        <div class="glass-card rounded-xl" style="aspect-ratio:4/3;display:grid;place-items:center"><span style="font-family:Outfit;font-weight:700">Impresión 6 colores</span></div>
+        <div class="glass-card rounded-xl" style="aspect-ratio:4/3;display:grid;place-items:center"><span style="font-family:Outfit;font-weight:700">Sellado automático</span></div>
+      </div>
+      <div class="mt-16 sm:mt-20 grid place-items-center">
+        <a href="#" class="btn-outline">Conocer nuestra planta →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PRODUCTS ============ -->
+<div class="demo-wrap">
+  <div class="label">3. CATÁLOGO PRODUCTOS (image2) — Título centrado</div>
+  <section class="section" style="background:linear-gradient(180deg,#111820,#0d1520,#111820)">
+    <div class="vguide"></div>
+    <div class="container-pf">
+      <div class="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4">
+        <p class="eyebrow mb-3">Catálogo de productos</p>
+        <h2 class="h-section text-3xl sm:text-4xl md:text-5xl">
+          Nuestras
+          <span class="text-gradient-cyan whitespace-nowrap">soluciones de empaque</span>
+        </h2>
+        <p class="mt-4 leading-relaxed text-center max-w-2xl mx-auto" style="color:#9CA3AF;font-size:1.05rem">
+          Soluciones flexibles diseñadas para proteger, optimizar y destacar tus productos en cada industria.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-5 sm:gap-6">
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:220px"><strong style="font-family:Outfit">Bolsas de Polietileno</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:220px"><strong style="font-family:Outfit">Laminación</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:220px"><strong style="font-family:Outfit">Bolsas Impresas</strong></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CALIDAD ============ -->
+<div class="demo-wrap">
+  <div class="label">4. PUNTOS DE CONTROL (image3) — Título centrado + gap mayor + CTA con espacio</div>
+  <section class="section" style="background:#111820">
+    <div class="vguide"></div>
+    <div class="container-pf">
+      <div class="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4">
+        <p class="eyebrow mb-3">Control de procesos</p>
+        <h2 class="h-section text-3xl sm:text-4xl md:text-5xl">
+          Puntos de Control de
+          <span class="text-gradient-cyan whitespace-nowrap">Calidad</span>
+        </h2>
+        <p class="mt-4 leading-relaxed text-center max-w-2xl mx-auto" style="color:#9CA3AF;font-size:1.05rem">
+          Cada etapa de producción cuenta con inspecciones rigurosas para asegurar el cumplimiento de especificaciones.
+        </p>
+      </div>
+      <div class="grid grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:130px"><strong style="font-family:Outfit;color:#00F2FE">01</strong> &nbsp; <strong style="font-family:Outfit">Materia Prima</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:130px"><strong style="font-family:Outfit;color:#00F2FE">02</strong> &nbsp; <strong style="font-family:Outfit">Extrusión</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:130px"><strong style="font-family:Outfit;color:#00F2FE">03</strong> &nbsp; <strong style="font-family:Outfit">Impresión</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:130px"><strong style="font-family:Outfit;color:#00F2FE">04</strong> &nbsp; <strong style="font-family:Outfit">Sellado</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:130px"><strong style="font-family:Outfit;color:#00F2FE">05</strong> &nbsp; <strong style="font-family:Outfit">Producto Terminado</strong></div>
+        <div class="glass-card rounded-xl p-5 sm:p-6" style="min-height:130px"><strong style="font-family:Outfit;color:#00F2FE">06</strong> &nbsp; <strong style="font-family:Outfit">Despacho</strong></div>
+      </div>
+      <div class="mt-20 sm:mt-24 grid place-items-center" style="margin-bottom:1rem">
+        <a href="#" class="btn-primary">Solicitar Documentación de Calidad →</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div style="text-align:center;padding:48px 16px;font-family:'Inter';color:#9CA3AF;font-size:.85rem">
+  La línea roja vertical es la guía geométrica del centro del viewport — verifica que cada título queda visualmente alineado con ella.
+</div>
+
+</body>
+</html>
