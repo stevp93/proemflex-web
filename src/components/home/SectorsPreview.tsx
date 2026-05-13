@@ -35,14 +35,14 @@ export default function SectorsPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+          className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
         >
           <p className="eyebrow mb-3">Soluciones por sector</p>
-          <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">
+          <h2 className="container-pf h-section text-3xl sm:text-4xl md:text-5xl">
             Empaques flexibles para{" "}
             <span className="text-gradient-cyan whitespace-nowrap">cada industria</span>
           </h2>
-          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
+          <p className="container-pf mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Soluciones especializadas respaldadas por +30 años de experiencia y procesos
             con altos estándares de calidad.
           </p>
