@@ -155,7 +155,7 @@ export default function Contact() {
               </p>
               <div className="flex items-center gap-3">
                 <a
-                  href="https://www.facebook.com/people/Proemflex/61559880714111/"
+                  href="https://www.facebook.com/profile.php?id=61581262456425"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="grid place-items-center w-11 h-11 rounded-lg glass-card text-[#9CA3AF] hover:text-[#00F2FE] hover:border-[#00F2FE]/30 transition-all"
@@ -177,7 +177,7 @@ export default function Contact() {
                   </svg>
                 </a>
                 <a
-                  href="https://www.tiktok.com/@proemflex"
+                  href="https://www.tiktok.com/@proemflex.sas"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="grid place-items-center w-11 h-11 rounded-lg glass-card text-[#9CA3AF] hover:text-[#00F2FE] hover:border-[#00F2FE]/30 transition-all"

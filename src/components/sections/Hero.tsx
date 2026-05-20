@@ -175,7 +175,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── IMAGEN HERO (Desktop): Reemplaza el archivo en /proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg con tu nueva imagen de la planta ── */}
+        {/* ── IMAGEN HERO (Desktop): Reemplaza el archivo en /proemflex-web/images/procesos/optimized/extrusion-hero.png con tu nueva imagen de la planta ── */}
         {/* Right — Real factory photo collage */}
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.96 }}
@@ -187,7 +187,7 @@ export default function Hero() {
             {/* Main image — factory shot */}
             <div className="photo-frame absolute inset-0 ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,242,254,0.25)]">
               <Image
-                src="/proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg"
+                src="/proemflex-web/images/procesos/optimized/extrusion-hero.png"
                 alt="Línea de extrusión PROEMFLEX en operación — película flexible saliendo del dado de extrusión"
                 width={480}
                 height={576}
@@ -237,7 +237,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ── IMAGEN HERO (Mobile): Reemplaza el archivo en /proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg con tu nueva imagen para celular ── */}
+        {/* ── IMAGEN HERO (Mobile): Reemplaza el archivo en /proemflex-web/images/procesos/optimized/extrusion-hero.png con tu nueva imagen para celular ── */}
         {/* Mobile — condensed photo strip (visible only on small screens) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -247,7 +247,7 @@ export default function Hero() {
         >
           <div className="photo-frame rounded-xl aspect-[16/9] max-h-52 ring-1 ring-white/10">
             <Image
-              src="/proemflex-web/images/procesos/optimized/extrusion-detalle-1.jpg"
+              src="/proemflex-web/images/procesos/optimized/extrusion-hero.png"
               alt="Línea de extrusión PROEMFLEX en operación"
               width={640}
               height={360}

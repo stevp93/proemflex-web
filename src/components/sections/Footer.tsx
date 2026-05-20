@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 pt-2">
               {/* Facebook — Activo */}
               <a
-                href="https://www.facebook.com/people/Proemflex/61559880714111/"
+                href="https://www.facebook.com/profile.php?id=61581262456425"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="grid place-items-center w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[#9CA3AF] hover:text-[#00F2FE] hover:border-[#00F2FE]/30 transition-all"
@@ -82,7 +82,7 @@ export default function Footer() {
 
               {/* TikTok */}
               <a
-                href="https://www.tiktok.com/@proemflex"
+                href="https://www.tiktok.com/@proemflex.sas"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="grid place-items-center w-9 h-9 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[#9CA3AF] hover:text-[#00F2FE] hover:border-[#00F2FE]/30 transition-all"

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   ShieldCheckIcon,
   CertificateIcon,
@@ -184,6 +185,107 @@ export default function NosotrosContent() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── ALIANZA ESTRATÉGICA: Sección que muestra la integración entre PROEMFLEX y su socio (Cambreplast). Para cambiar los logos, reemplaza los archivos en /public/images/logos/ ── */}
+      <section
+        className="section"
+        style={{ background: "linear-gradient(180deg, #111820 0%, #0d1f2d 50%, #111820 100%)" }}
+        aria-label="Alianza estratégica PROEMFLEX"
+      >
+        <div className="container-pf max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+            className="grid place-items-center text-center mb-10 sm:mb-14"
+          >
+            <p className="eyebrow mb-3">Alianza estratégica</p>
+            <h2 className="h-section text-3xl sm:text-4xl md:text-5xl text-center">
+              Dos compañías,{" "}
+              <span className="text-gradient-cyan whitespace-nowrap">una sola fuerza</span>
+            </h2>
+            <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
+              PROEMFLEX nace de la integración entre{" "}
+              <span className="text-white font-semibold">Plásticos La Hogareña S.A.S.</span>{" "}
+              y <span className="text-white font-semibold">Cambreplast</span>, uniendo
+              experiencia, tecnología y capacidad productiva para ofrecer empaques
+              flexibles con altos estándares de calidad a la industria.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="glass-card rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 sm:gap-10 md:gap-12">
+              {/* PROEMFLEX */}
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="relative w-full max-w-[220px] aspect-[3/2] grid place-items-center">
+                  <Image
+                    src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+                    alt="Logo PROEMFLEX S.A.S."
+                    width={440}
+                    height={300}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <p className="font-display text-[0.7rem] sm:text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
+                  PROEMFLEX S.A.S.
+                </p>
+              </div>
+
+              {/* Separator */}
+              <div className="flex md:flex-col items-center justify-center gap-3 text-[#00F2FE]">
+                <span className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-[#00F2FE]/40 to-transparent" />
+                <span className="grid place-items-center w-10 h-10 rounded-full bg-[#00F2FE]/15 border border-[#00F2FE]/30">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </span>
+                <span className="hidden md:block w-px h-12 bg-gradient-to-b from-[#00F2FE]/40 via-transparent to-transparent" />
+              </div>
+
+              {/* Cambreplast — Socio */}
+              <div className="flex flex-col items-center text-center gap-4">
+                <div className="relative w-full max-w-[220px] aspect-[3/2] grid place-items-center">
+                  <Image
+                    src="/proemflex-web/images/logos/LOGO 2018 GRANDE SIN FONDO.png"
+                    alt="Logo Cambreplast — Socio estratégico de PROEMFLEX"
+                    width={440}
+                    height={300}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <p className="font-display text-[0.7rem] sm:text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
+                  Socio estratégico
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+              {[
+                { value: "30+", label: "años de experiencia" },
+                { value: "2", label: "plantas productivas" },
+                { value: "100%", label: "cobertura nacional" },
+              ].map((stat) => (
+                <div key={stat.label} className="flex flex-col items-center text-center gap-1">
+                  <span className="font-display font-bold text-2xl sm:text-3xl text-gradient-cyan">
+                    {stat.value}
+                  </span>
+                  <span className="font-display text-[0.7rem] sm:text-xs uppercase tracking-[0.18em] text-[#9CA3AF]">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
     </div>
