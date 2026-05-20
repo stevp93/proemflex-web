@@ -221,18 +221,21 @@ export default function NosotrosContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="glass-card rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12"
+            className="glass-card rounded-2xl p-6 sm:p-8 md:p-10 lg:p-12 overflow-hidden"
           >
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 sm:gap-10 md:gap-12">
-              {/* PROEMFLEX */}
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="relative w-full max-w-[220px] aspect-[3/2] grid place-items-center">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 sm:gap-8 md:gap-10">
+              {/* PROEMFLEX — logo cuadrado 919x973 */}
+              <div className="flex flex-col items-center text-center gap-4 min-w-0">
+                <div
+                  className="relative w-full overflow-hidden"
+                  style={{ height: "clamp(96px, 14vw, 140px)" }}
+                >
                   <Image
                     src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
                     alt="Logo PROEMFLEX S.A.S."
-                    width={440}
-                    height={300}
-                    className="w-full h-full object-contain"
+                    fill
+                    sizes="(max-width: 768px) 45vw, 240px"
+                    className="object-contain"
                   />
                 </div>
                 <p className="font-display text-[0.7rem] sm:text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
@@ -241,9 +244,9 @@ export default function NosotrosContent() {
               </div>
 
               {/* Separator */}
-              <div className="flex md:flex-col items-center justify-center gap-3 text-[#00F2FE]">
+              <div className="flex md:flex-col items-center justify-center gap-3 text-[#00F2FE] shrink-0">
                 <span className="hidden md:block w-px h-12 bg-gradient-to-b from-transparent via-[#00F2FE]/40 to-transparent" />
-                <span className="grid place-items-center w-10 h-10 rounded-full bg-[#00F2FE]/15 border border-[#00F2FE]/30">
+                <span className="grid place-items-center w-10 h-10 rounded-full bg-[#00F2FE]/15 border border-[#00F2FE]/30 shrink-0">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <line x1="5" y1="12" x2="19" y2="12" />
@@ -252,15 +255,18 @@ export default function NosotrosContent() {
                 <span className="hidden md:block w-px h-12 bg-gradient-to-b from-[#00F2FE]/40 via-transparent to-transparent" />
               </div>
 
-              {/* Cambreplast — Socio */}
-              <div className="flex flex-col items-center text-center gap-4">
-                <div className="relative w-full max-w-[220px] aspect-[3/2] grid place-items-center">
+              {/* Cambreplast — Socio — logo panorámico 1643x437 */}
+              <div className="flex flex-col items-center text-center gap-4 min-w-0">
+                <div
+                  className="relative w-full overflow-hidden"
+                  style={{ height: "clamp(96px, 14vw, 140px)" }}
+                >
                   <Image
                     src="/proemflex-web/images/logos/LOGO 2018 GRANDE SIN FONDO.png"
-                    alt="Logo Cambreplast — Socio estratégico de PROEMFLEX"
-                    width={440}
-                    height={300}
-                    className="w-full h-full object-contain"
+                    alt="Logo Plásticos La Hogareña — Socio estratégico de PROEMFLEX"
+                    fill
+                    sizes="(max-width: 768px) 45vw, 320px"
+                    className="object-contain"
                   />
                 </div>
                 <p className="font-display text-[0.7rem] sm:text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
