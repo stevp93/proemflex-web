@@ -227,14 +227,14 @@ export default function NosotrosContent() {
               {/* PROEMFLEX — logo cuadrado 919x973 */}
               <div className="flex flex-col items-center text-center gap-4 min-w-0">
                 <div
-                  className="relative w-full overflow-hidden"
-                  style={{ height: "clamp(96px, 14vw, 140px)" }}
+                  className="relative w-full max-w-[140px] sm:max-w-[180px] md:max-w-none mx-auto overflow-hidden"
+                  style={{ height: "clamp(80px, 12vw, 130px)" }}
                 >
                   <Image
                     src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
                     alt="Logo PROEMFLEX S.A.S."
                     fill
-                    sizes="(max-width: 768px) 45vw, 240px"
+                    sizes="(max-width: 768px) 140px, 200px"
                     className="object-contain"
                   />
                 </div>
@@ -255,17 +255,17 @@ export default function NosotrosContent() {
                 <span className="hidden md:block w-px h-12 bg-gradient-to-b from-[#00F2FE]/40 via-transparent to-transparent" />
               </div>
 
-              {/* Cambreplast — Socio — logo panorámico 1643x437 */}
+              {/* Cambreplast — Socio — logo panorámico 1643x437 (capado en ancho para mobile) */}
               <div className="flex flex-col items-center text-center gap-4 min-w-0">
                 <div
-                  className="relative w-full overflow-hidden"
-                  style={{ height: "clamp(96px, 14vw, 140px)" }}
+                  className="relative w-full max-w-[200px] sm:max-w-[260px] md:max-w-none mx-auto overflow-hidden"
+                  style={{ height: "clamp(64px, 10vw, 110px)" }}
                 >
                   <Image
                     src="/proemflex-web/images/logos/LOGO 2018 GRANDE SIN FONDO.png"
                     alt="Logo Plásticos La Hogareña — Socio estratégico de PROEMFLEX"
                     fill
-                    sizes="(max-width: 768px) 45vw, 320px"
+                    sizes="(max-width: 768px) 200px, 280px"
                     className="object-contain"
                   />
                 </div>
