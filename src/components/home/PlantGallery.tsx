@@ -12,34 +12,34 @@ import { ArrowRightIcon } from "@/components/ui/ProcessIcons";
  * para evitar Cumulative Layout Shift.
  */
 
-// ── GALERÍA DE IMÁGENES: Para cambiar las 5 fotos de la planta, edita este array. Cada objeto tiene: src (ruta en /proemflex-web/images/procesos/optimized/), alt (descripción), label (título), span (tamaño en grid) ──
+// ── GALERÍA DE IMÁGENES: Para cambiar las 5 fotos de la planta, edita este array. Cada objeto tiene: src (ruta en /images/procesos/optimized/), alt (descripción), label (título), span (tamaño en grid) ──
 const shots = [
   {
-    src: "/proemflex-web/images/procesos/optimized/extrusion-3.jpg",
+    src: "/images/procesos/optimized/extrusion-3.jpg",
     alt: "Extrusora industrial PROEMFLEX en operación",
     label: "Extrusión",
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/proemflex-web/images/procesos/optimized/sellado_automatico.png",
+    src: "/images/procesos/optimized/sellado_automatico.png",
     alt: "Línea de sellado automático",
     label: "Sellado automático",
     span: "",
   },
   {
-    src: "/proemflex-web/images/procesos/optimized/fajilla-2.jpg",
+    src: "/images/procesos/optimized/fajilla-2.jpg",
     alt: "Producción de fajillas termoencogibles",
     label: "Fajillas",
     span: "",
   },
   {
-    src: "/proemflex-web/images/procesos/optimized/precorte-1.jpg",
+    src: "/images/procesos/optimized/precorte-1.jpg",
     alt: "Sistema de precorte de película",
     label: "Pre-corte",
     span: "",
   },
   {
-    src: "/proemflex-web/images/procesos/optimized/calidad.jpg",
+    src: "/images/procesos/optimized/calidad.jpg",
     alt: "Detalle del proceso de sellado",
     label: "Control de calidad",
     span: "",

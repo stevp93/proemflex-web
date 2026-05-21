@@ -5,14 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ExtrusionIcon, PrintingIcon, SealingIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
-// ── CAPACIDADES PREVIEW (3 PROCESOS): Para cambiar las 3 capacidades principales del home, edita este array. Cada objeto tiene: title (nombre), detail (detalle técnico), description (descripción), Icon (icono), image (ruta en /proemflex-web/images/procesos/optimized/), accent (color hexadecimal) ──
+// ── CAPACIDADES PREVIEW (3 PROCESOS): Para cambiar las 3 capacidades principales del home, edita este array. Cada objeto tiene: title (nombre), detail (detalle técnico), description (descripción), Icon (icono), image (ruta en /images/procesos/optimized/), accent (color hexadecimal) ──
 const caps = [
   {
     title: "Extrusión",
     detail: "Película flexible 3 — 100 cm",
     description: "Control preciso de calibre y resistencia mecánica en cada metro.",
     Icon: ExtrusionIcon,
-    image: "/proemflex-web/images/procesos/optimized/extrusion-2.jpg",
+    image: "/images/procesos/optimized/extrusion-2.jpg",
     accent: "#00F2FE",
   },
   {
@@ -20,7 +20,7 @@ const caps = [
     detail: "Tambor central flexográfico",
     description: "Registro perfecto y alta definición para branding premium.",
     Icon: PrintingIcon,
-    image: "/proemflex-web/images/procesos/optimized/sellado-2.jpg",
+    image: "/images/procesos/optimized/sellado-2.jpg",
     accent: "#4FACFE",
   },
   {
@@ -28,7 +28,7 @@ const caps = [
     detail: "Juntas 100% herméticas",
     description: "Líneas de alta velocidad con control de temperatura y presión.",
     Icon: SealingIcon,
-    image: "/proemflex-web/images/procesos/optimized/sellado_automatico.jpeg",
+    image: "/images/procesos/optimized/sellado_automatico.jpeg",
     accent: "#10B981",
   },
 ];

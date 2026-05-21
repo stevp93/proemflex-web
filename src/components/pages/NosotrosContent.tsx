@@ -231,7 +231,7 @@ export default function NosotrosContent() {
                   style={{ height: "clamp(80px, 12vw, 130px)" }}
                 >
                   <Image
-                    src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+                    src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
                     alt="Logo PROEMFLEX S.A.S."
                     fill
                     sizes="(max-width: 768px) 140px, 200px"
@@ -262,7 +262,7 @@ export default function NosotrosContent() {
                   style={{ height: "clamp(64px, 10vw, 110px)" }}
                 >
                   <Image
-                    src="/proemflex-web/images/logos/LOGO 2018 GRANDE SIN FONDO.png"
+                    src="/images/logos/LOGO 2018 GRANDE SIN FONDO.png"
                     alt="Logo Plásticos La Hogareña — Socio estratégico de PROEMFLEX"
                     fill
                     sizes="(max-width: 768px) 200px, 280px"

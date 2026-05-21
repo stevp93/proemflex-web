@@ -1,8 +1,16 @@
 import type { NextConfig } from "next";
 
+// Dominio personalizado: proemflex.com (Hostinger → GitHub Pages)
+// Como ahora el sitio se sirve desde la raíz del dominio, ya NO se usa basePath.
+// Si en algún momento se necesita volver a publicar en usuario.github.io/proemflex-web/,
+// reactivar las variables comentadas más abajo.
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/proemflex-web",
+  trailingSlash: true,
+  // basePath: isProd ? "/proemflex-web" : "",
+  // assetPrefix: isProd ? "/proemflex-web/" : "",
   images: {
     unoptimized: true,
   },

@@ -63,7 +63,7 @@ export default function Navbar() {
           {/* ── LOGO: Para cambiar el logo, reemplaza la imagen en /public/images/logos/ ── */}
           <span className="grid place-items-center w-14 h-14 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
             <Image
-              src="/proemflex-web/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+              src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
               alt=""
               width={48}
               height={48}

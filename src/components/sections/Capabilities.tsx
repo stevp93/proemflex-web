@@ -13,7 +13,7 @@ import {
   ArrowRightIcon,
 } from "@/components/ui/ProcessIcons";
 
-// ── CAPACIDADES/PROCESOS: Para cambiar los 6 procesos, edita este array. Cada objeto tiene: title (título), description (descripción), stat (número/valor), statUnit (unidad), image (ruta del archivo de imagen en /proemflex-web/images/procesos/optimized/), Icon (icono) ──
+// ── CAPACIDADES/PROCESOS: Para cambiar los 6 procesos, edita este array. Cada objeto tiene: title (título), description (descripción), stat (número/valor), statUnit (unidad), image (ruta del archivo de imagen en /images/procesos/optimized/), Icon (icono) ──
 const capabilities = [
   {
     title: "Extrusión",
@@ -21,7 +21,7 @@ const capabilities = [
       "Fabricación de película plástica con control preciso de calibre, resistencia y uniformidad para aplicaciones industriales.",
     stat: "3 — 100",
     statUnit: "cm de ancho",
-    image: "/proemflex-web/images/procesos/optimized/extrusion-detalle-2.jpg",
+    image: "/images/procesos/optimized/extrusion-detalle-2.jpg",
     Icon: ExtrusionIcon,
   },
   {
@@ -30,7 +30,7 @@ const capabilities = [
       "Impresión flexográfica de alta definición que garantiza colores precisos, registro perfecto y excelente presentación del producto.",
     stat: "6",
     statUnit: "colores",
-    image: "/proemflex-web/images/procesos/optimized/extrusion-1.jpg",
+    image: "/images/procesos/optimized/extrusion-1.jpg",
     Icon: PrintingIcon,
   },
   {
@@ -39,7 +39,7 @@ const capabilities = [
       "Sellado de alta velocidad con control de temperatura y presión para empaques herméticos y confiables.",
     stat: "100%",
     statUnit: "hermético",
-    image: "/proemflex-web/images/procesos/optimized/sellado-3.jpg",
+    image: "/images/procesos/optimized/sellado-3.jpg",
     Icon: SealingIcon,
   },
   {
@@ -48,7 +48,7 @@ const capabilities = [
       "Unión de materiales plásticos para crear estructuras multicapa con mayor protección, resistencia y desempeño.",
     stat: "Multi",
     statUnit: "capa barrera",
-    image: "/proemflex-web/images/procesos/optimized/fajilla-3.jpg",
+    image: "/images/procesos/optimized/fajilla-3.jpg",
     Icon: LaminationIcon,
   },
   {
@@ -57,7 +57,7 @@ const capabilities = [
       "Corte preciso de bobinas para obtener anchos personalizados con acabados uniformes y alta exactitud.",
     stat: "±0.5",
     statUnit: "mm tolerancia",
-    image: "/proemflex-web/images/procesos/optimized/fajilla-5.jpg",
+    image: "/images/procesos/optimized/fajilla-5.jpg",
     Icon: SlittingIcon,
   },
   {
@@ -66,7 +66,7 @@ const capabilities = [
       "Perforación y pre-corte que facilitan el uso del empaque, optimizando procesos y mejorando la experiencia final.",
     stat: "20 — 75",
     statUnit: "cm de ancho",
-    image: "/proemflex-web/images/procesos/optimized/precorte-2.jpg",
+    image: "/images/procesos/optimized/precorte-2.jpg",
     Icon: PrecutIcon,
   },
 ];

@@ -3,6 +3,9 @@ import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
+import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
+import CookieConsent from "@/components/analytics/CookieConsent";
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +67,11 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+
+        {/* ── ANALÍTICAS Y CONSENTIMIENTO: Los scripts solo se cargan tras aceptación del usuario. Para configurar los IDs reales, edita los archivos en /src/components/analytics/ ── */}
+        <CookieConsent />
+        <GoogleAnalytics />
+        <MicrosoftClarity />
       </body>
     </html>
   );
