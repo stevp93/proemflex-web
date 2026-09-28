@@ -35,6 +35,15 @@ export default function Hero() {
     }),
   };
 
+  // El título (LCP) se muestra desde el primer pintado: solo se anima el desplazamiento
+  const headlineVariants = {
+    hidden: { y: 32 },
+    visible: {
+      y: 0,
+      transition: { duration: 0.7, delay: 0.37, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] },
+    },
+  };
+
   return (
     <section
       ref={containerRef}
@@ -96,8 +105,7 @@ export default function Hero() {
 
           {/* ── TÍTULO PRINCIPAL HERO: Aquí puedo cambiar el título principal de la sección ── */}
           <motion.h1
-            custom={1}
-            variants={textVariants}
+            variants={headlineVariants}
             initial="hidden"
             animate="visible"
             className="h-display text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-[4.25rem]"
@@ -160,7 +168,7 @@ export default function Hero() {
               { Icon: ShieldCheckIcon, label: "Concepto Favorable", color: "#10B981" },
               { Icon: FactoryIcon, label: "30+ años", color: "#9CA3AF" },
             ].map(({ Icon, label, color }) => (
-              <div key={label} className="flex items-center gap-2.5">
+              <div key={label} className="flex flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-2.5 min-w-0">
                 <span
                   className="grid place-items-center w-9 h-9 rounded-lg shrink-0"
                   style={{ background: `${color}1a`, color }}
@@ -175,19 +183,19 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── IMAGEN HERO (Desktop): Reemplaza el archivo en /images/procesos/optimized/extrusion-hero.png con tu nueva imagen de la planta ── */}
+        {/* ── IMAGEN HERO (Desktop): Reemplaza el archivo en /images/procesos/optimized/extrusion-hero.jpg con tu nueva imagen de la planta ── */}
         {/* Right — Real factory photo collage */}
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:col-span-5 relative hidden md:block"
+          className="lg:col-span-5 relative hidden lg:block"
         >
           <div className="relative aspect-[5/6] max-w-md ml-auto">
             {/* Main image — factory shot */}
             <div className="photo-frame absolute inset-0 ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,242,254,0.25)]">
               <Image
-                src="/images/procesos/optimized/extrusion-hero.png"
+                src="/images/procesos/optimized/extrusion-hero.jpg"
                 alt="Línea de extrusión PROEMFLEX en operación — película flexible saliendo del dado de extrusión"
                 width={480}
                 height={576}
@@ -237,17 +245,17 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ── IMAGEN HERO (Mobile): Reemplaza el archivo en /images/procesos/optimized/extrusion-hero.png con tu nueva imagen para celular ── */}
+        {/* ── IMAGEN HERO (Mobile): Reemplaza el archivo en /images/procesos/optimized/extrusion-hero.jpg con tu nueva imagen para celular ── */}
         {/* Mobile — condensed photo strip (visible only on small screens) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="md:hidden col-span-full"
+          className="lg:hidden col-span-full"
         >
           <div className="photo-frame rounded-xl aspect-[16/9] max-h-52 ring-1 ring-white/10">
             <Image
-              src="/images/procesos/optimized/extrusion-hero.png"
+              src="/images/procesos/optimized/extrusion-hero.jpg"
               alt="Línea de extrusión PROEMFLEX en operación"
               width={640}
               height={360}

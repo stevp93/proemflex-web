@@ -75,21 +75,21 @@ export default function ProductBand() {
       }}
       aria-label="Banda de productos"
     >
-      <div className="container-pf ">
+      <div className="container-pf">
         {/* ── TÍTULO SECCIÓN PRODUCTOS: Texto principal del catálogo de productos ── */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16"
         >
           <p className="eyebrow mb-3">Catálogo de productos</p>
-          <h2 className="container-pf text-center h-section text-3xl sm:text-4xl md:text-5xl mb-4">
+          <h2 className="text-center h-section text-3xl sm:text-4xl md:text-5xl mb-4">
             Nuestras{" "}
             <span className="text-gradient-cyan whitespace-nowrap">soluciones de empaque</span>
           </h2>
-          <p className="container-pf text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
+          <p className="text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Soluciones flexibles diseñadas para proteger, optimizar y destacar tus productos en cada industria.
           </p>
         </motion.div>
@@ -114,7 +114,7 @@ export default function ProductBand() {
               <p className="text-sm text-[#9CA3AF] leading-relaxed mb-3 flex-1">
                 {product.description}
               </p>
-              <p className="text-[0.7rem] sm:text-xs text-[#6B7280] font-display uppercase tracking-[0.16em] mb-4">
+              <p className="text-[0.7rem] sm:text-xs text-[#9CA3AF] font-display uppercase tracking-[0.16em] mb-4">
                 {product.specs}
               </p>
 

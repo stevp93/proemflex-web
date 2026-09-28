@@ -23,7 +23,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <span className="grid place-items-center w-14 h-14 rounded-lg bg-white/[0.04] border border-white/[0.06]">
                 <Image
-                  src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+                  src="/images/logos/proemflex-logo-144.png"
                   alt=""
                   width={48}
                   height={48}
@@ -98,7 +98,7 @@ export default function Footer() {
 
           {/* Sectores */}
           <div className="lg:col-span-2">
-            <h4 className="font-display font-semibold text-white text-sm mb-4">Sectores</h4>
+            <h2 className="font-display font-semibold text-white text-sm mb-4">Sectores</h2>
             <ul className="space-y-2">
               {["Alimentos", "Farmacéuticos", "Textiles", "Aseo", "Comercial", "Cadena"].map((item) => (
                 <li key={item}>
@@ -115,7 +115,7 @@ export default function Footer() {
 
           {/* Empresa */}
           <div className="lg:col-span-2">
-            <h4 className="font-display font-semibold text-white text-sm mb-4">Empresa</h4>
+            <h2 className="font-display font-semibold text-white text-sm mb-4">Empresa</h2>
             <ul className="space-y-2">
               {[
                 { label: "Nosotros", href: "/nosotros" },
@@ -137,7 +137,7 @@ export default function Footer() {
 
           {/* Contacto */}
           <div className="lg:col-span-4">
-            <h4 className="font-display font-semibold text-white text-sm mb-4">Contacto</h4>
+            <h2 className="font-display font-semibold text-white text-sm mb-4">Contacto</h2>
             <ul className="space-y-3 text-sm text-[#9CA3AF]">
               <li className="flex items-start gap-2.5">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5">

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import MotionProvider from "@/components/MotionProvider";
 import GoogleTag from "@/components/analytics/GoogleTag";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
@@ -37,6 +38,7 @@ export const metadata: Metadata = {
   openGraph: homeOpenGraph,
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
+  referrer: "strict-origin-when-cross-origin",
 };
 
 export default function RootLayout({
@@ -49,11 +51,17 @@ export default function RootLayout({
         <GoogleTag />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* En App Router el <head> del layout raíz aplica a todas las páginas (la regla es de pages/) */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <meta name="theme-color" content="#0E1520" />
+        {/* Sin JavaScript, el contenido animado (opacity:0 inicial) debe verse igual */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </head>
       <body className="antialiased">
         {/* Skip to main content — accessibility */}
@@ -63,10 +71,12 @@ export default function RootLayout({
         >
           Ir al contenido principal
         </a>
-        <ScrollToTop />
-        <Navbar />
-        {children}
-        <Footer />
+        <MotionProvider>
+          <ScrollToTop />
+          <Navbar />
+          {children}
+          <Footer />
+        </MotionProvider>
 
         {/* Datos estructurados de la empresa (schema.org LocalBusiness) */}
         <script

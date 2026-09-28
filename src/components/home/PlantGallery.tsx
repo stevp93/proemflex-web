@@ -21,7 +21,7 @@ const shots = [
     span: "lg:col-span-2 lg:row-span-2",
   },
   {
-    src: "/images/procesos/optimized/sellado_automatico.png",
+    src: "/images/procesos/optimized/sellado-automatico-galeria.jpg",
     alt: "Línea de sellado automático",
     label: "Sellado automático",
     span: "",
@@ -60,14 +60,14 @@ export default function PlantGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+          className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16"
         >
           <p className="eyebrow mb-3">La planta</p>
-          <h2 className="container-pf h-section text-center text-3xl sm:text-4xl md:text-5xl">
+          <h2 className="h-section text-center text-3xl sm:text-4xl md:text-5xl">
             Manufactura{" "}
             <span className="text-gradient-cyan whitespace-nowrap">en cada metro</span>
           </h2>
-          <p className="container-pf mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
+          <p className="mt-4 text-[#9CA3AF] text-base sm:text-lg leading-relaxed text-center max-w-2xl mx-auto">
             Líneas con altos estándares de calidad operadas por personal capacitado.
             Una mirada al interior de PROEMFLEX.
           </p>
