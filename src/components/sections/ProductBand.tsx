@@ -122,6 +122,7 @@ export default function ProductBand() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(`Hola, estoy interesado en cotizar: ${product.title}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Cotizar ${product.title} por WhatsApp (abre en una pestaña nueva)`}
                 className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg text-sm font-display font-semibold text-white bg-[#25D366] hover:bg-[#20BD5C] transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

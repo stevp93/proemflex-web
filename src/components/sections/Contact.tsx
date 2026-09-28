@@ -113,8 +113,8 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Correo electrónico",
-                  value: "Proemflex.sas@gmail.com",
-                  href: "mailto:Proemflex.sas@gmail.com",
+                  value: "proemflex.sas@gmail.com",
+                  href: "mailto:proemflex.sas@gmail.com",
                 },
               ].map((info) => (
                 <div
@@ -131,8 +131,9 @@ export default function Contact() {
                     {"href" in info && info.href ? (
                       <a
                         href={info.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...(info.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="font-display font-semibold text-sm sm:text-base text-white truncate block hover:text-[#00F2FE] transition-colors"
                       >
                         {info.value}

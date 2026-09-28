@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import NosotrosContent from "@/components/pages/NosotrosContent";
 import PageHero from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Nosotros — Historia, misión y valores",
   description:
     "Conozca PROEMFLEX S.A.S., alianza estratégica con más de 30 años de experiencia en empaques flexibles en Colombia. Misión, visión, valores y trayectoria.",
-  alternates: { canonical: "/nosotros" },
-};
+  path: "/nosotros/",
+});
 
 export default function NosotrosPage() {
   return (

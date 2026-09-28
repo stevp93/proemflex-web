@@ -8,7 +8,7 @@ const sections = [
   {
     title: "1. Responsable del tratamiento",
     paragraphs: [
-      "PROEMFLEX S.A.S., identificada con NIT registrado ante la Cámara de Comercio de Bogotá, con domicilio en Cra. 69c #24-20, Bogotá D.C., Colombia, correo electrónico Proemflex.sas@gmail.com y teléfono +57 322 217 8185, es la entidad responsable del tratamiento de los datos personales recolectados a través de este sitio web.",
+      "PROEMFLEX S.A.S., identificada con NIT registrado ante la Cámara de Comercio de Bogotá, con domicilio en Cra. 69c #24-20, Bogotá D.C., Colombia, correo electrónico proemflex.sas@gmail.com y teléfono +57 322 217 8185, es la entidad responsable del tratamiento de los datos personales recolectados a través de este sitio web.",
     ],
   },
   {
@@ -61,7 +61,7 @@ const sections = [
       "Para ejercer cualquiera de los derechos anteriores, el titular puede comunicarse a través de los siguientes medios:",
     ],
     list: [
-      "Correo electrónico: Proemflex.sas@gmail.com",
+      "Correo electrónico: proemflex.sas@gmail.com",
       "Teléfono / WhatsApp: +57 322 217 8185",
       "Dirección física: Cra. 69c #24-20, Bogotá D.C., Colombia",
     ],

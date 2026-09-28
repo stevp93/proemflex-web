@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Sectors from "@/components/sections/Sectors";
 import PageHero from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Sectores — Soluciones de empaque por industria",
   description:
     "Empaques flexibles para alimentos, laboratorios farmacéuticos, textiles, líneas comerciales, almacenes de cadena y aseo. Soluciones con altos estándares de calidad.",
-  alternates: { canonical: "/sectores" },
-};
+  path: "/sectores/",
+});
 
 export default function SectoresPage() {
   return (

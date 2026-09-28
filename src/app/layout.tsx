@@ -7,14 +7,15 @@ import GoogleTag from "@/components/analytics/GoogleTag";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import CookieConsent from "@/components/analytics/CookieConsent";
+import { SITE_CREATOR, SITE_NAME, SITE_URL, homeOpenGraph, organizationJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
     default: "PROEMFLEX S.A.S. | Empaques Flexibles Industriales — Colombia",
-    template: "%s | PROEMFLEX S.A.S.",
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Alianza estratégica con más de 30 años de experiencia en empaques flexibles, ofreciendo soluciones integrales con altos estándares de calidad para la industria en Colombia.",
+    "Más de 30 años de experiencia en empaques flexibles: soluciones integrales con altos estándares de calidad para la industria en Colombia.",
   keywords: [
     "empaques flexibles Colombia",
     "bolsas industriales",
@@ -29,17 +30,13 @@ export const metadata: Metadata = {
     "laminación empaques",
     "empaques compostables",
   ],
-  metadataBase: new URL("https://proemflex.com"),
-  openGraph: {
-    title: "PROEMFLEX S.A.S. | Empaques Flexibles Industriales",
-    description:
-      "Alianza estratégica con más de 30 años de experiencia en empaques flexibles en Colombia. Soluciones integrales con altos estándares de calidad.",
-    type: "website",
-    locale: "es_CO",
-    siteName: "PROEMFLEX S.A.S.",
-  },
+  metadataBase: new URL(SITE_URL),
+  authors: [SITE_CREATOR],
+  creator: SITE_CREATOR.name,
+  publisher: SITE_NAME,
+  openGraph: homeOpenGraph,
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -70,6 +67,12 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+
+        {/* Datos estructurados de la empresa (schema.org LocalBusiness) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
+        />
 
         {/* ── ANALÍTICAS Y CONSENTIMIENTO: GA4 no usa cookies y Clarity no se carga hasta que el usuario acepta. IDs en /src/components/analytics/ ── */}
         <CookieConsent />

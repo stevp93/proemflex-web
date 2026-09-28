@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Capabilities from "@/components/sections/Capabilities";
 import ProductBand from "@/components/sections/ProductBand";
 import PageHero from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
-  title: "Capacidades — Planta de producción y proceso de manufactura",
+export const metadata: Metadata = pageMetadata({
+  title: "Capacidades — Planta y proceso de manufactura",
   description:
-    "Conozca nuestra planta: extrusión 3 — 100 cm, impresión flexográfica 6 colores con tambor central, sellado automático, laminación, refilado y pre-corte. Con altos estándares de calidad.",
-  alternates: { canonical: "/capacidades" },
-};
+    "Conozca nuestra planta: extrusión 3 — 100 cm, impresión flexográfica 6 colores con tambor central, sellado automático, laminación, refilado y pre-corte.",
+  path: "/capacidades/",
+});
 
 export default function CapacidadesPage() {
   return (

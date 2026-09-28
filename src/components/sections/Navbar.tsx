@@ -6,6 +6,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
+// Con trailingSlash: true, usePathname() devuelve "/nosotros/": se normaliza para comparar
+const normalizePath = (p: string) => p.replace(/\/+$/, "") || "/";
+
 const navLinks = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Capacidades", href: "/capacidades" },
@@ -85,7 +88,7 @@ export default function Navbar() {
         {/* Desktop nav */}
         <ul className="hidden lg:flex items-center gap-3" role="menubar">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = normalizePath(pathname) === link.href;
             return (
               <li key={link.href} role="none">
                 <Link
@@ -157,7 +160,7 @@ export default function Navbar() {
       >
         <ul className="container-pf py-4 flex flex-col gap-1">
           {navLinks.map((link, i) => {
-            const isActive = pathname === link.href;
+            const isActive = normalizePath(pathname) === link.href;
             return (
               <motion.li
                 key={link.href}

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Contact from "@/components/sections/Contact";
 import PageHero from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
-  title: "Contacto — Solicitar cotización de empaques flexibles",
+export const metadata: Metadata = pageMetadata({
+  title: "Contacto — Cotización de empaques flexibles",
   description:
     "Contáctenos para una cotización personalizada de empaques flexibles. Respuesta en menos de 48 horas. Soluciones para alimentos, farmacéuticos, textiles, aseo y más.",
-  alternates: { canonical: "/contacto" },
-};
+  path: "/contacto/",
+});
 
 export default function ContactoPage() {
   return (

@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheckIcon, RecycleIcon } from "@/components/ui/ProcessIcons";
 import { openCookieSettings } from "@/components/analytics/consent";
+import { SITE_CREATOR } from "@/lib/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -170,10 +170,10 @@ export default function Footer() {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
                 <a
-                  href="mailto:Proemflex.sas@gmail.com"
+                  href="mailto:proemflex.sas@gmail.com"
                   className="hover:text-[#00F2FE] transition-colors break-all"
                 >
-                  Proemflex.sas@gmail.com
+                  proemflex.sas@gmail.com
                 </a>
               </li>
               <li>
@@ -190,12 +190,7 @@ export default function Footer() {
 
         <div className="section-divider mt-10 mb-6" />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#4B5563]"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9CA3AF] text-center">
           <p>
             © {currentYear} PROEMFLEX S.A.S. ·{" "}
             <Link href="/privacidad" className="hover:text-[#00F2FE] transition-colors">
@@ -213,18 +208,19 @@ export default function Footer() {
           <p>
             Diseñado y desarrollado por{" "}
             <a
-              href="https://www.instagram.com/sp930718/"
+              href={SITE_CREATOR.url}
               target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#9CA3AF] hover:text-[#00F2FE] transition-colors font-semibold"
+              rel="noopener noreferrer author"
+              aria-label={`${SITE_CREATOR.name} (abre en una pestaña nueva)`}
+              className="text-white hover:text-[#00F2FE] transition-colors font-semibold"
             >
-              SP AUTOMATIZACIONES
+              {SITE_CREATOR.name}
             </a>
           </p>
           <p>
             Fabricado con precisión · Bogotá, Colombia
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );
