@@ -82,6 +82,7 @@ export default function Capabilities() {
       aria-label="Nuestro Proceso de Manufactura"
     >
       <div className="container-pf">
+        <h2 className="sr-only">Procesos de producción</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {capabilities.map((cap, index) => (
             <motion.article
@@ -118,7 +119,7 @@ export default function Capabilities() {
                   <span className="font-display font-bold text-2xl sm:text-3xl text-gradient-cyan">
                     {cap.stat}
                   </span>
-                  <span className="font-display text-xs text-[#6B7280] uppercase tracking-[0.18em]">
+                  <span className="font-display text-xs text-[#9CA3AF] uppercase tracking-[0.18em]">
                     {cap.statUnit}
                   </span>
                 </div>

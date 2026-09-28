@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheckIcon, RecycleIcon } from "@/components/ui/ProcessIcons";
+import { openCookieSettings } from "@/components/analytics/consent";
+import { SITE_CREATOR } from "@/lib/site";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +23,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 group w-fit">
               <span className="grid place-items-center w-14 h-14 rounded-lg bg-white/[0.04] border border-white/[0.06]">
                 <Image
-                  src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+                  src="/images/logos/proemflex-logo-144.png"
                   alt=""
                   width={48}
                   height={48}
@@ -97,7 +98,7 @@ export default function Footer() {
 
           {/* Sectores */}
           <div className="lg:col-span-2">
-            <h4 className="font-display font-semibold text-white text-sm mb-4">Sectores</h4>
+            <h2 className="font-display font-semibold text-white text-sm mb-4">Sectores</h2>
             <ul className="space-y-2">
               {["Alimentos", "Farmacéuticos", "Textiles", "Aseo", "Comercial", "Cadena"].map((item) => (
                 <li key={item}>
@@ -114,7 +115,7 @@ export default function Footer() {
 
           {/* Empresa */}
           <div className="lg:col-span-2">
-            <h4 className="font-display font-semibold text-white text-sm mb-4">Empresa</h4>
+            <h2 className="font-display font-semibold text-white text-sm mb-4">Empresa</h2>
             <ul className="space-y-2">
               {[
                 { label: "Nosotros", href: "/nosotros" },
@@ -136,7 +137,7 @@ export default function Footer() {
 
           {/* Contacto */}
           <div className="lg:col-span-4">
-            <h4 className="font-display font-semibold text-white text-sm mb-4">Contacto</h4>
+            <h2 className="font-display font-semibold text-white text-sm mb-4">Contacto</h2>
             <ul className="space-y-3 text-sm text-[#9CA3AF]">
               <li className="flex items-start gap-2.5">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00F2FE" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5">
@@ -169,10 +170,10 @@ export default function Footer() {
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
                 <a
-                  href="mailto:Proemflex.sas@gmail.com"
+                  href="mailto:proemflex.sas@gmail.com"
                   className="hover:text-[#00F2FE] transition-colors break-all"
                 >
-                  Proemflex.sas@gmail.com
+                  proemflex.sas@gmail.com
                 </a>
               </li>
               <li>
@@ -189,33 +190,37 @@ export default function Footer() {
 
         <div className="section-divider mt-10 mb-6" />
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#4B5563]"
-        >
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#9CA3AF] text-center">
           <p>
             © {currentYear} PROEMFLEX S.A.S. ·{" "}
             <Link href="/privacidad" className="hover:text-[#00F2FE] transition-colors">
               Política de privacidad
-            </Link>
+            </Link>{" "}
+            ·{" "}
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="hover:text-[#00F2FE] transition-colors"
+            >
+              Configurar cookies
+            </button>
           </p>
           <p>
             Diseñado y desarrollado por{" "}
             <a
-              href="https://www.instagram.com/sp930718/"
+              href={SITE_CREATOR.url}
               target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#9CA3AF] hover:text-[#00F2FE] transition-colors font-semibold"
+              rel="noopener noreferrer author"
+              aria-label={`${SITE_CREATOR.name} (abre en una pestaña nueva)`}
+              className="text-white hover:text-[#00F2FE] transition-colors font-semibold"
             >
-              SP AUTOMATIZACIONES
+              {SITE_CREATOR.name}
             </a>
           </p>
           <p>
             Fabricado con precisión · Bogotá, Colombia
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

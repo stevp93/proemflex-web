@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { homeOpenGraph } from "@/lib/site";
 // ── HERO SECTION: Sección principal con imagen, textos y botones CTA ──
 import Hero from "@/components/sections/Hero";
 // ── NOTICIAS CARRUSEL: Sección de noticias rotativas ──
@@ -14,6 +16,11 @@ import PlantGallery from "@/components/home/PlantGallery";
 import SustainabilityPreview from "@/components/home/SustainabilityPreview";
 // ── CTA BANNER: Banner final con llamada a la acción ──
 import CtaBanner from "@/components/home/CtaBanner";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { ...homeOpenGraph, url: "/" },
+};
 
 export default function Home() {
   return (

@@ -101,13 +101,13 @@ export default function NoticiasGrid() {
                 >
                   {newsArticles[0].tag}
                 </span>
-                <h3 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
+                <h2 className="font-display font-bold text-xl sm:text-2xl lg:text-3xl text-white tracking-tight">
                   {newsArticles[0].title}
-                </h3>
+                </h2>
                 <p className="text-sm sm:text-base text-[#9CA3AF] leading-relaxed max-w-2xl">
                   {newsArticles[0].excerpt}
                 </p>
-                <div className="flex items-center gap-4 text-xs text-[#4B5563]">
+                <div className="flex items-center gap-4 text-xs text-[#9CA3AF]">
                   <span>{newsArticles[0].date}</span>
                   <span aria-hidden>·</span>
                   <span>{newsArticles[0].readTime} de lectura</span>
@@ -144,7 +144,7 @@ export default function NoticiasGrid() {
                 >
                   {article.tag}
                 </span>
-                <time className="text-[0.65rem] text-[#4B5563]">{article.date}</time>
+                <time className="text-[0.65rem] text-[#9CA3AF]">{article.date}</time>
               </div>
 
               <h3 className="font-display font-bold text-base sm:text-lg text-white mb-2 tracking-tight group-hover:text-[#00F2FE] transition-colors duration-200">
@@ -156,7 +156,7 @@ export default function NoticiasGrid() {
               </p>
 
               <div className="flex items-center justify-between border-t border-white/[0.04] pt-4 mt-1">
-                <span className="text-[0.65rem] text-[#4B5563]">
+                <span className="text-[0.65rem] text-[#9CA3AF]">
                   {article.readTime} de lectura
                 </span>
                 <Link
@@ -180,9 +180,9 @@ export default function NoticiasGrid() {
           className="mt-16 sm:mt-20 grid place-items-center"
         >
           <div className="glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 max-w-2xl w-full text-center">
-            <h3 className="font-display font-bold text-lg sm:text-xl text-white mb-2">
+            <h2 className="font-display font-bold text-lg sm:text-xl text-white mb-2">
               ¿Quieres recibir nuestras novedades?
-            </h3>
+            </h2>
             <p className="text-sm text-[#9CA3AF] mb-5">
               Mantente al día con innovaciones, certificaciones y noticias de
               PROEMFLEX S.A.S.

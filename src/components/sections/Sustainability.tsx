@@ -106,7 +106,7 @@ export default function Sustainability() {
               </p>
               <div className="border-t border-[rgba(255,255,255,0.06)] pt-4 w-full">
                 <p className="font-display font-bold text-2xl text-gradient-eco">{item.stat}</p>
-                <p className="text-[0.6rem] text-[#6B7280] uppercase tracking-wider">{item.statLabel}</p>
+                <p className="text-[0.6rem] text-[#9CA3AF] uppercase tracking-wider">{item.statLabel}</p>
               </div>
             </motion.div>
           ))}

@@ -1,8 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { useState, FormEvent } from "react";
 import { TimerIcon, CheckIcon, SendIcon } from "@/components/ui/ProcessIcons";
+
+const emptyForm = {
+  name: "",
+  company: "",
+  email: "",
+  phone: "",
+  sector: "",
+  message: "",
+  consent: false,
+  honey: "", // campo trampa anti-spam: los humanos no lo ven
+};
 
 const sectorOptions = [
   "Alimentos",
@@ -15,18 +27,16 @@ const sectorOptions = [
 ];
 
 export default function Contact() {
-  const [formState, setFormState] = useState({
-    name: "",
-    company: "",
-    email: "",
-    phone: "",
-    sector: "",
-    message: "",
-  });
+  const [formState, setFormState] = useState(emptyForm);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    // Bot detectado (llenó el campo oculto): se simula éxito sin enviar nada
+    if (formState.honey) {
+      setStatus("success");
+      return;
+    }
     setStatus("sending");
 
     try {
@@ -34,18 +44,24 @@ export default function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          nombre: formState.name,
-          empresa: formState.company,
-          email: formState.email,
-          telefono: formState.phone,
+          nombre: formState.name.trim(),
+          empresa: formState.company.trim(),
+          email: formState.email.trim(),
+          telefono: formState.phone.trim(),
           sector: formState.sector,
-          mensaje: formState.message,
+          mensaje: formState.message.trim(),
+          autorizacion_datos: "Sí — acepta la política de privacidad (Ley 1581 de 2012)",
+          _subject: "Nueva solicitud de cotización — proemflex.com",
+          _template: "table",
+          _honey: formState.honey,
         }),
       });
+      // FormSubmit responde 200 con { success: "false" } si el formulario no está activado
+      const data = await res.json().catch(() => null);
 
-      if (res.ok) {
+      if (res.ok && String(data?.success) === "true") {
         setStatus("success");
-        setFormState({ name: "", company: "", email: "", phone: "", sector: "", message: "" });
+        setFormState(emptyForm);
         setTimeout(() => setStatus("idle"), 6000);
       } else {
         setStatus("error");
@@ -71,6 +87,7 @@ export default function Contact() {
       />
 
       <div className="container-pf">
+        <h2 className="sr-only">Información de contacto y formulario de cotización</h2>
         <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-start">
           {/* Left — Info */}
           <motion.div
@@ -113,8 +130,8 @@ export default function Contact() {
                     </svg>
                   ),
                   label: "Correo electrónico",
-                  value: "Proemflex.sas@gmail.com",
-                  href: "mailto:Proemflex.sas@gmail.com",
+                  value: "proemflex.sas@gmail.com",
+                  href: "mailto:proemflex.sas@gmail.com",
                 },
               ].map((info) => (
                 <div
@@ -131,8 +148,9 @@ export default function Contact() {
                     {"href" in info && info.href ? (
                       <a
                         href={info.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...(info.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                         className="font-display font-semibold text-sm sm:text-base text-white truncate block hover:text-[#00F2FE] transition-colors"
                       >
                         {info.value}
@@ -211,6 +229,8 @@ export default function Contact() {
                     id="rfq-name"
                     type="text"
                     required
+                    autoComplete="name"
+                    maxLength={100}
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                     className="field"
@@ -223,6 +243,8 @@ export default function Contact() {
                     id="rfq-company"
                     type="text"
                     required
+                    autoComplete="organization"
+                    maxLength={120}
                     value={formState.company}
                     onChange={(e) => setFormState({ ...formState, company: e.target.value })}
                     className="field"
@@ -238,6 +260,8 @@ export default function Contact() {
                     id="rfq-email"
                     type="email"
                     required
+                    autoComplete="email"
+                    maxLength={254}
                     value={formState.email}
                     onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     className="field"
@@ -249,6 +273,10 @@ export default function Contact() {
                   <input
                     id="rfq-phone"
                     type="tel"
+                    autoComplete="tel"
+                    maxLength={30}
+                    pattern="[0-9+\(\)\s\-]{7,30}"
+                    title="Solo números, espacios y los signos + ( ) -"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                     className="field"
@@ -285,12 +313,43 @@ export default function Contact() {
                 <textarea
                   id="rfq-message"
                   rows={4}
+                  maxLength={3000}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   className="field resize-none"
                   placeholder="Cuéntenos sobre volúmenes, dimensiones, tipo de producto a empacar..."
                 />
               </div>
+
+              {/* Campo trampa anti-spam (oculto para personas y lectores de pantalla) */}
+              <input
+                type="text"
+                name="_honey"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-[9999px] w-px h-px opacity-0"
+                value={formState.honey}
+                onChange={(e) => setFormState({ ...formState, honey: e.target.value })}
+              />
+
+              <label htmlFor="rfq-consent" className="flex items-start gap-3 text-xs sm:text-sm text-[#9CA3AF] leading-relaxed cursor-pointer">
+                <input
+                  id="rfq-consent"
+                  type="checkbox"
+                  required
+                  checked={formState.consent}
+                  onChange={(e) => setFormState({ ...formState, consent: e.target.checked })}
+                  className="mt-0.5 w-4 h-4 shrink-0 accent-[#00F2FE] cursor-pointer"
+                />
+                <span>
+                  Autorizo el tratamiento de mis datos personales según la{" "}
+                  <Link href="/privacidad" className="text-[#00F2FE] hover:underline underline-offset-2">
+                    política de privacidad
+                  </Link>{" "}
+                  (Ley 1581 de 2012). *
+                </span>
+              </label>
 
               <button
                 type="submit"
@@ -323,10 +382,11 @@ export default function Contact() {
               {/* Live region for screen readers */}
               <div aria-live="polite" aria-atomic="true" className="sr-only">
                 {status === "success" && "Su solicitud ha sido enviada exitosamente. Le responderemos en menos de 48 horas hábiles."}
+                {status === "error" && "No se pudo enviar la solicitud. Intente de nuevo o escríbanos por WhatsApp."}
               </div>
 
-              <p className="text-center text-xs text-[#4B5563]">
-                Sus datos están protegidos. No compartimos su información con terceros.
+              <p className="text-center text-xs text-[#9CA3AF]">
+                Usamos sus datos solo para responder a su solicitud. No los vendemos ni los cedemos con fines comerciales.
               </p>
             </form>
           </motion.div>

@@ -3,17 +3,20 @@ import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import MotionProvider from "@/components/MotionProvider";
+import GoogleTag from "@/components/analytics/GoogleTag";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import CookieConsent from "@/components/analytics/CookieConsent";
+import { SITE_CREATOR, SITE_NAME, SITE_URL, homeOpenGraph, organizationJsonLd } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: {
     default: "PROEMFLEX S.A.S. | Empaques Flexibles Industriales — Colombia",
-    template: "%s | PROEMFLEX S.A.S.",
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Alianza estratégica con más de 30 años de experiencia en empaques flexibles, ofreciendo soluciones integrales con altos estándares de calidad para la industria en Colombia.",
+    "Más de 30 años de experiencia en empaques flexibles: soluciones integrales con altos estándares de calidad para la industria en Colombia.",
   keywords: [
     "empaques flexibles Colombia",
     "bolsas industriales",
@@ -28,17 +31,14 @@ export const metadata: Metadata = {
     "laminación empaques",
     "empaques compostables",
   ],
-  metadataBase: new URL("https://proemflex.com"),
-  openGraph: {
-    title: "PROEMFLEX S.A.S. | Empaques Flexibles Industriales",
-    description:
-      "Alianza estratégica con más de 30 años de experiencia en empaques flexibles en Colombia. Soluciones integrales con altos estándares de calidad.",
-    type: "website",
-    locale: "es_CO",
-    siteName: "PROEMFLEX S.A.S.",
-  },
+  metadataBase: new URL(SITE_URL),
+  authors: [SITE_CREATOR],
+  creator: SITE_CREATOR.name,
+  publisher: SITE_NAME,
+  openGraph: homeOpenGraph,
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
+  referrer: "strict-origin-when-cross-origin",
 };
 
 export default function RootLayout({
@@ -47,13 +47,21 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        {/* Google tag (gtag.js) — GA4 G-MF7EXV75NP con Consent Mode v2 */}
+        <GoogleTag />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* En App Router el <head> del layout raíz aplica a todas las páginas (la regla es de pages/) */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <meta name="theme-color" content="#0E1520" />
+        {/* Sin JavaScript, el contenido animado (opacity:0 inicial) debe verse igual */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </head>
       <body className="antialiased">
         {/* Skip to main content — accessibility */}
@@ -63,12 +71,20 @@ export default function RootLayout({
         >
           Ir al contenido principal
         </a>
-        <ScrollToTop />
-        <Navbar />
-        {children}
-        <Footer />
+        <MotionProvider>
+          <ScrollToTop />
+          <Navbar />
+          {children}
+          <Footer />
+        </MotionProvider>
 
-        {/* ── ANALÍTICAS Y CONSENTIMIENTO: Los scripts solo se cargan tras aceptación del usuario. Para configurar los IDs reales, edita los archivos en /src/components/analytics/ ── */}
+        {/* Datos estructurados de la empresa (schema.org LocalBusiness) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }}
+        />
+
+        {/* ── ANALÍTICAS Y CONSENTIMIENTO: GA4 no usa cookies y Clarity no se carga hasta que el usuario acepta. IDs en /src/components/analytics/ ── */}
         <CookieConsent />
         <GoogleAnalytics />
         <MicrosoftClarity />

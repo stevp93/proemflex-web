@@ -1,59 +1,26 @@
 "use client";
 
-import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useCookieConsent } from "./consent";
 
 /**
- * ── GOOGLE ANALYTICS 4 (GA4) ──
- * Para activar:
- * 1. Crea una propiedad GA4 en https://analytics.google.com/
- * 2. Reemplaza GA_MEASUREMENT_ID abajo por tu ID real (formato: G-XXXXXXXXXX)
- * 3. La carga del script depende del consentimiento del banner de cookies.
- *
- * El componente espera el evento `pf:consent-granted` antes de inyectar
- * el snippet de GA, cumpliendo con Ley 1581/2012 de Colombia.
+ * ── GOOGLE ANALYTICS 4 — SINCRONIZACIÓN DEL CONSENTIMIENTO ──
+ * La etiqueta de Google (G-MF7EXV75NP) se carga desde <GoogleTag /> en el <head>
+ * con analytics_storage = denied por defecto. Este componente traslada a gtag la
+ * decisión del banner de cookies (Ley 1581/2012 de Colombia):
+ *   - "Aceptar todas" → analytics_storage = granted (GA4 usa cookies)
+ *   - "Rechazar"      → analytics_storage = denied  (sin cookies de analítica)
+ * El ID de medición se configura en ./config.ts
  */
-export const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // ← Pegar aquí el ID real de Google Analytics 4
-
 export default function GoogleAnalytics() {
-  const [enabled, setEnabled] = useState(false);
+  const consent = useCookieConsent();
 
   useEffect(() => {
-    // Verifica consentimiento previo guardado en localStorage
-    const stored = typeof window !== "undefined" ? window.localStorage.getItem("pf-cookie-consent") : null;
-    if (stored === "accepted") setEnabled(true);
+    if (consent === null) return;
+    window.gtag?.("consent", "update", {
+      analytics_storage: consent === "accepted" ? "granted" : "denied",
+    });
+  }, [consent]);
 
-    // Escucha eventos de aceptación/rechazo emitidos por el banner
-    const onGranted = () => setEnabled(true);
-    const onRevoked = () => setEnabled(false);
-    window.addEventListener("pf:consent-granted", onGranted);
-    window.addEventListener("pf:consent-revoked", onRevoked);
-    return () => {
-      window.removeEventListener("pf:consent-granted", onGranted);
-      window.removeEventListener("pf:consent-revoked", onRevoked);
-    };
-  }, []);
-
-  // No cargar si no hay ID configurado o consentimiento
-  if (!enabled || !GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.includes("XXXXXXXXXX")) return null;
-
-  return (
-    <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            anonymize_ip: true,
-            cookie_flags: 'SameSite=None;Secure'
-          });
-        `}
-      </Script>
-    </>
-  );
+  return null;
 }

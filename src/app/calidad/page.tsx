@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import CalidadContent from "@/components/pages/CalidadContent";
 import PageHero from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Calidad (BPF) — Buenas Prácticas de Fabricación",
   description:
     "Nuestro sistema de gestión de calidad con BPF y concepto favorable de la Secretaría garantiza la inocuidad y excelencia de cada empaque flexible.",
-  alternates: { canonical: "/calidad" },
-};
+  path: "/calidad/",
+});
 
 export default function CalidadPage() {
   return (

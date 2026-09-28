@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { CertificateIcon, ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
+import { ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
 // ── CERTIFICACIONES: Para agregar o cambiar certificaciones, edita este array con objetos que tengan: title (nombre), description (descripción), items (array de puntos), Icon (icono), color (color hexadecimal) ──
 const certifications = [
@@ -83,7 +83,7 @@ export default function CalidadContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="container-pf grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16 px-4"
+            className="grid place-items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16"
           >
             <p className="eyebrow mb-3">Control de procesos</p>
             <h2 className="h-section text-3xl sm:text-4xl md:text-5xl">

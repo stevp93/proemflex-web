@@ -6,6 +6,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
+// Con trailingSlash: true, usePathname() devuelve "/nosotros/": se normaliza para comparar
+const normalizePath = (p: string) => p.replace(/\/+$/, "") || "/";
+
 const navLinks = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Capacidades", href: "/capacidades" },
@@ -16,26 +19,28 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const pathname = usePathname();
+  // Ruta en la que se abrió el menú móvil: al cambiar de ruta se cierra solo
+  const [menuOpenedAt, setMenuOpenedAt] = useState<string | null>(null);
+  const mobileOpen = menuOpenedAt === pathname;
+  const closeMenu = () => setMenuOpenedAt(null);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
   });
 
-  // Close mobile menu on route change
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
-
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when mobile menu is open; Escape closes it
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    if (!mobileOpen) return;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpenedAt(null); };
+    window.addEventListener("keydown", onKey);
+    return () => {
       document.body.style.overflow = "";
-    }
-    return () => { document.body.style.overflow = ""; };
+      window.removeEventListener("keydown", onKey);
+    };
   }, [mobileOpen]);
 
   return (
@@ -44,7 +49,9 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled || mobileOpen
+        mobileOpen
+          ? "glass-strong !bg-[#0E1520]/95 shadow-[0_4px_30px_rgba(0,0,0,0.35)]"
+          : scrolled
           ? "glass-strong shadow-[0_4px_30px_rgba(0,0,0,0.35)]"
           : "bg-transparent"
       }`}
@@ -63,7 +70,7 @@ export default function Navbar() {
           {/* ── LOGO: Para cambiar el logo, reemplaza la imagen en /public/images/logos/ ── */}
           <span className="grid place-items-center w-14 h-14 rounded-lg bg-white/[0.04] border border-white/[0.06] overflow-hidden">
             <Image
-              src="/images/logos/LOGO PROEMFLEX SIN FONDO.png"
+              src="/images/logos/proemflex-logo-144.png"
               alt=""
               width={48}
               height={48}
@@ -83,14 +90,13 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden lg:flex items-center gap-3" role="menubar">
+        <ul className="hidden lg:flex items-center gap-3">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = normalizePath(pathname) === link.href;
             return (
-              <li key={link.href} role="none">
+              <li key={link.href}>
                 <Link
                   href={link.href}
-                  role="menuitem"
                   aria-current={isActive ? "page" : undefined}
                   className={`relative inline-flex items-center font-display text-[0.92rem] font-medium px-3 py-2 rounded-md transition-colors duration-200 ${
                     isActive
@@ -120,7 +126,7 @@ export default function Navbar() {
             Cotizar
           </Link>
           <button
-            onClick={() => setMobileOpen((v) => !v)}
+            onClick={() => setMenuOpenedAt(mobileOpen ? null : pathname)}
             className="lg:hidden grid place-items-center w-10 h-10 rounded-md border border-white/10 hover:border-cyan-400/40 transition-colors"
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileOpen}
@@ -153,11 +159,12 @@ export default function Navbar() {
         initial={false}
         animate={mobileOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
         transition={{ duration: 0.28, ease: "easeInOut" }}
+        inert={!mobileOpen}
         className="lg:hidden overflow-hidden border-t border-white/[0.05]"
       >
         <ul className="container-pf py-4 flex flex-col gap-1">
           {navLinks.map((link, i) => {
-            const isActive = pathname === link.href;
+            const isActive = normalizePath(pathname) === link.href;
             return (
               <motion.li
                 key={link.href}
@@ -167,6 +174,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
+                  onClick={closeMenu}
                   className={`block font-display font-medium text-[0.95rem] py-3 px-3 rounded-md transition-colors ${
                     isActive
                       ? "text-white bg-white/[0.05]"
@@ -179,7 +187,7 @@ export default function Navbar() {
             );
           })}
           <li className="pt-2">
-            <Link href="/contacto" className="btn-primary w-full justify-center">
+            <Link href="/contacto" onClick={closeMenu} className="btn-primary w-full justify-center">
               Solicitar Cotización
             </Link>
           </li>

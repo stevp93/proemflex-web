@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { ArrowRightIcon } from "@/components/ui/ProcessIcons";
@@ -39,6 +39,9 @@ const newsItems = [
 export default function NewsCarousel() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  // Se pausa mientras el usuario lo mira o navega con teclado (WCAG 2.2.2)
+  const [paused, setPaused] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   const goTo = useCallback(
     (index: number) => {
@@ -49,12 +52,13 @@ export default function NewsCarousel() {
   );
 
   useEffect(() => {
+    if (paused || reduceMotion) return;
     const timer = setInterval(() => {
       setDirection(1);
       setCurrent((prev) => (prev + 1) % newsItems.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [paused, reduceMotion]);
 
   const slideVariants = {
     enter: (d: number) => ({ x: d > 0 ? 64 : -64, opacity: 0 }),
@@ -70,6 +74,10 @@ export default function NewsCarousel() {
       className="section-tight scroll-mt-20"
       style={{ background: "#0e1520" }}
       aria-label="Noticias y novedades"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
     >
       <div className="container-pf">
         {/* Section Label */}
@@ -88,7 +96,7 @@ export default function NewsCarousel() {
                 role="tab"
                 aria-selected={i === current}
                 aria-label={`Ir a noticia ${i + 1}`}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`relative h-2 rounded-full transition-all duration-300 before:absolute before:-inset-2 before:content-[''] ${
                   i === current
                     ? "w-7 bg-[#00F2FE]"
                     : "w-2 bg-white/15 hover:bg-white/30"

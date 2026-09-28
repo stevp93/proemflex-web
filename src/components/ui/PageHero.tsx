@@ -43,18 +43,19 @@ export default function PageHero({
 
       <div className="container-pf relative z-10 flex flex-col items-center text-center">
         {breadcrumb && (
-          <motion.div
+          <motion.nav
+            aria-label="Ruta de navegación"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="flex items-center gap-2 mb-5 text-xs sm:text-sm"
           >
-            <Link href="/" className="text-[#4B5563] hover:text-[#9CA3AF] transition-colors font-display">
+            <Link href="/" className="text-[#9CA3AF] hover:text-[#00F2FE] transition-colors font-display">
               Inicio
             </Link>
-            <span className="text-[#4B5563]">/</span>
-            <span className="text-[#9CA3AF] font-display">{breadcrumb.label}</span>
-          </motion.div>
+            <span className="text-[#6B7280]" aria-hidden>/</span>
+            <span className="text-white font-display" aria-current="page">{breadcrumb.label}</span>
+          </motion.nav>
         )}
 
         <motion.p
@@ -81,7 +82,7 @@ export default function PageHero({
         )}
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="h-display text-[2.25rem] sm:text-5xl md:text-[3.4rem] lg:text-6xl mb-4 sm:mb-6 max-w-4xl"

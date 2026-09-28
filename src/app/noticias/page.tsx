@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import NoticiasGrid from "@/components/pages/NoticiasGrid";
 import PageHero from "@/components/ui/PageHero";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Noticias — Novedades y actualizaciones",
   description:
     "Últimas noticias de PROEMFLEX S.A.S.: innovaciones, certificaciones, ampliaciones de planta y novedades del sector de empaques flexibles.",
-  alternates: { canonical: "/noticias" },
-};
+  path: "/noticias/",
+});
 
 export default function NoticiasPage() {
   return (
