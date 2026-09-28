@@ -33,12 +33,13 @@ const sections = [
   {
     title: "4. Uso de cookies y herramientas de analítica",
     paragraphs: [
-      "Este sitio utiliza cookies propias y de terceros con fines de medición, mejora del servicio y análisis estadístico. Las cookies analíticas solo se activan tras la aceptación explícita del usuario a través del banner de consentimiento. El usuario puede cambiar o revocar su consentimiento en cualquier momento desde el enlace «Configurar cookies» del pie de página; al rechazarlas se eliminan las cookies de analítica del sitio.",
+      "Este sitio utiliza cookies propias y de terceros con fines de medición, mejora del servicio y análisis estadístico. Las cookies analíticas solo se activan tras la aceptación explícita del usuario a través del banner de consentimiento. La etiqueta de Google se carga en todas las páginas en «modo de consentimiento»: mientras el usuario no acepte, no instala cookies y solo envía a Google mediciones técnicas sin identificadores (por ejemplo, la página visitada). El usuario puede cambiar o revocar su consentimiento en cualquier momento desde el enlace «Configurar cookies» del pie de página; al rechazarlas se eliminan las cookies de analítica del sitio.",
       "Las herramientas de terceros utilizadas son:",
     ],
     list: [
       "Google Analytics 4 (Google LLC): mide audiencia, comportamiento y conversiones. IP anonimizada.",
       "Microsoft Clarity (Microsoft Corporation): genera mapas de calor y grabaciones agregadas para mejorar la usabilidad.",
+      "FormSubmit (formsubmit.co): encargado que transmite al correo de PROEMFLEX los datos enviados en el formulario de cotización; no se usan con fines comerciales.",
     ],
   },
   {
@@ -155,7 +156,7 @@ export default function PrivacidadContent() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mt-12 sm:mt-16 pt-8 border-t border-white/[0.06] text-center"
         >
-          <p className="text-xs sm:text-sm text-[#6B7280]">
+          <p className="text-xs sm:text-sm text-[#9CA3AF]">
             Documento elaborado conforme a la Ley 1581 de 2012, el Decreto 1377 de 2013 y las
             directrices de la Superintendencia de Industria y Comercio (SIC) de Colombia.
           </p>
