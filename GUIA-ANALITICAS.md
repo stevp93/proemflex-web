@@ -10,7 +10,7 @@ consentimiento que ya están cableados en el código del sitio PROEMFLEX.
 | Pieza | Archivo | Qué hacer |
 |---|---|---|
 | Google Analytics 4 | `src/components/analytics/config.ts` | ✅ Configurado: `G-MF7EXV75NP` (etiqueta en el `<head>` vía `GoogleTag.tsx`) |
-| Microsoft Clarity | `src/components/analytics/MicrosoftClarity.tsx` | Reemplazar `XXXXXXXXXX` por el Project ID real |
+| Microsoft Clarity | `src/components/analytics/MicrosoftClarity.tsx` | ✅ Configurado: `yp4txlj1gm` (se carga solo tras aceptar cookies) |
 | Banner de cookies | `src/components/analytics/CookieConsent.tsx` | No requiere configuración |
 | Política de privacidad | `src/app/privacidad/page.tsx` y `src/components/pages/PrivacidadContent.tsx` | Revisar y ajustar datos de contacto si cambian |
 
@@ -46,7 +46,7 @@ push-cambios.bat
 
 ## 3. Pegar los IDs en el código
 
-El ID de GA4 ya está configurado. Solo falta el de Clarity:
+Ambos IDs ya están configurados:
 
 ### `src/components/analytics/config.ts` (ya configurado)
 
@@ -57,7 +57,7 @@ export const GA_MEASUREMENT_ID = "G-MF7EXV75NP";
 ### `src/components/analytics/MicrosoftClarity.tsx`
 
 ```ts
-export const CLARITY_PROJECT_ID = "XXXXXXXXXX"; // ← reemplazar
+export const CLARITY_PROJECT_ID = "yp4txlj1gm";
 ```
 
 Mientras el placeholder de Clarity contenga `XXXXXXXXXX`, el componente **no inyecta el
@@ -118,7 +118,7 @@ Los datos que probablemente quieras revisar:
 ## 7. Lista de chequeo antes de publicar
 
 - [x] ID de GA4 `G-MF7EXV75NP` configurado en `config.ts`
-- [ ] Pegado `XXXXXXXXXX` real de Clarity en `MicrosoftClarity.tsx`
+- [x] Project ID de Clarity `yp4txlj1gm` configurado en `MicrosoftClarity.tsx`
 - [ ] Revisada y aprobada la política en `/privacidad`
 - [ ] Ejecutado `npm run build` sin errores
 - [ ] Verificado que `out/privacidad/index.html` existe tras el build
