@@ -9,7 +9,7 @@ consentimiento que ya están cableados en el código del sitio PROEMFLEX.
 
 | Pieza | Archivo | Qué hacer |
 |---|---|---|
-| Google Analytics 4 | `src/components/analytics/GoogleAnalytics.tsx` | Reemplazar `G-XXXXXXXXXX` por el Measurement ID real |
+| Google Analytics 4 | `src/components/analytics/config.ts` | ✅ Configurado: `G-MF7EXV75NP` (etiqueta en el `<head>` vía `GoogleTag.tsx`) |
 | Microsoft Clarity | `src/components/analytics/MicrosoftClarity.tsx` | Reemplazar `XXXXXXXXXX` por el Project ID real |
 | Banner de cookies | `src/components/analytics/CookieConsent.tsx` | No requiere configuración |
 | Política de privacidad | `src/app/privacidad/page.tsx` y `src/components/pages/PrivacidadContent.tsx` | Revisar y ajustar datos de contacto si cambian |
@@ -46,12 +46,12 @@ push-cambios.bat
 
 ## 3. Pegar los IDs en el código
 
-Editar **dos archivos** y reemplazar la constante al inicio del archivo:
+El ID de GA4 ya está configurado. Solo falta el de Clarity:
 
-### `src/components/analytics/GoogleAnalytics.tsx`
+### `src/components/analytics/config.ts` (ya configurado)
 
 ```ts
-export const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // ← reemplazar
+export const GA_MEASUREMENT_ID = "G-MF7EXV75NP";
 ```
 
 ### `src/components/analytics/MicrosoftClarity.tsx`
@@ -60,8 +60,8 @@ export const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // ← reemplazar
 export const CLARITY_PROJECT_ID = "XXXXXXXXXX"; // ← reemplazar
 ```
 
-Mientras los placeholders contengan `XXXXXXXXXX`, los componentes **no inyectan los
-scripts** — esto es a propósito para evitar tracking accidental durante desarrollo.
+Mientras el placeholder de Clarity contenga `XXXXXXXXXX`, el componente **no inyecta el
+script** — esto es a propósito para evitar tracking accidental durante desarrollo.
 
 ---
 
@@ -69,13 +69,17 @@ scripts** — esto es a propósito para evitar tracking accidental durante desar
 
 El banner aparece la primera vez que un visitante abre el sitio y ofrece dos opciones:
 
-- **Aceptar todas** → guarda `pf-cookie-consent = "accepted"` en `localStorage` y
-  emite el evento `pf:consent-granted`. Los componentes GA4 y Clarity escuchan este
-  evento e inyectan sus scripts inmediatamente.
-- **Rechazar** → guarda `pf-cookie-consent = "rejected"`. Los scripts no se cargan.
+La etiqueta de Google (`gtag.js`) está en el `<head>` de todas las páginas con
+**Consent Mode v2**: por defecto `analytics_storage = denied`, así que GA4 no escribe
+cookies hasta que el usuario acepta (solo envía pings anónimos sin cookies).
 
-El banner solo se muestra una vez por navegador. Si el usuario quiere revocar su
-consentimiento, debe limpiar el almacenamiento del sitio desde su navegador.
+- **Aceptar todas** → guarda `pf-cookie-consent = "accepted"` en `localStorage`,
+  emite `pf:consent-granted`, GA4 pasa a `analytics_storage = granted` y Clarity se carga.
+- **Rechazar** → guarda `pf-cookie-consent = "rejected"`, GA4 queda en `denied`,
+  Clarity no se carga y se borran las cookies `_ga*`, `_clck` y `_clsk`.
+
+El banner se muestra automáticamente una vez por navegador. El usuario puede cambiar
+o revocar su decisión en cualquier momento con el enlace **Configurar cookies** del footer.
 
 El banner incluye link a `/privacidad`, que cumple con los requisitos de la **Ley
 1581 de 2012 (Habeas Data — Colombia)** y el **Decreto 1377 de 2013**.
@@ -113,7 +117,7 @@ Los datos que probablemente quieras revisar:
 
 ## 7. Lista de chequeo antes de publicar
 
-- [ ] Pegado `G-XXXXXXXXXX` real en `GoogleAnalytics.tsx`
+- [x] ID de GA4 `G-MF7EXV75NP` configurado en `config.ts`
 - [ ] Pegado `XXXXXXXXXX` real de Clarity en `MicrosoftClarity.tsx`
 - [ ] Revisada y aprobada la política en `/privacidad`
 - [ ] Ejecutado `npm run build` sin errores
@@ -128,12 +132,6 @@ Los datos que probablemente quieras revisar:
 
 ## 8. Para revocar o desactivar analítica
 
-Si en algún momento se necesita desactivar el tracking sin tocar el código del
-banner, basta con devolver el placeholder en los archivos:
-
-```ts
-export const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // analítica desactivada
-```
-
-Esto hace que el componente devuelva `null` y el script no se inyecte, sin afectar
-el resto del sitio.
+- **Clarity**: devolver el placeholder `"XXXXXXXXXX"` en `MicrosoftClarity.tsx`; el
+  componente devuelve `null` y el script no se inyecta.
+- **GA4**: quitar `<GoogleTag />` del `<head>` en `src/app/layout.tsx`.
