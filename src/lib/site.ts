@@ -11,7 +11,7 @@ export const SITE_NAME = "PROEMFLEX S.A.S.";
 /** Creador del sitio (crédito del footer y metadatos author/creator). */
 export const SITE_CREATOR = {
   name: "SP AUTOMATIZACIONES",
-  url: "https://www.instagram.com/sp930718/",
+  url: "https://sp-automatizaciones.site/",
 };
 
 const baseOpenGraph = {
