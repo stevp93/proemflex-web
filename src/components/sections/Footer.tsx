@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheckIcon, RecycleIcon } from "@/components/ui/ProcessIcons";
+import { openCookieSettings } from "@/components/analytics/consent";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -199,7 +200,15 @@ export default function Footer() {
             © {currentYear} PROEMFLEX S.A.S. ·{" "}
             <Link href="/privacidad" className="hover:text-[#00F2FE] transition-colors">
               Política de privacidad
-            </Link>
+            </Link>{" "}
+            ·{" "}
+            <button
+              type="button"
+              onClick={openCookieSettings}
+              className="hover:text-[#00F2FE] transition-colors"
+            >
+              Configurar cookies
+            </button>
           </p>
           <p>
             Diseñado y desarrollado por{" "}

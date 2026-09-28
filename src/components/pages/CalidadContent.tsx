@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { CertificateIcon, ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
+import { ShieldCheckIcon, CheckIcon, ArrowRightIcon } from "@/components/ui/ProcessIcons";
 
 // ── CERTIFICACIONES: Para agregar o cambiar certificaciones, edita este array con objetos que tengan: title (nombre), description (descripción), items (array de puntos), Icon (icono), color (color hexadecimal) ──
 const certifications = [

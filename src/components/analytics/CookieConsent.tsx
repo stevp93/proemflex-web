@@ -3,11 +3,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { OPEN_CONSENT_EVENT } from "./config";
+import { saveConsent, useCookieConsent } from "./consent";
 
 /**
  * ── BANNER DE CONSENTIMIENTO DE COOKIES ──
  * Cumple con Ley 1581 de 2012 (Habeas Data — Colombia) y GDPR básico.
- * Estados guardados en localStorage:
+ * Estados guardados en localStorage ("pf-cookie-consent"):
  *   - "accepted": el usuario aceptó cookies analíticas
  *   - "rejected": el usuario las rechazó
  *   - null: aún no decide → se muestra el banner
@@ -15,37 +17,36 @@ import { useEffect, useState } from "react";
  * Emite eventos personalizados que los componentes de analítica escuchan:
  *   - "pf:consent-granted" cuando el usuario acepta
  *   - "pf:consent-revoked" cuando el usuario rechaza o revoca
+ * El enlace "Configurar cookies" del footer vuelve a abrirlo ("pf:open-consent").
  */
-const STORAGE_KEY = "pf-cookie-consent";
-
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const consent = useCookieConsent();
+  const [ready, setReady] = useState(false);
+  const [reopened, setReopened] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-    const stored = window.localStorage.getItem(STORAGE_KEY);
-    // Muestra el banner solo si el usuario aún no ha decidido
-    if (!stored) {
-      // pequeño delay para no competir con el hero
-      const t = setTimeout(() => setVisible(true), 800);
-      return () => clearTimeout(t);
-    }
+    // pequeño delay para no competir con el hero
+    const t = setTimeout(() => setReady(true), 800);
+    const onOpen = () => setReopened(true);
+    window.addEventListener(OPEN_CONSENT_EVENT, onOpen);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener(OPEN_CONSENT_EVENT, onOpen);
+    };
   }, []);
 
+  // Muestra el banner si el usuario aún no ha decidido o si lo reabrió desde el footer
+  const visible = reopened || (ready && consent === null);
+
   const accept = () => {
-    window.localStorage.setItem(STORAGE_KEY, "accepted");
-    window.dispatchEvent(new Event("pf:consent-granted"));
-    setVisible(false);
+    saveConsent("accepted");
+    setReopened(false);
   };
 
   const reject = () => {
-    window.localStorage.setItem(STORAGE_KEY, "rejected");
-    window.dispatchEvent(new Event("pf:consent-revoked"));
-    setVisible(false);
+    saveConsent("rejected");
+    setReopened(false);
   };
-
-  if (!mounted) return null;
 
   return (
     <AnimatePresence>
@@ -108,7 +109,7 @@ export default function CookieConsent() {
                 type="button"
                 onClick={accept}
                 className="order-1 sm:order-2 btn-primary justify-center text-xs sm:text-sm px-5 py-2"
-                autoFocus
+                autoFocus={reopened}
               >
                 Aceptar todas
               </button>

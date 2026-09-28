@@ -1,7 +1,7 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
+import { useCookieConsent } from "./consent";
 
 /**
  * ── MICROSOFT CLARITY ──
@@ -13,21 +13,7 @@ import { useEffect, useState } from "react";
 export const CLARITY_PROJECT_ID = "XXXXXXXXXX"; // ← Pegar aquí el Project ID real de Microsoft Clarity
 
 export default function MicrosoftClarity() {
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    const stored = typeof window !== "undefined" ? window.localStorage.getItem("pf-cookie-consent") : null;
-    if (stored === "accepted") setEnabled(true);
-
-    const onGranted = () => setEnabled(true);
-    const onRevoked = () => setEnabled(false);
-    window.addEventListener("pf:consent-granted", onGranted);
-    window.addEventListener("pf:consent-revoked", onRevoked);
-    return () => {
-      window.removeEventListener("pf:consent-granted", onGranted);
-      window.removeEventListener("pf:consent-revoked", onRevoked);
-    };
-  }, []);
+  const enabled = useCookieConsent() === "accepted";
 
   if (!enabled || !CLARITY_PROJECT_ID || CLARITY_PROJECT_ID.includes("XXXXXXXXXX")) return null;
 

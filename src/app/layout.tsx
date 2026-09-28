@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import Footer from "@/components/sections/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import GoogleTag from "@/components/analytics/GoogleTag";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
 import CookieConsent from "@/components/analytics/CookieConsent";
@@ -47,6 +48,8 @@ export default function RootLayout({
   return (
     <html lang="es" className="scroll-smooth">
       <head>
+        {/* Google tag (gtag.js) — GA4 G-MF7EXV75NP con Consent Mode v2 */}
+        <GoogleTag />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -68,7 +71,7 @@ export default function RootLayout({
         {children}
         <Footer />
 
-        {/* ── ANALÍTICAS Y CONSENTIMIENTO: Los scripts solo se cargan tras aceptación del usuario. Para configurar los IDs reales, edita los archivos en /src/components/analytics/ ── */}
+        {/* ── ANALÍTICAS Y CONSENTIMIENTO: GA4 no usa cookies y Clarity no se carga hasta que el usuario acepta. IDs en /src/components/analytics/ ── */}
         <CookieConsent />
         <GoogleAnalytics />
         <MicrosoftClarity />

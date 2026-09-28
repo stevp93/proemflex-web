@@ -33,7 +33,7 @@ const sections = [
   {
     title: "4. Uso de cookies y herramientas de analítica",
     paragraphs: [
-      "Este sitio utiliza cookies propias y de terceros con fines de medición, mejora del servicio y análisis estadístico. Las cookies analíticas solo se activan tras la aceptación explícita del usuario a través del banner de consentimiento. El usuario puede revocar su consentimiento en cualquier momento eliminando las cookies del navegador o limpiando el almacenamiento local del sitio.",
+      "Este sitio utiliza cookies propias y de terceros con fines de medición, mejora del servicio y análisis estadístico. Las cookies analíticas solo se activan tras la aceptación explícita del usuario a través del banner de consentimiento. El usuario puede cambiar o revocar su consentimiento en cualquier momento desde el enlace «Configurar cookies» del pie de página; al rechazarlas se eliminan las cookies de analítica del sitio.",
       "Las herramientas de terceros utilizadas son:",
     ],
     list: [

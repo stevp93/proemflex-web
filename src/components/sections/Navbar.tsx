@@ -16,17 +16,17 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollY } = useScroll();
   const pathname = usePathname();
+  // Ruta en la que se abrió el menú móvil: al cambiar de ruta se cierra solo
+  const [menuOpenedAt, setMenuOpenedAt] = useState<string | null>(null);
+  const mobileOpen = menuOpenedAt === pathname;
+  const closeMenu = () => setMenuOpenedAt(null);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 24);
   });
-
-  // Close mobile menu on route change
-  useEffect(() => { setMobileOpen(false); }, [pathname]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -120,7 +120,7 @@ export default function Navbar() {
             Cotizar
           </Link>
           <button
-            onClick={() => setMobileOpen((v) => !v)}
+            onClick={() => setMenuOpenedAt(mobileOpen ? null : pathname)}
             className="lg:hidden grid place-items-center w-10 h-10 rounded-md border border-white/10 hover:border-cyan-400/40 transition-colors"
             aria-label={mobileOpen ? "Cerrar menú" : "Abrir menú"}
             aria-expanded={mobileOpen}
@@ -167,6 +167,7 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
+                  onClick={closeMenu}
                   className={`block font-display font-medium text-[0.95rem] py-3 px-3 rounded-md transition-colors ${
                     isActive
                       ? "text-white bg-white/[0.05]"
@@ -179,7 +180,7 @@ export default function Navbar() {
             );
           })}
           <li className="pt-2">
-            <Link href="/contacto" className="btn-primary w-full justify-center">
+            <Link href="/contacto" onClick={closeMenu} className="btn-primary w-full justify-center">
               Solicitar Cotización
             </Link>
           </li>
